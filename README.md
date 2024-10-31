@@ -30,5 +30,5 @@
 
   and $g(x)$ has at most $p - 1 - q^{k}$ roots, and since their product has $p - 1$ different roots, there are exactly $q^{k}$ solutions to:
 
-  $x^{q^{k}} \mod p - 1 = 0$
+  $x^{q^{k}} (\mod p) - 1 = 0$
 </p>
