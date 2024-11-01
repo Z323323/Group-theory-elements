@@ -3,32 +3,47 @@
 ## Generators
 
 <p>
-  A unit (element which has an inverse) $G \in Z_{n}^{*}$ is called a generator or primitive root of $Z_{n}^{*}$ if for every $a \in Z_{n}^{*}$ we have $G^{k} = a$ for some $k$, i.e. if we start with $G$ and keep multiplying by $G$ eventually we will se every element. This is why $G$ has to be unit, if it wasn't it could only generate multiples of $G$, as already shown in https://github.com/xyzhyn/Number-theory-background (Fermat's primality test section). Being a unit is not enough by the way, since for example $3 \mod 11$ is not a generator, while being a unit.<br>
+  A unit (element which has an inverse) $G \in Z_{n}^{*}$ is called a generator or primitive root of $Z_{n}^{*}$ if for every $a \in Z_{n}^{*}$ we have $G^{k} = a$ for some $k$, i.e. if we start with $G$ and keep multiplying by $G$ eventually we will se every element. This is why $G$ has to be a unit, if it wasn't it could only generate multiples of $G$, as already shown in https://github.com/xyzhyn/Number-theory-background (Fermat's primality test section). Being a unit is not enough by the way, since for example $3 \mod 11$ is not a generator, while being a unit.<br>
 
-  The theorem states: let $p$ be a prime, then $Z_{p}^{\ast}$ contains exactly $\phi(p - 1)$ generators. In general, for every divisor $d | p - 1$, $Z_{p}^{\ast}$ contains $\phi(d)$ elements of order $d$ (the sum of every $\phi(d)$ ).<br>
-  Ok now let's understand why this arcane magic holds.
+  The theorem states: let $p$ be a prime, then $Z_{p}^{\ast}$ contains exactly $\phi(p - 1)$ generators. In general, for every divisor $d | p - 1$, $Z_{p}^{\ast}$ contains $\phi(d)$ elements of order $d$.<br>
+  
+  
 </p>
 
 ### Proof
 
 <p>
-  From Fermat's Little Theorem:
+ Let $p$ prime; from Euler's Theorem:
 
-  $x^{p - 1} (\mod p) - 1 = 0$
+ $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$<br>
+ 
+ and from the CRT and Euler's Theorem:
 
-  has $p - 1$ distinct solutions ($p$ is prime obv.), i.e. every element of $Z_{p}^{\ast}$ is a solution. Let $q^{k}$ be a prime power dividing $p - 1$. We can factorize $x^{p - 1} (\mod p) - 1 = 0$ as:
+ $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$<br>
+ $\equiv$<br>
+ $x^{\phi(\tau_{1}^{?})} \equiv 1 (\mod \tau_{1}^{?})$<br>
+ $x^{\phi(\tau_{2}^{?})} \equiv 1 (\mod \tau_{2}^{?})$<br>
+ $\dots$<br>
+ $x^{\phi(\tau_{?}^{?})} \equiv 1 (\mod \tau_{?}^{?})$<br>
+ 
+ Which means that the solutions are $\phi(p - 1)$. Note that the 'evil detail' is that the Euler's Theorem 
+ holds only if $x$ and $p - 1$ are coprime, and the same goes for every 
+ $x^{\phi(\tau_{?}^{?})} \equiv 1 (\mod \tau_{?}^{?})$. Since the solutions to every congruence are 
+ $\phi(\tau_{?}^{?})$ and the solutions to the initial congruence are them multiplied, by the 
+ multiplicativity of the Totient the number of solutions, i.e. the numbers $< p - 1$ which raised to $\phi(p - 1)$ 'produce' 1 are exactly $\phi(p - 1)$. This means that (since it's clear that $p - 1$ is not a 
+ generator) there are $\phi(p - 1)$ generators $< p$. Now, why then can't we consider the same reasoning with 
+ the Fermat's Little Theorem and state that there are $x^{p-1}$ generators? Because it doesn't ensure that 
+ $x^{p - 1}$ with $0 < x < p$ will produce distinct results from $x^{2}$ to $x^{p - 1}$, while: 
 
-  $x^{p - 1} - 1 = (x^{q^{k}} - 1)g(x) = 0 (\mod p)$
+ $x^{\phi(\tau_{1}^{?})} \equiv 1 (\mod \tau_{1}^{?})$<br>
+ $x^{\phi(\tau_{2}^{?})} \equiv 1 (\mod \tau_{2}^{?})$<br>
+ $\dots$<br>
+ $x^{\phi(\tau_{?}^{?})} \equiv 1 (\mod \tau_{?}^{?})$<br>
 
-  where
+ produce
 
-  $g(x) = P(x)^{p - 1 - q^{k}}$
+ $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$<br>
 
-  and $P(x)$ is some polynomial of the degree shown above. $x^{q^{k}} - 1$ has at most $q{k}$ roots:
+ *distinct* (and therefore unique) solutions (as already proved in the CRT article), and this means that those solutions are effectively generators. The reason why they are *distinct* is because the same solutions are 'collapsed' into a single solution in $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$, while the different solutions always produce different (unique) results $(\mod p - 1)$.
 
-  $x^{q^{k}} \equiv 1 \mod p$
-
-  and $g(x)$ has at most $p - 1 - q^{k}$ roots, and since their product has $p - 1$ different roots, there are exactly $q^{k}$ solutions to:
-
-  $x^{q^{k}} (\mod p) - 1 = 0$
 </p>
