@@ -44,6 +44,6 @@
 
  $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$<br>
 
- *distinct* (and therefore unique) solutions (as already proved in the CRT article), and this means that those solutions are effectively generators. The reason why they are *distinct* is because the same solutions are 'collapsed' into a single solution in $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$, while the different solutions always produce different (unique) results $(\mod p - 1)$.
+ **distinct** (and therefore unique) solutions (as already proved in the CRT article), and this means that those solutions are effectively generators. The reason why they are **distinct** is because the same solutions are 'collapsed' into a single solution in $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$, while the different solutions always produce different (unique) results $(\mod p - 1)$.
 
 </p>
