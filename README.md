@@ -38,19 +38,31 @@
   $x - 1$'s solution is trivial, while $x^{2} + x + 1 = 0$ is a $2nd$ degree polynomial which can be solved 
   using the resolution formula [ https://github.com/xyzhyn/Quadratic-formula-derivation ]:
 
-  $\displaystyle x = \frac{1 \pm \sqrt{(-1)^{2} - 4 \cdot (1 \cdot 1)}}{2 \cdot 1}$
+  $\displaystyle x = \frac{- 1 \pm \sqrt{(1)^{2} - 4 \cdot (1 \cdot 1)}}{2 \cdot 1}$<br>
+  $\displaystyle x = \frac{- 1 \pm \sqrt{- 3}}{2}$
   
-  $\displaystyle x_{1} = \frac{1 + i\sqrt{3}}{2}$<br>
-  $\displaystyle x_{2} = \frac{1 - i\sqrt{3}}{2}$
+  $\displaystyle x_{1} = \frac{- 1 + i\sqrt{3}}{2}$<br>
+  $\displaystyle x_{2} = \frac{- 1 - i\sqrt{3}}{2}$
 
   to be continued...
-  
-  
   
 </p>
 
 ### Proof of generators theorem
 
 <p>
+Here I'll try to further explain [ https://crypto.stanford.edu/pbc/notes/numbertheory/gen.html ].<br>
+By Fermat:
+  
+$x^{p - 1} - 1 = 0 (\mod p)$
+
+We know that this equation has $p - 1$ solutions (roots) $(\mod p)$. Let $q^{k}$ a prime power dividing $p - 1$. Here we know from the former section that $k$ could be easily $1$ or $2$, even though in the latter case the reasoning is harder since we end up having solutions in the complex plane, but this is not a problem for the moment since the requirement proved by theorem above (roots of polynomials) is that the are $q^{k}$ roots **at most**. We can then rewrite the equation as:
+
+$x^{p - 1} - 1 = (x^{q^{k}} - 1)g(x) = 0 (\mod p)$
+
+where g(x) is a $p - 1 - q^{k}$ polynomial since the reasoning about polynomials divisions. From the proof of max roots above (the link) 
+
+
+
 
 </p>
