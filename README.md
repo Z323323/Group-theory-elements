@@ -114,6 +114,6 @@ $(x)(x) \equiv (x)(1) \mod p$<br>
 -><br>
 $x \equiv 1 \mod p$
 
-is not possible because $x < p$ and $x \neq 1$ since $\\{1\\}$ is not part of the result set, the theorem is proved. In particular this behaviour works for every $a \in Z_{p}^{*}$, not only generators.
+is not possible because $x < p$ and $x \neq 1$ since $\\{1\\}$ is not part of the result set, the theorem is proved. In particular this behaviour works for every $a \in Z_{p}^{*} \backslash \\{1\\}$, not only generators.
 
 </p>
