@@ -108,4 +108,12 @@ and since $|\\{(p - 1)\\}| = 1$
 
 $(p - 2) + \\{(p - 1)\\} - 1^{1} - q_{1}^{k_{1}} - q_{2}^{k_{2}} \dots - q_{?}^{k_{?}} = \phi(p - 1)$
 
+This proves that $\phi(p - 1)$ elements do not produce '1' before $x^{p - 1} - 1 = 0 (\mod p)$. Now since $\\{(p - 1)\\} - 1^{1}$ shows clearly that they are not part of the solution, [ it's obvious by the way, even though $\phi(p - 1)$ still contains $\\{1\\}$ (yea math is comical, and magical) and the reason for this is that $\phi(p - 1)$ is only a reference number which works by construction but we should look at it like it is just a number at this point ] we know that every number left in the set $Z_{p}^{\ast} \backslash \\{\\{q_{1}^{k_{1}}\\} \cup \\{q_{2}^{k_{1}}\\} \dots \cup \\{q_{?}^{k_{1}}\\}\\}$ is coprime with $p - 1$ and it's not $1$ or $p - 1$. Now to finally prove this theorem, let's pull out the almighty 'cancellation law' [ https://github.com/xyzhyn/Fermat-Little-Theorem-proof ]; since:
+
+$(x)(x) \equiv (x)(1) \mod p$<br>
+-><br>
+$x \equiv 1 \mod p$
+
+is not possible because $x < p$ and $x \neq 1$ since $\\{1\\}$ is not part of the result set, the theorem is proved. In particular this behaviour works for every $a \in Z_{p}^{*}$, not only generators.
+
 </p>
