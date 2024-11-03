@@ -85,14 +85,14 @@ $\dots$<br>
 $\Omega^{q_{?}^{k_{?}}} \equiv 1 \mod p$<br>
 
 
-Here ' $(\Phi/\Psi/\dots/\Omega)$ ' means 'all of them', but when I write $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}}$ below, they are meant to be separated, i.e. $\Phi^{q_{1}^{k_{?}}}$ etc..<br>
+Here ' $(\Phi/\Psi/\dots/\Omega)$ ' means 'all of them', but when I write $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}}$ below, they are meant to be separated, i.e. $\Phi^{q_{1}^{k_{?}}}$ etc. and the same goes for $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$, they are always associated to a base in particular.<br>
 Warning: this does not follow the CRT but the systems of congruences are verified.
 Now, since every congruence is actually a part of the **distinct** solutions $(\mod p)$ and every congruence has $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ solutions where every $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ is a co-factor of $p - 1$, we can be sure that every co-factor aka non-coprime number of $p - 1$ will produce $1$ [ $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}} \equiv 1$ ] before $(\Phi/\Psi/\dots/\Omega)^{p - 1}$ which means that they will 'produce' $1$ from $1$ to $p - 1$, $n$ number of times equal to:
 
 $n =$<br>
 $\\{p - 1$ if $q_{?}^{k_{?}} = 1\\}$<br>
 $\\{\frac{p - 1}{2}$ if $q_{?}^{k_{?}} = p - 1\\}$<br>
-$\\{q_{?}^{k_{?}}$ in every other case}
+$\\{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ in every other case}
 
 which in turn means that they will never 'produce' the whole $Z_{p}^{\ast}$ at $(\Phi/\Psi/\dots/\Omega)^{p - 1} - 1 = 0 (\mod p)$.<br>
 [ This one above is of the hardest steps; remember that every $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}} - 1 = 0 (\mod p)$ has $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ roots ].
