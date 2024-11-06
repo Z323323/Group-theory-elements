@@ -50,7 +50,35 @@
   $\displaystyle x_{1} = \frac{- 1 + i\sqrt{3}}{2}$<br>
   $\displaystyle x_{2} = \frac{- 1 - i\sqrt{3}}{2}$
 
-  to be continued...
+  This means that since $(x^{2} + x + 1)$ is always a polynomial which is part of the final solution (since 
+  $2$ is always a divisor of $p - 1$ and since every non trivial prime number is always $> 2$), the 
+  intermediate solutions of $x^{p - 1} \equiv 1 \mod p$ will always carry imaginary numbers (until someone 
+  proves this statement is wrong), and for some strange reason (I'll ask god why is that) the solutions to 
+  $x^{p - 1} \equiv 1 \mod p$ do not, i.e. you always know that the solution is $1$, but this is only 
+  because of $\mod p$, otherwise (I'm almost sure that) even $x^{p - 1} - 1 = 0$ has solutions in the 
+  complex field. This in turn means that until someone proves a similar 'theory of everything' about 
+  multiplicative prime groups (like Fermat's Theorem but for every power [ which I don't think is possible 
+  ]) we will never know what happens between $1s$. I guess the only way to calculate this is using the 
+  complex field, but since the DLP *seems* to hold until now (2024) I'm assuming such formula hasn't been 
+  discovered.<br>
+  This whole reasoning is to prepare yourself to the next section which proves the 'generators theorem' 
+  using logic assumptions which fall back into the imaginary numbers, i.e. the proof uses imaginary numbers 
+  to prove a rule which works for real numbers. Hence, if you face these:
+
+  $\Phi^{q_{1}^{k_{1}}} - 1 = 0 (\mod p)$<br>
+  $\Psi^{q_{2}^{k_{2}}} - 1 = 0 (\mod p)$<br>
+  $\dots$<br>
+  $\Omega^{q_{?}^{k_{?}}} - 1 = 0 (\mod p)$<br>
+
+  note that most of them will have imaginary solutions, which means that if you try to check these on your 
+  computer this system won't work. Also the logic works because each
+  $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ actually means nothing taken singularly, i.e. the system 
+  of congruences holds only if we consider every combination of numbers which polynomials degrees summed 
+  produce $p - 1$, so I guess that even here some sort of implicit combination of degrees must hold, and the 
+  same goes for every degree, this is why this subject is a hell of a mess.
+  produce <br>
+  <br>
+  to be continued (maybe)...
   
 </p>
 
@@ -79,29 +107,115 @@ $\Omega^{q_{?}^{k_{?}}} - 1 = 0 (\mod p)$<br>
 $->$<br>
 $(\Phi/\Psi/\dots/\Omega)^{p - 1} \equiv 1 (\mod p)$<br>
 $\equiv$<br>
+$\Gamma^{2^S} \equiv 1 \mod p$<br>
+$\Phi^{q_{1}^{k_{1}}} \equiv 1 \mod p$<br>
+$\Psi^{q_{2}^{k_{2}}} \equiv 1 \mod p$<br>
+$\dots$<br>
+$\Omega^{q_{?}^{k_{?}}} \equiv 1 \mod p$<br>
+
+Now this system is wrong because if we had:<br>
+
+$(x - root_{1})^{q_{1}^{k_{1}}}(x - root_{2}){q_{2}^{k_{2}}} \dots (x - root_{n})^{q_{n}^{k_{n}}}$
+
+$(x - root_{1})^{q_{1}^{k_{1}}}(x - root_{2}){q_{2}^{k_{2}}} \dots (x - root_{n})^{q_{n}^{k_{n}}}$
+
+$(x_{root_{1}} - 1)^{1} \mod p$<br>
+$(x_{root_{2}} - 1)^{1} \mod p$<br>
+$\dots$<br>
+$(x_{root_{2^S}} - 1)^{1} \mod p$<br>
+$(x - 1)^{q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}} \equiv 1 \mod p$<br>
+
+which produces
+
+$(x_{root_{1}} - 1)(x_{root_{2}} - 1) \dots (x_{root_{S + 1}} - 1)(x - 1)^{q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}$
+
+hence this system correctly maps all the roots of $x^{p - 1} - 1 = 0 (\mod p)$
+
+
+
+Now the problem is that this system maps $x^{p - 1} - 1 = 0 (\mod p)$ which is not what we want, because this is the solution we already know, i.e. all the numbers from $1$ to $p - 1$, so to obtain a system which maps the non-generators, we need to set something which implies that the $1$ has already been obtained (i.e. a system which only contains roots but which has a lower degree). The straightforward way to do this is to divide the whole roots-polynomial by (x - 1) which is always part of every polynomial. But before doing that since:
+
+$(\Phi/\Psi/\dots/\Omega)^{p - 1} \equiv 1 (\mod p)$<br>
+$\equiv$<br>
+$\Gamma^{2^S} \equiv 1 \mod p$<br>
 $\Phi^{q_{1}^{k_{1}}} \equiv 1 \mod p$<br>
 $\Psi^{q_{2}^{k_{2}}} \equiv 1 \mod p$<br>
 $\dots$<br>
 $\Omega^{q_{?}^{k_{?}}} \equiv 1 \mod p$<br>
 
 
+$\displaystyle \frac{(x_{root_{1}} - 1)(x_{root_{2}} - 1) \dots (x_{root_{S + 1}} - 1)(x - 1)^{q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}}{x - 1} =$
+$\displaystyle \frac{(x_{root_{1}} - 1)^{q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}(x_{root_{2}} - 1)^{q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}} \dots (x_{root_{S + 1}} - 1)^{q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}}{x - 1}$
+
+which is either equal to:
+
+$(x - 1)^{2^{S}(q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})}$ or $(x - 1)^{2^{S}(q_{1}^{k_{?}}q_{2}^{k_{?} - 1} \dots q_{?}^{k_{?}})}$ or $(x - 1)^{2^{S}(q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?} - 1})}$
+
+or (if we solve the numerator before the division):
+
+$(x - 1)^{2^{S - 1}(q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})}$
+
+and since these are the roots, the result is the number of non-generators. Now, to get the number of generators:
+
+$p - 1 = 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+$->$<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}}$<br>
+
+
+
+
+
+and
+
+
+
+
+$\phi(q_{1}^{k_{?}}q_{2}^{k_{?} \dots q_{?}^{k_{?}}) = 
+
+which solutions are
+
+$(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}) - 1$
+
+and
+
+$(2^{S - 1}q_{1}^{k_{? - 1}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{? - 1}}) - 1$
+
+$(x_{root_{1}} - 1)(x_{root_{2}} - 1) \dots (x_{root_{2^S}} - 1)(x - 1)^{q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}$
+
+equals
+
+$(x - 1)^{2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}$
+
+$\displaystyle \frac{(x_{root_{1}} - 1)(x_{root_{2}} - 1) \dots (x_{root_{2^S}} - 1)(x - 1)^{q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}}{x - 1} = (x - 1)^{2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 1}$
+
+and finally
+
+$(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}) - (2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 1) = \phi(p - 1)$
+
 Here ' $(\Phi/\Psi/\dots/\Omega)$ ' means 'all of them', but when I write $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}}$ below, they are meant to be separated, i.e. $\Phi^{q_{1}^{k_{?}}}$ etc. and the same goes for $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$, they are always associated to a base in particular.<br>
 Warning: this does not follow the CRT but the systems of congruences are verified.
-Now, since every congruence is actually a part of the **distinct** solutions $(\mod p)$ and every congruence has $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ solutions where every $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ is a co-factor of $p - 1$, we can be sure that every co-factor aka non-coprime number of $p - 1$ will produce $1$ [ $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}} \equiv 1$ ] before $(\Phi/\Psi/\dots/\Omega)^{p - 1}$ which means that they will 'produce' $1$ from $1$ to $p - 1$, $n$ number of times equal to:
+Now, since every congruence is actually a part of the **distinct** solutions $(\mod p)$ and every congruence has $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ solutions where every $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ is a co-factor of $p - 1$, we can be sure that every co-factor aka non-coprime number of $p - 1$ will produce $1$ [ $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}} \equiv 1$ ] before $(\Phi/\Psi/\dots/\Omega)^{p - 1}$ which means that they will 'produce' $1$ from $1$ to $p - 1$, $n$ number of times equal to (only in the complex field):
 
-$n =$<br>
-$\\{p - 1$ if $q_{?}^{k_{?}} = 1\\}$<br>
-$\\{\frac{p - 1}{2}$ if $q_{?}^{k_{?}} = p - 1\\}$<br>
-$\\{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ in every other case}
+$n = \\{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}\\}$
 
 which in turn means that they will never 'produce' the whole $Z_{p}^{\ast}$ at $(\Phi/\Psi/\dots/\Omega)^{p - 1} - 1 = 0 (\mod p)$.<br>
-[ This one above is of the hardest steps; remember that every $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}} - 1 = 0 (\mod p)$ has $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ roots ].
+[ This one above is one of the hardest steps; remember that every $(\Phi/\Psi/\dots/\Omega)^{q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}} - 1 = 0 (\mod p)$ has $q_{1}^{k_{?}}/q_{2}^{k_{?}}/\dots/q_{?}^{k_{?}}$ roots ].
 
 This means that $Z_{p}^{\ast} \backslash \\{\\{q_{1}^{k_{1}}\\} \cup \\{q_{2}^{k_{1}}\\} \dots \cup \\{q_{?}^{k_{1}}\\}\\}$ 'produce' $x^{p - 1} \equiv 1 (\mod p)$ and do not 'produce' $1$ before that power. But this not enough to prove this theorem by the way. We need to prove that $\phi(p - 1)$ is correct, and we need to prove that $Z_{p}^{\ast} \backslash \\{\\{q_{1}^{k_{1}}\\} \cup \\{q_{2}^{k_{1}}\\} \dots \cup \\{q_{?}^{k_{1}}\\}\\}$ can't produce the same number as result of the mult. by itself.
-Now $q_{1}^{k_{1}} + q_{2}^{k_{2}} + \dots + q_{?}^{k_{?}}$ are exactly the number of coprimes to $p - 1$, but note that $q_{1}^{k_{1}} + q_{2}^{k_{2}} + \dots + q_{?}^{k_{?}}$ comprehends $1^{1}$ too, hence:
+Now $q_{1}^{k_{1}} + q_{2}^{k_{2}} + \dots + q_{?}^{k_{?}}$ are exactly the number of coprimes to $p - 1$, but note that if we insert $1^{1}$ inside them (which is fair since the reasoning about polynomials division) we will end up having $q_{1}^{k_{1} - 1} + q_{2}^{k_{2} - 1} + \dots + q_{?}^{k_{? - 1}}$ hence:
 
-$|Z_{p}^{\ast}| - q_{1}^{k_{1}} - q_{2}^{k_{2}} \dots - q_{?}^{k_{?}} = (p - 1) - q_{1}^{k_{1}} - q_{2}^{k_{2}} \dots - q_{?}^{k_{?}}$<br>
-$=$<br>
+$|Z_{p}^{\ast}| - 1 - q_{1}^{k_{1} - 1} - q_{2}^{k_{2} - 1} \dots - q_{?}^{k_{? - 1}} = (p - 1) - 1 q_{1}^{k_{1 - 1}} - q_{2}^{k_{2 - 1}} \dots - q_{?}^{k_{? - 1}}$<br>
+
+Now we can notice that $p - 1$ for the same reasoning made up here $q_{1}^{k_{1}}  q_{2}^{k_{2}} \dots - q_{?}^{k_{?}}$, thus:
+
+$p - 2 =  - q_{?}^{k_{?} - 1} - q_{1}^{k_{1} - 1} - q_{2}^{k_{2} - 1} \dots - q_{?}^{k_{?}}
+
 $(p - 2) + \\{(p - 1)\\} - 1^{1} - q_{1}^{k_{1}} - q_{2}^{k_{2}} \dots - q_{?}^{k_{?}}$
 
 and since $|\\{(p - 1)\\}| = 1$
@@ -115,5 +229,33 @@ $(x)(x) \equiv (x)(1) \mod p$<br>
 $x \equiv 1 \mod p$
 
 is not possible because $x < p$ and $x \neq 1$ since $\\{1\\}$ is not part of the result set, the theorem is proved. In particular this behaviour works for every $a \in Z_{p}^{*} \backslash \\{1\\}$, not only generators.
+</p>
 
+## Cyclic groups
+<p>
+  When $Z_{n}^{*}$ has a generator, we call $Z_{n}^{*}$ a cyclic group. If $G$ is a generator we write $Z_{n}^{*} = \langle G \rangle$.<br> At this point it's quite easy to figure out that $Z_{p}^{*}$ is always a cyclic group.<br>
+</p>
+
+## Finite subgroups
+<p>
+  A subgroup of $Z_{n}^{*}$ is a non-empty subset $H$ of $Z_{n}^{*}$ such that if $a, b \in H$, then $ab \in H$.<br> It's pretty simple to figure out that this definition is quite open/not-restricted. 
+</p>
+
+### Ex.
+<p>
+  Any $a \in Z_{n}^{*}$ can be used to generate cyclic subgroups (this is the interesting thing about subgroups):
+
+  $\langle a \rangle = \\{a, a^2, \dots, a^d = 1\\}$ for some $d$
+
+  Any group is always a subgroup of itself (wow). $\\{1\\}$ is always a subgroup of any group (wow). 
+</p>
+
+## Lagrange's Theorem
+<p>
+  Let $H$ be a subgroup of $Z_{n}^{*}$ of size $m$. Then $m|\phi(n)$.
+</p>
+
+### Proof
+<p>
+  If $n$ is a non-prime number, then the former proof (generators) shows clearly that   
 </p>
