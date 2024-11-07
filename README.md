@@ -155,7 +155,7 @@ or (if we solve the numerator before the division):
 
 $(x - 1)^{2^{S - 1}(q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})}$
 
-and since these are the roots, the result is the number of non-generators. Now, to get the number of generators:
+and since these are the roots, the results produced originate is the number of non-generators. Now, to get the number of generators:
 
 $p - 1 = 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
 $->$<br>
@@ -167,16 +167,100 @@ $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{
 or<br>
 $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}}$<br>
 
+hence:
+
+$(n_{cofactors}) \cdot 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}} = 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - nonGenerators = generators$
+
+and since:
+
+$\displaystyle z(?) + \mu(?) + \lambda(?) + n(?) + \dots$
+
+$\displaystyle y = \frac{? + ? + ? + ? + \dots}{n_{addends}}$
+
+$\displaystyle z(?) + \mu(?) + \lambda(?) + n(?) + \dots = (z + \mu + \lambda + n \dots)y$
+
+this
+
+$- 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$- 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$- 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$- 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}}$<br>
+
+equals to
+
+$(- 2^{S - 1} - q_{1}^{k_{?} - 1} - q_{2}^{k_{?} - 1} - \dots - q_{?}^{k_{?} - 1})(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
+
+hence these
+
+$+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$<br>
+$+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$<br>
+$+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$<br>
+$+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$<br>
+
+equal
+
+$(2^{S} + q_{1}^{k_{?}} + q_{2}^{k_{?}} + \dots + q_{?}^{k_{?}})(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
+
+but keep in mind that operating this subtraction we are actually considering $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$, $n_{cofactors} - 1$ more times than we should (i.e. we should subtract all of $- 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, etc. from $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$ only $1$ time, not $n_{cofactors}$ times, but since this is required to solve this theorem, what we are effectively finding is the number of generators of $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$, multiplied $n_{cofactors} - 1$ times) then: 
+
+$(n_{cofactors}) \cdot 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}} = (n_{cofactors - 1})generators(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}})$
+
+equals to
+
+$(2^{S} + q_{1}^{k_{?}} + q_{2}^{k_{?}} + \dots + q_{?}^{k_{?}})(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}) + (- 2^{S - 1} - q_{1}^{k_{?} - 1} - q_{2}^{k_{?} - 1} - \dots - q_{?}^{k_{?} - 1})(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}) = generators$
+
+$(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(2^{S} + q_{1}^{k_{?}} + q_{2}^{k_{?}} + \dots + q_{?}^{k_{?}} - 2^{S - 1} - q_{1}^{k_{?} - 1} - q_{2}^{k_{?} - 1} - \dots - q_{?}^{k_{?} - 1}) = generators$
+
+and since [ https://github.com/xyzhyn/Totient-extension-to-non-primes ]:
+
+$(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})\phi(p - 1) = (n_{cofactors} - 1)generators(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
 
 
 
 
-and
+
+$(x \cdot a) - (x \cdot b) = xa - xb = x(a - b)$<br>
+$->$<br>
+$(2^{S} - 2^{S - 1})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$(q_{1}^{k_{?}} - q_{1}^{k_{?} - 1})2^{S}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$(q_{2}^{k_{?}} - q_{2}^{k_{? - 1}})2^{S}q_{1}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$(q_{?}^{k_{?}} - q_{?}^{k_{? - 1}})2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots$<br>
+
+and by [ https://github.com/xyzhyn/Totient-extension-to-non-primes ]:
+
+$\phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$\phi(q_{1}^{k_{?}})2^{S}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$\phi(q_{2}^{k_{?}})2^{S}q_{1}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$\phi(q_{?}^{k_{?}})2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots$<br>
+
+Let's think about this result first:
+
+$\displaystyle z(?) + \mu(?) + \lambda(?) + n(?) + \dots$
+
+$\displaystyle y = \frac{? + ? + ? + ? + \dots}{n_{addends}}$
+
+$\displaystyle z(?) + \mu(?) + \lambda(?) + n(?) + \dots = (z + \mu + \lambda + n \dots)y$
+
+Now, since all the former solutions coexist, we need to sum them, obtaining:
+
+$[(\phi(2^{S}) + \phi(q_{1}^{k_{?}}) + \phi(q_{2}^{k_{?}}) + \dots + \phi(q_{?}^{k_{?}})](n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$<br>
+
+Now this result is not actually the total number of generators, since for every coprime co-factor number of generators we summed $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$, hence now we will need to subtract it $(n_{cofactors} - 1)$ number of times (the $- 1$ is because it needs to be added [we need to subtract all other terms from it] one time), hence:
+
+$(n_{cofactors})generators = (n_{cofactors})(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}) - [(\phi(2^{S}) + \phi(q_{1}^{k_{?}}) + \phi(q_{2}^{k_{?}}) + \dots + \phi(q_{?}^{k_{?}})](n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$<br>
+
+$(n_{cofactors})generators = (n_{cofactors})(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}) + [(\phi(2^{S}) + \phi(q_{1}^{k_{?}}) + \phi(q_{2}^{k_{?}}) + \dots + \phi(q_{?}^{k_{?}})](n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$<br>
 
 
-
-
-$\phi(q_{1}^{k_{?}}q_{2}^{k_{?} \dots q_{?}^{k_{?}}) = 
 
 which solutions are
 
