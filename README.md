@@ -37,53 +37,38 @@ But this is either equal to:
 
 $(x - 1)^{2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}$ or $(x - 1)^{2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}$ or $(x - 1)^{2^{S}q_{1}^{k_{?}}q_{2}^{k_{?} - 1} \dots q_{?}^{k_{?}}}$ or $(x - 1)^{2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?} - 1}}$
 
-To understand this behaviour, you should mind that for ex. $5 \times 6$ is either $5$ sets of $6$ elements or $6$ sets of $5$ elements. Now, to get the number of $generators$, we will need to consider each one of the former solutions, thus:
+To understand this behaviour, you should mind that for ex. $5 \times 6$ is either $5$ sets of $6$ elements or $6$ sets of $5$ elements. Now, to get the number of $generators$, we will need to consider each one of the former solutions, thus:<br>
+[ https://github.com/xyzhyn/Totient-extension-to-non-primes ]
 
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+[ $(x \cdot a) - (x \cdot b) = x(a - b)$ ]
+
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} = \phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
 or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} = 2^{S}\phi(q_{1}^{k_{?}})q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
 or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}}$<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}} = 2^{S}q_{1}^{k_{?}}\phi(q_{2}^{k_{?}}) \dots q_{?}^{k_{?}}$<br>
+$\dots$<br>
 or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}}$<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}} = 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots \phi(q_{?}^{k_{?}})$<br>
 
-Now keep in mind that operating these subtractions we are actually considering $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, $n_{cofactors} - 1$ more times than we should (i.e. we should subtract all of $- 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, etc. from $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ only $1$ time, not $n_{cofactors}$ times, but since this is required to solve this theorem, what we are effectively finding is the number of generators of $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, multiplied $n_{cofactors} - 1$ times). Now we need to get a sum of all these terms in order to find the $generators$, hence these: 
+Now keep in mind that operating these subtractions we are actually considering $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, $n_{cofactors} - 1$ more times than we should (i.e. we should subtract all of $- 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, etc. from $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ only $1$ time, not $n_{cofactors}$ times, but since this is required to solve this theorem, what we are effectively finding is the number of generators $+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, multiplied $n_{cofactors} - 1$ times). Now we need to get a sum of all these terms in order to find the $generators$, hence these: 
 
-$- 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-$- 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-$- 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}}$<br>
-$- 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}}$<br>
-
-equal to
-
-$(- 2^{S - 1} - q_{1}^{k_{?} - 1} - q_{2}^{k_{?} - 1} - \dots - q_{?}^{k_{?} - 1})(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
-
-and therefore these
-
-$+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$<br>
-$+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$<br>
-$+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$<br>
-$+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}}$<br>
+$\phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+$2^{S}\phi(q_{1}^{k_{?}})q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+$2^{S}q_{1}^{k_{?}}\phi(q_{2}^{k_{?}}) \dots q_{?}^{k_{?}}$<br>
+$\dots$<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots \phi(q_{?}^{k_{?}})$<br>
 
 equal
 
-$(2^{S} + q_{1}^{k_{?}} + q_{2}^{k_{?}} + \dots + q_{?}^{k_{?}})(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
+$[\phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}})] + (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
 
-Now we can finally operate the subtraction, noting that since all the negative terms have been encapsulated into that multiplication, now we will need to consider it an addition. Also you will need to remember and keep in mind the former reasoning about $(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$. Now we can finally proceed:
+and finally
 
-$generators(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(n_{cofactors} - 1)  = (2^{S} + q_{1}^{k_{?}} + q_{2}^{k_{?}} + \dots + q_{?}^{k_{?}})(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}) + (- 2^{S - 1} - q_{1}^{k_{?} - 1} - q_{2}^{k_{?} - 1} - \dots - q_{?}^{k_{?} - 1})(n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
-
-$(x \cdot a) + (x \cdot b) = xa + xb = x(a + b)$<br>
-$->$<br>
-$generators(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(n_{cofactors} - 1) = (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(2^{S} + q_{1}^{k_{?}} + q_{2}^{k_{?}} + \dots + q_{?}^{k_{?}} - 2^{S - 1} - q_{1}^{k_{?} - 1} - q_{2}^{k_{?} - 1} - \dots - q_{?}^{k_{?} - 1})$
-
-and since [ https://github.com/xyzhyn/Totient-extension-to-non-primes ]:
-
-$generators(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(n_{cofactors} - 1) = (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})\phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}})$
-
-$generators(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(n_{cofactors} - 1) = (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})\phi(p - 1)$
+$generators + (2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(n_{cofactors} - 1)  = [\phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}})] + (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
 
 $generators = \phi(p - 1)$
+
 </p>
 
 #### Little extra found along the battles
@@ -94,7 +79,7 @@ $(x)(x) \equiv (x)(1) \mod p$<br>
 -><br>
 $x \equiv 1 \mod p$
 
-is not possible if $x < p$ and $x \neq 1$.
+is not possible if $x < p - 1$ and $x \neq 1$.
 </p>
 
 ## Cyclic groups
@@ -123,5 +108,26 @@ is not possible if $x < p$ and $x \neq 1$.
 
 ### Proof
 <p>
-  If $n$ is a non-prime number, then the former proof (generators) shows clearly that   
+  Given $Z_{p}^{*}$ with $p$ prime (or considering any non-prime as $p - 1$, the reasoning is the same except for the $2^{S}$ term which might not be present), $\phi(p) = p - 1$ and from the Euler's Theorem and the CRT:
+
+  $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$<br>
+  $\equiv$<br>
+  $x^{\phi(2^{S})} \equiv 1 \mod 2^{S}$<br>
+  $x^{\phi(q_{1}^{k_{?}})} \equiv 1 \mod q_{1}^{k_{?}}$<br>
+  $x^{\phi(q_{2}^{k_{?}})} \equiv 1 \mod q_{2}^{k_{?}}$<br>
+  $\dots$<br>
+  $x^{\phi(q_{?}^{k_{?}})} \equiv 1 \mod q_{?}^{k_{?}}$<br>
+
+  Since $\phi(p - 1) < p - 1$ then the results of $x^{\phi(p - 1)} \equiv 1 (\mod p - 1)$ [ $\phi(p - 1)$ ] are clearly $nonGenerators$. This theorem is non-trivial only for $nonGenerators$, because we already know $generators$ always exist (they are $\phi(p - 1)$, hence they always exist for any multiplicative group with $p > 1)$, and since their order is $p - 1$ then they all divide $\phi(p) = p - 1$. We know the above system of congruences is true both considering a prime $p$ or a non-prime $n$ (as already mentioned). Hence we know that we have $\phi(p - 1)$ distinct solutions which are $nonGenerators$. Since:
+
+  $nonGenerators = 
+
+
+
+
+
+
+
+
+  
 </p>
