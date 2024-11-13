@@ -1,22 +1,61 @@
 # Group theory elements and quadratic residues concepts
 
-## Analysis of the Totient function
+## Analysis of the Totient function for powers of primes
 
 A deep understanding of the Totient function is required in order to really understand what the actual hell is happening. First: let's see how the Totient of the power of a prime divides that number.
 
 $\displaystyle \frac{p^q}{\phi(p^{q})} = \frac{p^{q}}{p^{q} - p^{q - 1}} = \frac{p^{q}}{p^{q - 1}(p - 1)} = \frac{p}{p - 1} = 1 + \frac{1}{p - 1}$
 
-If if substitute $p$ with $2$ we get $2$, hence the Totient of every power of $2$ split $p^{q}$ in half. Now let's see what happens when we mult. a power of $2$ for another $p^{q}, p \neq 2$.
-
-$\displaystyle \frac{2^{q_{1}}p^{q_{2}}}{\phi(2^{q_{1}}p^{q_{2}})} = \frac{2^{q_{1}}p^{q_{2}}}{2^{q_{1}}p^{q_{2}} - 2^{q_{1} - 1}p^{q_{2} - 1}} = \frac{2^{q_{1}}p^{q_{2}}}{2^{q_{1} - 1}p^{q_{2} - 1}(2p - 1)} = \frac{2p}{2p - 1} = 1 + \frac{1}{2p - 1}$
-
-Now look at this:
+And now look at this, this holds for any prime $p$:
 
 $\displaystyle \frac{p}{\phi(p)} = \frac{p}{p - 1} = 1 + \frac{1}{p - 1}$
 
-This means that the Totient function doesn't give a shit about the degree of $p$, and at the same time it represents the order of the subgroups of $Z_{p}^{*}$. Now, since we know that the order of the subgroups is not affected by the degree of $p$ we can count how many times the Totient repeat itself given a degree $p$.
+Now we can state that if
+
+$\displaystyle \frac{p^q}{\phi(p^{q})} = 1 + \frac{1}{p - 1}$
+
+then
+
+$\displaystyle \phi(p^{q})(1 + \frac{1}{p - 1}) = p^{q}$
+
+and also
+
+$\displaystyle (\phi(p^{q})2^{S})(1 + \frac{1}{p - 1}) = p^{q}2^{S}$
+
+Now if we consider $p^{q}2^{S}$ as $p - 1$ where $p$ is a prime number which has a $p - 1$ of that kind:
+
+$\displaystyle p - 1 = \phi(p^{q}) 2^{S} ( 1 + \frac{1}{p - 1})$
+
+$\displaystyle p - 1 = \displaystyle \phi(p^{q})2^{S} + \frac{\phi(p^{q})2^S}{p - 1} = \phi(p^{q})2^{S} + \frac{\phi(p^{q})}{p^{q}}$
+
+Now we can recognise that if
+
+$\displaystyle p - 1 = \phi(p^{q})2^{S} + \frac{\phi(p^{q})}{p^{q}}$
+
+then
+
+$\displaystyle p = \phi(p^{q})2^{S} + \frac{\phi(p^{q})}{p^{q}} + \frac{p^q}{\phi(p^{q})} = \phi(p^{q})2^{S} + 1$
+
+Hence we can state that 
+
+$p = \phi(p^{q})2^{S} + 1$
+
+and
+
+$p - 1 = \phi(p^{q})2^{S}$
+
+This means that the Totient function doesn't give a shit about the degree of $p$, and at the same time it represents the order of the subgroups of $Z_{p}^{*}$. Now, since we know that the order of the subgroups is not affected by the degree of $p$ we can count how many times the Totient repeat itself given a degree $p - 1$.
 
 $\displaystyle (1 + \frac{1}{p - 1})(p - 1) = p - 1 + 1 = p$
+
+Then by Fermat:
+
+$a^{p - 1} \equiv 1 \mod p$
+
+and therefore
+
+
+
 
 ## Generators
 
