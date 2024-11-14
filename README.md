@@ -140,17 +140,16 @@ Is anyone still here? If you are, congrats, let's proceed through the dark fores
   $z_{1} \equiv z_{2} \mod n$
 
   but this can't be true since $z_{1}, z_{2} < n$ and $z_{1} \neq z_{2}$, hence $z_{1}a \neq z_{2}a$ proving they are **distinct** pairwise.<br>
-  Also no element of $Ha$ lies in $H$, since
+  Also no element of $Ha$ lies in $H$, since it would imply
 
-  $z_? \equiv z_?a \mod n$<br>
-  $->$<br>
-  $z_?1 \equiv z_?a \mod n$<br>
+  $za \in H$<br>
+
+  hence $a$ would be forced to be $z_{Ha}^{-1}z_{H}$, i.e. the multiplicative modular inverse of an element of $Ha$ multiplied by an element of $H$. But this can't exist because $Ha \backslash a = H$, hence $a$ should be a multiplicative modular inverse of an element of $H$, multiplied by an element of $H$ then:
+
+  $z_{H}^{-1}z_{H} \equiv 1 \mod n$
+
+  Therefore $a$ should be equal to $1$, but this can't be because $1 \in H$ by the definition of subgroup, hence no element of $Ha$ lies in $H$.
   
-  implies (since $n \nmid z$)
-
-  $1 \equiv a \mod n$
-
-  Hence $a$ should be $1$ or $- 1$, but $a$ can't be either because this would imply $z$ 
   
 </p>
 
