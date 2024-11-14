@@ -8,7 +8,7 @@
 
   $\langle e \rangle = \\{e, e^{2}, e^{3}, \dots, e^{o} = 1\\}$ [ all these operations are always made $(\mod n)$ ]
 
-  I called the $degree$ ' $o$ ' because $o$ defines the $order$ of the subgroup, i.e. the number of its elements. Also $\langle e \rangle$ is a convention to indicate that $e$ 'generates' the whole (sub)group.<br>
+  I called the $degree$ ' $o$ ' because $o$ defines the $order$ of the subgroup, i.e. the number of its elements. Also $\langle e \rangle$ is a convention to indicate that $e$ 'generates' the whole (sub)group, indeed all the elements which generate the same set/group/subgroup are called $generators$ for that set/group/subgroup.<br>
   Now, another clarification is necessary. Sometimes when papers refer to $Z_{n}^{*}$, they refer to a group of this kind: $\\{1, 2, 3, \dots, n - 1\\}$ but without all the numbers which are not coprime with $n$. From another article which I'm still writing:
 <strong>
 
@@ -19,12 +19,52 @@
   [ This reasoning works in general proving this fact ].<br>
 </strong>
 
- Now, placing this reasoning into this context, having non-coprimes in $Z_{n}^{*}$ has a direct effect in the subgroups we just discussed about. Since the modulo operation does not produce $1$ (but only multiples of the co-factor(s) of $e$ and $n$, or 0) we don't care about those subgroups since they don't match our definition of subgroup, hence we could delete them from the reasoning. Now it's really important to understand that this is not always the case, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$. Before going over, if we follow the previous reasoning, we can notice that for ex. $Z_{3}^{\ast}$ and $Z_{\phi(4)}^{\ast}$ behaves in the same way, since $2$ is the only generator of of $Z_{3}^{\ast}$, and it's cyclic (still haven't talked about cyclicness, it means they always generate the same subgroup towards $\infty$) of order $2$, and $3$ is the only generator of $Z_{\phi(4)}^{\ast}$ and it's cyclic of order $2$. Now that this clarification has been made, I want you to take it and put it aside. For the moment, when I refer to $Z_{n}^{\ast}$, I don't refer to $Z_{\phi(n)}^{\ast}$, and when I do I write it as I did. <br>
- Now having made this important clarification we can safely assume that the number of subgroups are always $\phi(n)$, i.e. all generators which are coprime with $n$. This clarify also the confusional definitions made by some papers which refer to ' generators of $Z_{n}^{\ast}$ ', i.e. it's not possible to generate $Z_{n}^{\ast}$ unless we remove coprimes of $Z_{n}^{\ast}$. This fact has also a direct consequence in the whole group theory (and formulas), because:<br>
- imagine we consider $Z_{n}^{\ast}$ as the set without non-coprimes; it turns out that is possible to generate the whole $Z_{n}^{\ast}$ set using subgroups and applying the CRT. For ex. $Z_{561}^{\ast}$ (without coprimes of 561) [ $561 = 3 \times 11 \times 17$ ] is generable using (generators of) these subgroups: $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ which don't have coprimes since $3, 11, 17$ are prime numbers. Now if 
+ Now, placing this reasoning into this context, having non-coprimes in $Z_{n}^{*}$ has a direct effect in the subgroups we just discussed about. Since the modulo operation does not produce $1$ (but only multiples of the co-factor(s) of $e$ and $n$, or 0) we could not care about those subsets since they don't match our definition of subgroup, hence we could delete them from the reasoning. Now it's really important to understand that this is not always the case, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$. Before going over, if we follow the previous reasoning, we can notice that for ex. $Z_{3}^{\ast}$ and $Z_{\phi(4)}^{\ast}$ behave in the same way, since $2$ is the only generator of of $Z_{3}^{\ast}$, and it's cyclic (still haven't talked about cyclicness, it means generators always generate the same subgroup towards $\infty$) of order $2$, and $3$ is the only generator of $Z_{\phi(4)}^{\ast}$ and it's cyclic of order $2$. Now that this clarification has been made, I want you to take it and put it aside. For the moment, when I refer to $Z_{n}^{\ast}$, I don't refer to $Z_{\phi(n)}^{\ast}$, and when I do I write it as I did. <br>
+ Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators which are coprime with $n$. Now yet another clarification: some papers refer to ' generators of $Z_{n}^{\ast}$ '; this has to do with the CRT.<br>
+ It's possible to generate the whole $Z_{n}^{\ast}$ set using co-factors of $Z_{n}^{\ast}$ (as long as they are coprime) and applying the CRT. For ex. $Z_{561}^{\ast} (561 = 3 \times 11 \times 17)$ is generable using (generators of) these (sub?)groups: $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ which in turn don't have coprimes since $3, 11, 17$ are prime numbers. Hence we can consider the whole set of generators of these groups as the generators of $Z_{n}^{\ast}$ (the whole one).
+ Now let's dig into the essence of cryptography, prepare for madness :').
+</p>
 
+### $Z_{561}^{\ast}$
 
+<p>
+  We know that the number of $generators$ is the number of coprimes of $Z_{561}^{\ast}$. If we do a fast math we get $\phi(561) = 192$. Now, from the previous reasoning, the generators for this group were the generators of $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ so how is it possible that this number is so high? The generators for any group $Z_{p}^{\ast}$ with $p$ prime are $\phi(p - 1)$ (we are going to prove this fact later), hence by the multiplicativity of the Totient function we will just need to calc. a quick multiplication to find that $192$ is correct. Now how does this match with the CRT? If we take any of those $generators$, every combination (the multiplication of them) will produce a virtual result mapped on $Z_{561}^{\ast}$, even though $Z_{561}^{\ast}$ itself do not have any generator (yep I know). Now let's take the previous fact about any $Z_{p}^{\ast}$ having $\phi(p - 1)$ generators, and see what happens for $\phi(16)$. $16 = 2^4$ then we can't use the CRT again, but we know that it has $8$ generators, let's find them. Since $16$ is quite high, let's reduce it and do the same with $8$, since the reasoning is the same [ $4$ generators ].
 
+>[2,988s][~/Scrivania]$ python3 Zn.py
+>
+>Enter integer number to see every multiplicative subgroup and its order:
+>
+>8
+>
+>Printing results using Zn as modulo and stopping at ϕ(n)...
+>
+>1 ->[ 1 1 1 1 ]
+>
+>2 ->[ 2 4 0 0 ]
+>
+>3 ->[ 3 1 3 1 ]
+>
+>4 ->[ 4 0 0 0 ]
+>
+>5 ->[ 5 1 5 1 ]
+>
+>6 ->[ 6 4 0 0 ]
+>
+>7 ->[ 7 1 7 1 ]
+
+So where the actual hell are our $4$ generators? As I told you, all of these are virtual results and somehow complex numbers are involved. But before completely going crazy, what happens if we follow the $ones$?
+
+$\phi(1) = 1$<br>
+$\phi(3) = \phi(3 - 1) = \phi(2 - 1) = 1$<br>
+$\phi(5) = \phi(5 - 1) = \phi(4) [same reasoning]-> \phi(1) = 1 * \phi(3) = \phi(3 - 1) = \phi(2) = \phi(2 - 1) = 1$<br>
+$\phi(7) = ? -> 1$<br>
+
+Sum them and you get $4$, and once you did it, take this reasoning and throw it in the garbage :'D. Do you remember the reasoning made in the previous section when I told you that some papers refer to groups like $Z_{9}^{*}$ as  $Z_{\phi(9)}^{\ast}$? Here you are why is (very likely) that. If we consider $Z_{\phi(9)}^{\ast}$ instead of $Z_{9}^{\ast}$ then the prompt result showed above is the correct representation of the generators, otherwise it's not.
+As you can see there's a lot of magic involved with prime numbers, cryptography and group theory.
+Let's try with $9 = 3^2$, this time, instead of following the $ones$, why don't we just take our coprimes reasoning and say that there are $6$ generators, and they actually are the coprimes of $9$? :')
+Now you can transfer the same reasoning to $Z_{561}^{\ast}$... ops, $Z_{\phi(561)}^{\ast}$ to understand why it has $\phi(561)$ generators. The good/really strange thing is that once we have primes co-factors we can take those and generate everything through the CRT. With $Z_{561}^{\ast}$ it was easy. But what would happen if we had a $2^{3}$ like co-factor initially? I mean, how could we exploit the CRT? My man, the only restriction imposed by the CRT is that we have coprimes co-factor, hence we don't give a fuck about generators. Generators and the CRT are (as everything else in this field) really connected but separated entities. Nonetheless the CRT would use $\mod 8$ results to generate everything, and the madness continues...
+
+Is anyone still here? If you are, congrats, let's proceed through the dark forest.
 </p>
 
 ## Analysis of the Totient function for powers of primes
