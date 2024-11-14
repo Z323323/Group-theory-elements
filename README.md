@@ -25,10 +25,10 @@
  Now let's dig into the essence of cryptography, prepare for madness :').
 </p>
 
-### $Z_{561}^{\ast}$
+### $Z_{561}^{\ast}, Z_{8}^{\ast}, Z_{9}^{\ast}$
 
 <p>
-  We know that the number of $generators$ is the number of coprimes of $Z_{561}^{\ast}$. If we do a fast math we get $\phi(561) = 192$. Now, from the previous reasoning, the generators for this group were the generators of $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ so how is it possible that this number is so high? The generators for any group $Z_{p}^{\ast}$ with $p$ prime are $\phi(p - 1)$ (we are going to prove this fact later), hence by the multiplicativity of the Totient function we will just need to calc. a quick multiplication to find that $192$ is correct. Now how does this match with the CRT? If we take any of those $generators$, every combination (the multiplication of them) will produce a virtual result mapped on $Z_{561}^{\ast}$, even though $Z_{561}^{\ast}$ itself do not have any generator (yep I know). Now let's take the previous fact about any $Z_{p}^{\ast}$ having $\phi(p - 1)$ generators, and see what happens for $\phi(16)$. $16 = 2^4$ then we can't use the CRT again, but we know that it has $8$ generators, let's find them. Since $16$ is quite high, let's reduce it and do the same with $8$, since the reasoning is the same [ $4$ generators ].
+  We know that the number of $generators$ is the number of coprimes of $Z_{561}^{\ast}$. If we do a fast math we get $\phi(561) = 192$. Now, from the previous reasoning, the generators for this group were the generators of $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ so how is it possible that this number is so high? The generators for any group $Z_{p}^{\ast}$ with $p$ prime are $\phi(p - 1)$ (we are going to prove this fact later), hence by the multiplicativity of the Totient function we will just need to calc. a quick multiplication to find that $192$ is correct. Now how does this match with the CRT? If we take any of those $generators$, every combination (the multiplication of them) will produce a virtual result mapped on $Z_{561}^{\ast}$, even though $Z_{561}^{\ast}$ itself do not have any generator (yep I know). Now let's take the previous fact about any $Z_{p}^{\ast}$ having $\phi(p - 1)$ generators, and see what happens for $\phi(16)$. $16 = 2^4$ then we can't use the CRT again, but we know that it has $8$ generators, let's find them. Since $Z_{16}^{\ast}$ is quite high, let's reduce it and do the same with $Z_{8}^{\ast}$, since the reasoning is the same [ $4$ generators ].
 
 >[2,988s][~/Scrivania]$ python3 Zn.py
 >
@@ -59,10 +59,42 @@ $\phi(3) = \phi(3 - 1) = \phi(2 - 1) = 1$<br>
 $\phi(5) = \phi(5 - 1) = \phi(4) [same reasoning]-> \phi(1) = 1 * \phi(3) = \phi(3 - 1) = \phi(2) = \phi(2 - 1) = 1$<br>
 $\phi(7) = ? -> 1$<br>
 
-Sum them and you get $4$, and once you did it, take this reasoning and throw it in the garbage :'D. Do you remember the reasoning made in the previous section when I told you that some papers refer to groups like $Z_{9}^{*}$ as  $Z_{\phi(9)}^{\ast}$? Here you are why is (very likely) that. If we consider $Z_{\phi(9)}^{\ast}$ instead of $Z_{9}^{\ast}$ then the prompt result showed above is the correct representation of the generators, otherwise it's not.
+Sum them and you get $4$, and once you did it, take this reasoning and throw it in the garbage :'D. Do you remember the reasoning made in the previous section when I told you that some papers refer to groups like $Z_{8}^{*}$ as  $Z_{\phi(8)}^{\ast}$? Here you are why is (very likely) that. If we consider $Z_{\phi(8)}^{\ast}$ instead of $Z_{8}^{\ast}$ then the prompt result showed above is the correct representation of the generators, otherwise it's not.
 As you can see there's a lot of magic involved with prime numbers, cryptography and group theory.
-Let's try with $9 = 3^2$, this time, instead of following the $ones$, why don't we just take our coprimes reasoning and say that there are $6$ generators, and they actually are the coprimes of $9$? :')
-Now you can transfer the same reasoning to $Z_{561}^{\ast}$... ops, $Z_{\phi(561)}^{\ast}$ to understand why it has $\phi(561)$ generators. The good/really strange thing is that once we have primes co-factors we can take those and generate everything through the CRT. With $Z_{561}^{\ast}$ it was easy. But what would happen if we had a $2^{3}$ like co-factors initially? I mean, how could we exploit the CRT? My man, the only restriction imposed by the CRT is that we have coprimes co-factor, hence we don't give a fuck about generators. Also, if we take the coprimes of $8 = \\{1, 3, 5, 7\\}$ we can easily see that they are primes, hence we could use them with the CRT (throwing $1$ out of the window). Generators and the CRT are (as everything else in this field) really connected but separated entities. Nonetheless the CRT would use $\mod 8$ results to generate everything, and the madness continues...
+Let's try with $Z_{9}^{\ast}$.
+
+>[0,900s][~/Scrivania]$ python3 Zn.py
+>
+>Enter integer number to see every multiplicative subgroup and its order:
+>
+>9
+>
+>Printing results using Zn as modulo and stopping at ϕ(n)...
+>
+>1 ->[ 1 1 1 1 1 1 ]
+>
+>2 ->[ 2 4 8 7 5 1 ]
+>
+>3 ->[ 3 0 0 0 0 0 ]
+>
+>4 ->[ 4 7 1 4 7 1 ]
+>
+>5 ->[ 5 7 8 4 2 1 ]
+>
+>6 ->[ 6 0 0 0 0 0 ]
+>
+>7 ->[ 7 4 1 7 4 1 ]
+>
+>8 ->[ 8 1 8 1 8 1 ]
+
+Now you can transfer the same reasoning to $Z_{561}^{\ast}$... ops, $Z_{\phi(561)}^{\ast}$ to understand why it has $\phi(561)$ generators. The good/really strange thing is that once we have primes co-factors we can take those and generate everything through the CRT. With $Z_{561}^{\ast}$ it was easy. But what would happen if we had a $2^{3}$ like co-factors initially? I mean, how could we exploit the CRT? My man, the only restriction imposed by the CRT is that we have coprimes co-factor, hence we would not care about generators.<br>
+Now, why are we actually getting mad with generators? For two purposes mainly: 1. to understand how theorems hold, and to understand how multiplicative groups work, and 2. because we need to understand how they work to set up unbreakable crypto systems. Here the purpose is mainly the first point, but let's widen the surface. We need to set up a crypto system (very vague I know, imagine ECDSA in Ethereum), if our group is made up of non-prime co-factors the set produced by generators is clearly reduced, this could be a problem (indeed elliptic curves solves this). But for the moment, let's proceed with our real goal, i.e. the previous 'first point'.<br>
+This reasoning about real-world scenarios is a set-up to say that generators are a huge variable in a crypto system, so we don't just 'look at the CRT'. Now, let's conclude this madness section. It's clear that even if mathematicians call them generators, in the $Z_{561}^{\ast}, Z_{8}^{\ast}, Z_{9}^{\ast}$ they don't generate the whole set, hence they shouldn't be called generators. If we take a prime number $p$, you will see that $Z_{p}^{*}$ contains $\phi(p - 1)$ **real** generators. When I say _real_ I mean that they actually generate the whole $Z_{p}^{\ast}$ group. In every other case (non-primes) this behaviour do not subsist. And it's not over. In the $Z_{9}^{\ast}$ example above:
+
+$2 ->[ 2 4 8 7 5 1 ]$<br>
+$5 ->[ 5 7 8 4 2 1 ]$
+
+Effectively generate $Z_{\phi(9)}^{\ast}$, but not $Z_{9}^{\ast}$, while the other $4$ so-called generators do not (if taken singularly). If we take the $Z_{8}^{\ast}$ example, not even one of those so-called generators do generate $Z_{\phi(8)}^{\ast}$ (if taken singularly), hence we would end up not having a singular real generator. Note that these are my actual conclusions at this point of the research, but I could be wrong. Now let's continue with our theorems.
 
 Is anyone still here? If you are, congrats, let's proceed through the dark forest.
 </p>
