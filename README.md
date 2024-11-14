@@ -1,32 +1,69 @@
-# Group theory elements and quadratic residues concepts
+# Group theory elements
+
+## (Cyclic) Subgroups, generators and multiplicative groups
+
+<p>
+  Here I want to make a slight modification to the normal definitions of subgroups in the group theory, since the definition already assumes what we want to prove here.<br>
+  We define a subgroup of $Z_{n}^{*}$ as a non-empty subset $H$ of $Z_{n}^{*}$ such that all $e \in H$ are delimited by $e$ and by the production of $1$ by $e^{o} \mod n, 0 \lt o \lt n \in N$, i.e. the whole subgroup $H$ is:
+
+  $\langle e \rangle = \\{e, e^{2}, e^{3}, \dots, e^{o} = 1\\}$ [ all these operations are always made $(\mod n)$ ]
+
+  I called the $degree$ ' $o$ ' because $o$ defines the $order$ of the subgroup, i.e. the number of its elements. Also $\langle e \rangle$ is a convention to indicate that $e$ 'generates' the whole (sub)group.<br>
+  Now, another clarification is necessary. Sometimes when papers refer to $Z_{n}^{*}$, they refer to a group of this kind: $\\{1, 2, 3, \dots, n - 1\\}$ but without all the numbers which are not coprime with $n$. From another article which I'm still writing:
+<strong>
+
+  $3 \times z_{187 coprime} \mod (3 \times 187)$
+
+  From this example we can easily imagine the left part as series of $3$ elements added, and the right part too. This means that since $z_{187 coprime}$ and $187$ are coprimes, their modulo will never 'produce' $0$, and this means that any result produced (which will be $0 < z < 187$) will be multiplied by $3$. This is why having a term which is not coprime with the modulo will never 'produce' $1$ as remainder, but only multiples of that term, and this is why the Euler's Theorem holds only for $a$ and $n$ coprimes and also why every non-coprime $z$ with $0 < z < n$ can't have a multiplicative modular inverse.<br>
+  <br>
+  [ This reasoning works in general proving this fact ].<br>
+</strong>
+
+ Now, placing this reasoning into this context, having non-coprimes in $Z_{n}^{*}$ has a direct effect in the subgroups we just discussed about. Since the modulo operation does not produce $1$ (but only multiples of the co-factor(s) of $e$ and $n$, or 0) we don't care about those subgroups since they don't match our definition of subgroup, hence we could delete them from the reasoning. Now it's really important to understand that this is not always the case, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$. Before going over, if we follow the previous reasoning, we can notice that for ex. $Z_{3}^{\ast}$ and $Z_{\phi(4)}^{\ast}$ behaves in the same way, since $2$ is the only generator of of $Z_{3}^{\ast}$, and it's cyclic (still haven't talked about cyclicness, it means they always generate the same subgroup towards $\infty$) of order $2$, and $3$ is the only generator of $Z_{\phi(4)}^{\ast}$ and it's cyclic of order $2$. Now that this clarification has been made, I want you to take it and put it aside. For the moment, when I refer to $Z_{n}^{\ast}$, I don't refer to $Z_{\phi(n)}^{\ast}$, and when I do I write it as I did. <br>
+ Now having made this important clarification we can safely assume that the number of subgroups are always $\phi(n)$, i.e. all generators which are coprime with $n$. This clarify also the confusional definitions made by some papers which refer to ' generators of $Z_{n}^{\ast}$ ', i.e. it's not possible to generate $Z_{n}^{\ast}$ unless we remove coprimes of $Z_{n}^{\ast}$. This fact has also a direct consequence in the whole group theory (and formulas), because:<br>
+ imagine we consider $Z_{n}^{\ast}$ as the set without non-coprimes; it turns out that is possible to generate the whole $Z_{n}^{\ast}$ set using subgroups and applying the CRT. For ex. $Z_{561}^{\ast}$ (without coprimes of 561) [ $561 = 3 \times 11 \times 17$ ] is generable using (generators of) these subgroups: $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ which don't have coprimes since $3, 11, 17$ are prime numbers. Now if 
+
+
+
+</p>
 
 ## Analysis of the Totient function for powers of primes
 
 A deep understanding of the Totient function is required in order to really understand what the actual hell is happening. First: let's see how the Totient of the power of a prime divides that number.
 
-$\displaystyle \frac{p^q}{\phi(p^{q})} = \frac{p^{q}}{p^{q} - p^{q - 1}} = \frac{p^{q}}{p^{q - 1}(p - 1)} = \frac{p}{p - 1} = 1 + \frac{1}{p - 1}$
+$\displaystyle \frac{p^q}{\phi(p^{q})} = \frac{p^{q}}{p^{q} - p^{q - 1}} = \frac{p^{q}}{p^{q - 1}(p - 1)} = \frac{p}{p - 1}$
+
+$\displaystyle \frac{\phi(p^{q})}{p^q} = \frac{p - 1}{p}$
 
 And now look at this, this holds for any prime $p$:
 
 $\displaystyle \frac{p}{\phi(p)} = \frac{p}{p - 1} = 1 + \frac{1}{p - 1}$
 
+$\displaystyle \frac{\phi(p)}{p} = \frac{p - 1}{p} = 1 - \frac{1}{p}$
+
+Which means that if we multiply the Totient function of a prime by the same prime we get $p - 1$.
+
 Now we can state that if
 
-$\displaystyle \frac{p^q}{\phi(p^{q})} = 1 + \frac{1}{p - 1}$
+$\displaystyle \frac{p^q}{\phi(p^{q})} = \frac{p}{p - 1}$
 
 then
 
-$\displaystyle \phi(p^{q})(1 + \frac{1}{p - 1}) = p^{q}$
+$\displaystyle \phi(p^{q})(\frac{p}{p - 1}) = p^{q}$
 
 and also
 
-$\displaystyle (\phi(p^{q})2^{S})(1 + \frac{1}{p - 1}) = p^{q}2^{S}$
+$\displaystyle \phi(p^{q})2^{S}(\frac{p}{p - 1}) = p^{q}2^{S}$
 
-Now if we consider $p^{q}2^{S}$ as $p - 1$ where $p$ is a prime number which has a $p - 1$ of that kind:
+and considering $p_{1}$ as prime where $p_{1} - 1 = p^{q}2^{S}$
 
-$\displaystyle p - 1 = \phi(p^{q}) 2^{S} ( 1 + \frac{1}{p - 1})$
+$\displaystyle \phi(p^{q})2^{S}(\frac{p_{1}}{p_{1} - 1}) = \phi(p^{q})(\frac{p_{1}}{p^q})$ _ <---
 
-$\displaystyle p - 1 = \displaystyle \phi(p^{q})2^{S} + \frac{\phi(p^{q})2^S}{p - 1} = \phi(p^{q})2^{S} + \frac{\phi(p^{q})}{p^{q}}$
+Now if we consider $p_{1} - 1 = p^{q}2^{S}$ where $p_{1}$ is a prime number $\neq p$ and composed by $p$:
+
+$\displaystyle p_{1} - 1 = \phi(p^{q}) 2^{S} (\frac{p_{1}}{p_{1} - 1})$
+
+$\displaystyle p = \displaystyle \frac{\phi(p^{q})2^Sp_{1}}{p_{1} - 1} = \frac{\phi(p^{q})p_{1}}{p^{q}} = p^{q}2^{S} - 2^{S} + \phi(p^{q})$
 
 Now we can recognise that if
 
@@ -175,10 +212,15 @@ Now, since every $p - 1$ where $p$ is prime, is representable as $p - 1 = 2^{S}q
   Now we can take this congruence:
 
   $x^{(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}} = x^{p - 1} \equiv 1 \mod p$<br>
+
+  $x^{(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}} = x^{p - 1} \equiv 1 \mod p$<br>
+  
   
 and
 
   $x^{2^{S}(\phi(q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}))} \equiv 1 \mod 2^S$
+
+  
 
 From the corollary of Fermat's Little Theorem we know that $x^{k(2^{S})} \equiv 1 \mod 2^{S}$, and since the reasoning about 'contained solutions', the $2^{S}$ order subgroup will be contained $q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ times at $x^{p - 1} \equiv 1 \mod p$. Which means that it's order divides $\phi(n)$. The same goes for all the other co-factors. Now let's suppose that we had $x^{z} \equiv 1 \mod p$ where $z < p - 1$ doesn't divide $p - 1$. By Fermat $x^{p - 1} \equiv 1 \mod p$ must hold, hence by the corollary, since $x^{k(z)} \equiv 1 \mod p$ it must be $k(z) = p - 1$. But $z$ is not a co-factor of $p - 1$, hence $k = \frac{p - 1}{z} \notin N$, and therefore it can't be the order of a subgroup, which proves the theorem.<br>
 The reason why $x^{z} \equiv 1 \mod p$ with $z$ coprime with $p - 1$ is that the former construction made by Ben Lynn, is true, but only if we consider complex numbers, hence it's not true for $z \in N$.<br>
