@@ -6,7 +6,7 @@
   Here I want to make a slight modification to the normal definitions of subgroups in the group theory, since the definition already assumes what we want to prove here.<br>
   We define a subgroup of $Z_{n}^{*}$ as a non-empty subset $H$ of $Z_{n}^{*}$ such that all $e \in H$ are delimited by $e$ and by the production of $1$ by $e^{o} \mod n, 0 \lt o \lt n \in N$, i.e. the whole subgroup $H$ is:
 
-  $\langle e \rangle = \\{e, e^{2}, e^{3}, \dots, e^{o} = 1\\}$ [ all these operations are always made $(\mod n)$ ]
+  $\langle e \rangle = \\{e, e^{2}, e^{3}, \dots, e^{o} = 1\\}$
 
   I called the $degree$ ' $o$ ' because $o$ defines the $order$ of the subgroup, i.e. the number of its elements. Also $\langle e \rangle$ is a convention to indicate that $e$ 'generates' the whole (sub)group, indeed all the elements which generate the same set/group/subgroup are called $generators$ for that set/group/subgroup.<br>
   Now, another clarification is necessary. Sometimes when papers refer to $Z_{n}^{*}$, they refer to a group of this kind: $\\{1, 2, 3, \dots, n - 1\\}$ but without all the numbers which are not coprime with $n$. From another article which I'm still writing:
@@ -20,9 +20,9 @@
 </strong>
 
  Now, placing this reasoning into this context, having non-coprimes in $Z_{n}^{*}$ has a direct effect in the subgroups we just discussed about. Since the modulo operation does not produce $1$ (but only multiples of the co-factor(s) of $e$ and $n$, or 0) we could not care about those subsets since they don't match our definition of subgroup, hence we could delete them from the reasoning. Now it's really important to understand that this is not always the case, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$. Before going over, if we follow the previous reasoning, we can notice that for ex. $Z_{3}^{\ast}$ and $Z_{\phi(4)}^{\ast}$ behave in the same way, since $2$ is the only generator of of $Z_{3}^{\ast}$, and it's cyclic (still haven't talked about cyclicness, it means generators always generate the same subgroup towards $\infty$) of order $2$, and $3$ is the only generator of $Z_{\phi(4)}^{\ast}$ and it's cyclic of order $2$. Now that this clarification has been made, I want you to take it and put it aside. For the moment, when I refer to $Z_{n}^{\ast}$, I don't refer to $Z_{\phi(n)}^{\ast}$, and when I do I write it as I did. <br>
- Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators which are coprime with $n$. Now yet another clarification: some papers refer to ' generators of $Z_{n}^{\ast}$ '; this has to do with the CRT.<br>
+ Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators which are coprime with $n$. Now yet another clarification: some papers refer to ' generators of $Z_{n}^{\ast}$ '; this has to do with some magic and the CRT, i.e. it's completely fine to have more than $1$ generator for the same set, but here the reasoning is quite more magical and complex, while it's not for $Z_{p}^{\ast}$ with $p$ prime.<br>
  It's possible to generate the whole $Z_{n}^{\ast}$ set using co-factors of $Z_{n}^{\ast}$ (as long as they are coprime) and applying the CRT. For ex. $Z_{561}^{\ast} (561 = 3 \times 11 \times 17)$ is generable using (generators of) these (sub?)groups: $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ which in turn don't have coprimes since $3, 11, 17$ are prime numbers. Hence we can consider the whole set of generators of these groups as the generators of $Z_{n}^{\ast}$ (the whole one).
- Now let's dig into the essence of cryptography, prepare for madness :').
+ Now you can jump into a black hole in the next section, or jump to the next one which is our standard path among theorems, your choice.
 </p>
 
 ### $Z_{561}^{\ast}, Z_{8}^{\ast}, Z_{9}^{\ast}$
@@ -87,19 +87,76 @@ Let's try with $Z_{9}^{\ast}$.
 >
 >8 ->[ 8 1 8 1 8 1 ]
 
-Now you can transfer the same reasoning to $Z_{561}^{\ast}$... ops, $Z_{\phi(561)}^{\ast}$ to understand why it has $\phi(561)$ generators. The good/really strange thing is that once we have primes co-factors we can take those and generate everything through the CRT. With $Z_{561}^{\ast}$ it was easy. But what would happen if we had a $2^{3}$ like co-factors initially? I mean, how could we exploit the CRT? My man, the only restriction imposed by the CRT is that we have coprimes co-factor, hence we would not care about generators.<br>
-Now, why are we actually getting mad with generators? For two purposes mainly: 1. to understand how theorems hold, and to understand how multiplicative groups work, and 2. because we need to understand how they work to set up unbreakable crypto systems. Here the purpose is mainly the first point, but let's widen the surface. We need to set up a crypto system (very vague I know, imagine ECDSA in Ethereum), if our group is made up of non-prime co-factors the set produced by generators is clearly reduced, this could be a problem (indeed elliptic curves solves this). But for the moment, let's proceed with our real goal, i.e. the previous 'first point'.<br>
-This reasoning about real-world scenarios is a set-up to say that generators are a huge variable in a crypto system, so we don't just 'look at the CRT'. Now, let's conclude this madness section. It's clear that even if mathematicians call them generators, in the $Z_{561}^{\ast}, Z_{8}^{\ast}, Z_{9}^{\ast}$ they don't generate the whole set, hence they shouldn't be called generators. If we take a prime number $p$, you will see that $Z_{p}^{*}$ contains $\phi(p - 1)$ **real** generators. When I say _real_ I mean that they actually generate the whole $Z_{p}^{\ast}$ group. In every other case (non-primes) this behaviour do not subsist. And it's not over. In the $Z_{9}^{\ast}$ example above:
+Now you can transfer the same reasoning to $Z_{561}^{\ast}$... ops, $Z_{\phi(561)}^{\ast}$ to understand why it has $\phi(561)$ generators. The really strange thing is that once we have primes co-factors we can take those and generate everything through the CRT. With $Z_{561}^{\ast}$ it was easy. But what would happen if we had a $2^{3}$ like co-factors initially? I mean, how could we exploit the CRT? My man, the only restriction imposed by the CRT is that we have coprimes co-factor, hence we would not care about generators.<br>
+Now, why are we actually getting mad with generators? For two purposes mainly: 1. to understand how theorems hold, and to understand how multiplicative groups work, and 2. because we need to understand how they work to set up unbreakable crypto systems. Here the purpose is mainly the first point, but let's widen the surface. We need to set up a crypto system (very vague I know, imagine ECDSA in Ethereum), if our group is made up of non-prime co-factors the set produced by generators (if we can actually use them to generate anything) is clearly reduced, this could be a problem (indeed elliptic curves solves this). But for the moment, let's proceed with our real goal, i.e. the previous 'first point'.<br>
+This reasoning about real-world scenarios is a set-up to say that generators are a huge variable in a crypto system, so we don't just 'look at the CRT'. Now, let's conclude this madness section. It's clear that even if mathematicians call them generators, in the $Z_{561}^{\ast}, Z_{8}^{\ast}, Z_{9}^{\ast}$ cases they clearly don't generate the whole set, hence they shouldn't be called generators, at least in the real world, but note that mathematicians are **never** wrong (indeed, they have 100% a way to explain that mathematically this concept works). If we take a prime number $p$, you will see that $Z_{p}^{*}$ contains $\phi(p - 1)$ **real** generators. When I say _real_ I mean that they actually generate the whole $Z_{p}^{\ast}$ group. In every other case (non-primes) this behaviour do not subsist. And it's not over. In the $Z_{9}^{\ast}$ example above:
 
-$2 ->[ 2 4 8 7 5 1 ]$<br>
-$5 ->[ 5 7 8 4 2 1 ]$
+>2 ->[ 2 4 8 7 5 1 ]
+>
+>5 ->[ 5 7 8 4 2 1 ]
 
-Effectively generate $Z_{\phi(9)}^{\ast}$, but not $Z_{9}^{\ast}$, while the other $4$ so-called generators do not (if taken singularly). If we take the $Z_{8}^{\ast}$ example, not even one of those so-called generators do generate $Z_{\phi(8)}^{\ast}$ (if taken singularly), hence we would end up not having a singular real generator. Note that these are my actual conclusions at this point of the research, but I could be wrong. Now let's continue with our theorems.
+Effectively generate $Z_{\phi(9)}^{\ast}$, but not $Z_{9}^{\ast}$, while the other $4$ so-called generators do not (if taken singularly). If we take the $Z_{8}^{\ast}$ example, not even one of those so-called generators do generate $Z_{\phi(8)}^{\ast}$ (if taken singularly), hence we would end up not having a singular real generator. Note that these are my actual conclusions at this point of the research, but I could be wrong. Now let's continue with our theorems. But before continuing, this is $Z_{7}^{*}$:
+
+>1 ->[ 1 1 1 1 1 1 ]
+>
+>2 ->[ 2 4 1 2 4 1 ]
+>
+>3 ->[ 3 2 6 4 5 1 ]
+>
+>4 ->[ 4 2 1 4 2 1 ]
+>
+>5 ->[ 5 4 6 2 3 1 ]
+>
+>6 ->[ 6 1 6 1 6 1 ]
+
+Indeed if you do $\phi(7 - 1) = \phi(6)$, we know that only $\\{1, 5\\}$ are coprimes with $6$, hence there must be only $2$ generators. Indeed $\\{3, 5\\}$ are **real** generators of the set, and everything works fine (with primes).
 
 Is anyone still here? If you are, congrats, let's proceed through the dark forest.
 </p>
 
+## Lagrange's Theorem
+
+<p>
+  This theorem is probably the most important and the one which has most strange proof (imo). I wrote the definition of subgroups as I did because this theorem is vital in order to prove the cyclicness of subgroups of $Z_{n}^{*}$. Also note that as already mentioned, this theorem refers don't need to refer to $Z_{n}^{*}$ as $Z_{\phi(n)}^{*}$, since we are talking about subgroups, and the definition I wrote is exactly crafted to avoid this assumption (we are not talking about generators, but subgroups).<br>
+<br>
+  Let $H$ be a subgroup of $Z_{n}^{*}$ of size $m$. Then $m|\phi(n)$.
+</p>
+
+### Proof
+
+<p>
+  
+  If $H = Z_{n}^{\ast}$ then $m = \phi(n)$. This is a consequence of everything said in the former sections. For primes: $\phi(p) = p - 1$.<br>
+  Otherwise, let $H = \\{z_{1}, \dots, z_{m}\\}$. Let $a$ be some element $a \in Z_{n}^{\ast}$ not in $H$ and consider the set $Ha = \\{z_{1}a, \dots, z_{m}a \\}$. Every element of this new set must be **distinct** since 
+
+  $z_{1}a \equiv z_{2}a \mod n$
+
+  implies 
+  
+  $n | a(z_{1} - z_{2})$
+  
+  and since $n$ can't divide $a$ since $a$ is coprime with $n$ ($a$ is an element of a subgroup hence it must be coprime with $n$ since the definition of subgroups I wrote):
+  
+  $z_{1} \equiv z_{2} \mod n$
+
+  but this can't be true since $z_{1}, z_{2} < n$ and $z_{1} \neq z_{2}$, hence $z_{1}a \neq z_{2}a$ proving they are **distinct** pairwise.<br>
+  Also no element of $Ha$ lies in $H$, since
+
+  $z_? \equiv z_?a \mod n$<br>
+  $->$<br>
+  $z_?1 \equiv z_?a \mod n$<br>
+  
+  implies (since $n \nmid z$)
+
+  $1 \equiv a \mod n$
+
+  Hence $a$ should be $1$ or $- 1$, but $a$ can't be either because this would imply $z$ 
+  
+</p>
+
 ## Analysis of the Totient function for powers of primes
+
+<p>
 
 A deep understanding of the Totient function is required in order to really understand what the actual hell is happening. First: let's see how the Totient of the power of a prime divides that number.
 
@@ -163,7 +220,7 @@ $a^{p - 1} \equiv 1 \mod p$
 
 and therefore
 
-
+</p>
 
 
 ## Generators
