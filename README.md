@@ -1,10 +1,10 @@
 # Group theory elements
 
-## (Cyclic) Subgroups, generators and multiplicative groups
-
+## Multiplicative groups, (cyclic) subgroups and generators
 <p>
-  Here I want to make a slight modification to the normal definitions of subgroups in the group theory, since the definition already assumes what we want to prove here.<br>
-  We define a subgroup of $Z_{n}^{*}$ as a non-empty subset $H$ of $Z_{n}^{*}$ such that all $e \in H$ are delimited by $e$ and by the production of $1$ by $e^{o} \mod n, 0 \lt o \lt n \in N$, i.e. the whole subgroup $H$ is:
+  Here I want to make a slight modification to the normal definition of subgroups in the group theory. Becuse we are totally not interested in subgroups but cyclic subgroups. Since the definition of subgroup is useless, and the definition of cyclic subgroup already assumes what the Lagrange's Theorem proves (and we need to prove it), I'm going to set the definition of subgroups as the normal definition of cyclic subgroup but without the assumption of cyclicness.<br>
+  
+  We define a subgroup of $Z_{n}^{\ast}$ as a non-empty subset $H$ of $Z_{n}^{*}$ such that, taken any element $e \in Z_{n}^{\ast}$, all elements $z \in H$ are delimited by $e^{1}$ and the first $1$ 'produced' by $e^{o} \mod n, 0 \lt o \lt n \in N$, i.e the whole subgroup $H$ is:
 
   $\langle e \rangle = \\{e, e^{2}, e^{3}, \dots, e^{o} = 1\\}$
 
@@ -19,10 +19,244 @@
   [ This reasoning works in general proving this fact ].<br>
 </strong>
 
- Now, placing this reasoning into this context, having non-coprimes in $Z_{n}^{*}$ has a direct effect in the subgroups we just discussed about. Since the modulo operation does not produce $1$ (but only multiples of the co-factor(s) of $e$ and $n$, or 0) we could not care about those subsets since they don't match our definition of subgroup, hence we could delete them from the reasoning. Now it's really important to understand that this is not always the case, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$. Before going over, if we follow the previous reasoning, we can notice that for ex. $Z_{3}^{\ast}$ and $Z_{\phi(4)}^{\ast}$ behave in the same way, since $2$ is the only generator of of $Z_{3}^{\ast}$, and it's cyclic (still haven't talked about cyclicness, it means generators always generate the same subgroup towards $\infty$) of order $2$, and $3$ is the only generator of $Z_{\phi(4)}^{\ast}$ and it's cyclic of order $2$. Now that this clarification has been made, I want you to take it and put it aside. For the moment, when I refer to $Z_{n}^{\ast}$, I don't refer to $Z_{\phi(n)}^{\ast}$, and when I do I write it as I did. <br>
- Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators which are coprime with $n$. Now yet another clarification: some papers refer to ' generators of $Z_{n}^{\ast}$ '; this has to do with some magic and the CRT, i.e. it's completely fine to have more than $1$ generator for the same set, but here the reasoning is quite more magical and complex, while it's not for $Z_{p}^{\ast}$ with $p$ prime.<br>
- It's possible to generate the whole $Z_{n}^{\ast}$ set using co-factors of $Z_{n}^{\ast}$ (as long as they are coprime) and applying the CRT. For ex. $Z_{561}^{\ast} (561 = 3 \times 11 \times 17)$ is generable using (generators of) these (sub?)groups: $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ which in turn don't have coprimes since $3, 11, 17$ are prime numbers. Hence we can consider the whole set of generators of these groups as the generators of $Z_{n}^{\ast}$ (the whole one).
- Now you can jump into a black hole in the next section, or jump to the next one which is our standard path among theorems, your choice.
+ Now, placing this reasoning into this context, having only coprimes of $n$ in $Z_{n}^{*}$ has sense, since the modulo operation for non-coprimes does not produce $1$ but only multiples of the co-factor(s) of $e$ and $n$, or 0. Hence we could not care about those subsets since they don't match our definition of subgroup. Now it's really important to understand that this is not always the case, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$.<br>
+ Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators (of the subgroups) which are coprime with $n$. Also, for everything I just said, the set mapped by all the subgroups will be $Z_{\phi(n)}^{\ast}$, hence non-coprimes of $n$ will never appear in the subgroups. This is a direct consequence of the text in bold; if we remove $3$ from the above example (left part), $z_{187 coprime}$ will be both coprime with $3$ and $187$. Now if we imagine $z_{187 coprime} > 3 \times 187$ we can represent it as series of $3$ elements. It's clear that since it's not a multiple of $3$, after the removal operated by the modulo, we would end up having a number $< 3 \times 187$ which is coprime with both $3$ and $187$. The same reasoning goes for powers of such number.
+</p>
+
+## Lagrange's Theorem
+
+<p>
+I wrote the definition of subgroups as I did because this theorem is vital in order to prove the cyclicness of subgroups of $Z_{n}^{*}$ and the generators theorem. All these precautions have been made because there must not be any definition which already assumes what this theorem proves.<br>
+<br>
+  Let $H$ be a subgroup of $Z_{n}^{*}$ of order $o$. Then $o|\phi(n)$.
+</p>
+
+### Proof
+
+<p>
+  
+  Let $H = \\{z_{1}, \dots, z_{o}\\}$. Let $a$ be some element which belongs to $Z_{\phi(n)}^{*}$ with $a \notin H$ and consider the set $Ha = \\{z_{1}a, \dots, z_{o}a \\}$. Every element of this new set must be **distinct** since 
+
+  $z_{1}a \equiv z_{2}a \mod n$
+
+  implies 
+  
+  $n | a(z_{1} - z_{2})$
+  
+  and since $n$ can't divide $a$ since $a$ is coprime with $n$ ($a$ is an element of a subgroup hence it must be coprime with $n$ since the definition of subgroups I wrote):
+  
+  $z_{1} \equiv z_{2} \mod n$
+
+  but this can't be true since $z_{1}, z_{2} < n$ and $z_{1} \neq z_{2}$, hence $z_{1}a \neq z_{2}a$ proving they are **distinct** pairwise.<br>
+  Also no element of $Ha$ lies in $H$, since it would imply
+
+  $za \in H$<br>
+  $->$<br>
+  $za \equiv z \mod n$<br>
+  $n | z(a - 1)$<br>
+  $->$<br>
+  $a \equiv 1 \mod n$
+
+  Therefore $a$ should be equal to $1$, but this can't be, because $1 \in H$ by the definition of subgroup and $a \notin H$, hence no element of $Ha$ lies in $H$.
+  This would mean that
+
+  $\displaystyle |H| = \frac{\phi(n)}{2}$
+
+  Otherwise if we didn't consider any $a$:
+
+  $\displaystyle |H| = \phi(n)$
+
+  which obviously divides $\phi(n)$.<br>
+  Now, let's say that there is still some other element left in $Z_{\phi(n)}^{*}$. Iterating the previous procedure/reasoning with $a, b$ and $H, Ha, Hb$ where 
+
+  $Hb = \\{z_{1}b, \dots, z_{o}b \\}$
+
+  we would obtain
+
+  $\displaystyle |H| = \frac{\phi(n)}{3}$
+
+  and iterating up to $H, Ha, Hb, \dots H_{\phi(n)}$:
+
+  $\displaystyle |H| = \frac{\phi(n)}{\phi(n)} = 1$
+
+  which still divides $\phi(n)$ therefore proving the theorem.<br>
+  <br>
+  Papers normally refer to $Ha, Hb, \dots H_{\phi(n)}$ as the left cosets. This proof proves the importance of such concept besides the theorem, since as I already mentioned, this theorem allows to prove the cyclicness (next section), which believe me, it would be one hell of a ride to prove without this theorem.
+  
+</p>
+
+## Proof of cyclicness of subgroups
+
+<p>
+  By the corollary of Euler's Theorem, for any $a$ which is coprime with $n$
+
+  $a^{k(\phi(n))} \equiv 1 \mod n$
+
+  and by the Lagrange's Theorem, let $o$ be the order of any subgroup of $Z_{n}^{*}$, then:
+
+  $o|\phi(n)$
+
+  proves the cyclicness of the subgroups towards $\infty$, since any subgroup must be generated by a generator which is coprime with $n$.
+</p>
+
+## Generators theorem
+### Introduction
+
+<p>
+  $Z_{n}^{*}$ for any $n$, has order $n - 1$. By the Lagrange's Theorem, the greatest order for a subgroup is $\phi(n)$. Now:
+
+  $\phi(n) < n - 1$
+
+  for any $n$ which is non-prime.<br>
+
+  Hence $Z_{n}^{*}$ for $n$ non-prime can't have generators.<br>
+
+  Now we consider $Z_{n}^{*}$ as the subgroup of itself of order $\phi(n)$ and refer to it as $Z_{\phi(n)}^{\ast}$ (it must exist to safely set this hypotesis, but we will see later). Remember that the generator of such subgroup will necessary be a generator of $Z_{\phi(n)}^{\ast}$. I know this sound nosense, just accept that $Z_{\phi(n)}^{\ast}$ is exactly the same as the subgroup of $Z_{n}^{\ast}$ of order $\phi(n)$.
+  Now, let $o(Z_{\phi(n)}^{\ast})$ be the function which calculates the order of a subgroup; $Z_{\phi(n)}^{\ast}$ can have generators because
+  
+  $o(subgroups(Z_{n}^{\ast})) \leq o(Z_{\phi(n)}^{\ast})$
+
+  indeed the group itself is generated by a generator of a subgroup of $Z_{n}^{\ast}$.<br>
+
+  Otherwise let $p$ be a prime, then $o(Z_{p}^{*}) = p - 1$, and $\phi(p) = p - 1$, then
+
+  $o(subgroups(Z_{p}^{\ast})) \leq o(Z_{p}^{*})$
+
+  hence $Z_{p}^{*}$ can have generators, without the need of any transformation.
+</p>
+
+### Clarifications about $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$
+
+<p>
+  All multiplicative groups like $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ have particular properties. If we employ the previous structure to any of those, obtaining $Z_{\phi(4)}^{\ast}, Z_{\phi(8)}^{\ast} \dots$ we should in turn obtain subgroups of order which is at max $\phi(4), \phi(8) \dots$ (otherwise we wouldn't have generators), which in turn since $\phi(n)$ calculates the coprimes of $n$ and since $n$ is a power of $2$, we get $2, 4 \dots$. Now, this means that every time we consider multiplicative groups defined on powers of $2$ which we indicate as $2^{S}$, we should get a max order of subgroups which is $\phi(2^{S}) = 2^{S - 1}$. However this doesn't happen. The reason is a strange property of odd numbers which always produce
+  
+  $\displaystyle odd^{\phi(\phi(2^{S}))} = odd^{2^{S - 2}} = n * 2 + 1$ for $n$ unknown,
+
+  i.e.
+
+  $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$ 
+
+  or
+
+  $\displaystyle odd^{\phi(\phi(2^{S}))} \equiv 1 \mod 2^{S}$ 
+
+  or
+
+  $\displaystyle odd^{\phi(2^{S - 1})} \equiv 1 \mod 2^{S}$
+
+  which is somehow more similar to the Euler's Theorem. To conclude: when we have $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ we always? (it should be proved) end up having the order of subgroups which is $\phi(n)$ but halved, hence all these multiplicative groups can't have generators. I'm quite sure we will face this formula in the next article about quadratic residues.
+</p>
+
+### Refinition of the reasoning before the proof
+
+<p>
+  Since the last two sections:<br>
+
+  * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to prove it in the next section).
+  * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
+  * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to prove it in the next section).
+  * $Z_{\phi(n)}^{\ast}$ for $n = 2^{S}$ can't have generators (we need further research).
+
+  Note that I'm actively studying while writing, hence there could be some other rules. In such case I'll update this document, but for the moment this is  complex enough so let's go over.
+</p>
+
+### Proof of generators theorem
+
+<p>
+  Every element of the starting set $Z_{\phi(n)}^{\ast}$ represents a generator for its subgroup. Note that writing multiplicative groups using this form can be more intuitive, because we immediately spot that the number of subgroups is $\phi(n)$, and this works for both primes and non-primes. The $2^{S}$ exception only regards generators, but the number of subgroups of $Z_{2^{S}}^{\ast}$ is still $\phi(2^{S})$. The generators of $Z_{\phi(n)}^{\ast}$ are the subgroups which order divides $\phi(n)$ and produce $1$; all the others will be non-generators, hence the solution is the number of subgroups which satisfy this equation:
+
+  $\displaystyle \frac{\phi(n)}{o(subgroup)} = 1$
+  
+  The immediate conclusion could be that there only exists $1$ generator for $Z_{\phi(n)}^{\ast}$ but it's not correct. This is not intuitive at all.
+  It turns out that we need to use a tactic similar to the 'left cosets' concept, to find the number of non-generators first:
+
+  $\displaystyle \frac{\phi(n)}{o(subgroup)} \neq 1$
+
+  Since the Lagrange's Theorem (see how important it is) we know that every subgroup's order divides $\phi(n)$, hence the number of subgroups which satisfy the above inequality are the ones which divide it more than once. Now since every number (except for primes) can be represented as powers of primes multiplied:
+
+  $n = p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$
+
+  the number of non-generators will exactly be
+
+  $nonGenerators = p_{1}^{k_1 - 1}p_{2}^{k_2 - 1} \dots p_{?}^{k_? - 1}$
+
+  Yes, this one is hard to figure out, and it's not even over. To get the former think about this: you have $p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$ numbers, which generate only numbers (the order of the subgroups) which are multiples of $p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$, from all these, how many divide such number more than once?<br>
+$->$<br>
+"How many divisors of $p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$ divide it more than once?" is the same as saying how many multiples of $x$ such that $x$ do not reach $p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$ are there? Since $x$ must divide $\phi(n)$ and $\phi(n) = p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$, the multiples we are talking about are the multiples of $p_{?}^{k_?}p_{1}p_{2} \dots p_{?}$, and there are $p_{1}^{k_1 - 1}p_{2}^{k_2 - 1} \dots p_{?}^{k_? - 1}$ of those.
+Hence the number of non generators is $p_{1}^{k_1 - 1}p_{2}^{k_2 - 1} \dots p_{?}^{k_? - 1}$ and the number of generators must be:
+
+$p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?} - p_{1}^{k_1 - 1}p_{2}^{k_2 - 1} \dots p_{?}^{k_? - 1} = \phi(\phi(n))$ 
+
+This is one hell of mess, look the below proof.
+
+$\displaystyle x = \frac{p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}}{p_{1}p_{2} \dots p_{?}}$
+</p>
+
+## Generators theorem for $Z_{p}^{*}$
+
+<p>
+  Let $Z_{p}^{*}$ be a multiplicative group with $p$ prime, then the number of generators of $Z_{p}^{*}$ is $\phi(p - 1)$.<br>
+  <br>
+  As I already mentioned in the second-black-hole-section the number of generators of $Z_{n}^{*}$ is $\phi(n)$, but I'm not delving it for the moment, since everything I wrote in that section.
+</p>
+
+### Proof of generators theorem for $Z_{p}^{*}$
+
+<p>
+From the former proofs, we know that since every $z$ which divides $\phi(p) = p - 1$ is not a generator [ since they form subgroups of order $o < \phi(p)$ by the corollary, hence not the whole $Z_{p}^{\ast})$ ], then it must be that all the coprimes of $p - 1$ are generators, because by the Euler's Theorem they produce $G^{\phi(p)} \equiv 1 \mod p$ and by the reasoning made in the first section . This is enough actually to state that the number of generators are $\phi(p - 1)$ for $Z_{p}^{\ast}$ and $\phi(n)$ for $Z_{n}^{\ast}$, but if you want to follow the calculation:
+
+$\displaystyle \frac{2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}{2 / q_{1} / q_{2} / \dots / q_{?}}$
+
+Where "/" = "either or", produces:
+
+$2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?} - 1} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?} - 1}$
+
+All these are $nonGenerators$ calculated factor-by-factor, now to get the number of $generators$, we will need to consider each one of the former solutions, thus:<br>
+[ https://github.com/xyzhyn/Totient-extension-to-non-primes ]
+
+[ $(x \cdot a) - (x \cdot b) = x(a - b)$ ]
+
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} = \phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} = 2^{S}\phi(q_{1}^{k_{?}})q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+or<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}} = 2^{S}q_{1}^{k_{?}}\phi(q_{2}^{k_{?}}) \dots q_{?}^{k_{?}}$<br>
+$\dots$<br>
+or<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}} = 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots \phi(q_{?}^{k_{?}})$<br>
+
+Now keep in mind that operating these subtractions we are actually considering $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, $n_{cofactors} - 1$ more times than we should (i.e. we should subtract all of $- 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, etc. from $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ only $1$ time, not $n_{cofactors}$ times, but since this is required to solve this theorem, what we are effectively finding is the number of generators $+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, multiplied $n_{cofactors} - 1$ times). Now we need to get a sum of all these terms in order to find the $generators$, hence these: 
+
+$\phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+$2^{S}\phi(q_{1}^{k_{?}})q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+$2^{S}q_{1}^{k_{?}}\phi(q_{2}^{k_{?}}) \dots q_{?}^{k_{?}}$<br>
+$\dots$<br>
+$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots \phi(q_{?}^{k_{?}})$<br>
+
+equal
+
+$\phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}}) + (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
+
+and finally
+
+$generators + (2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(n_{cofactors} - 1)  = \phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}}) + (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
+
+$generators = \phi(p - 1)$
+
+</p>
+
+#### Little extra found along the battles
+
+<p>
+
+Since the 'cancellation law' [ https://github.com/xyzhyn/Fermat-Little-Theorem-proof ]:
+
+$(x)(x) \equiv (x)(1) \mod p$<br>
+-><br>
+$x \equiv 1 \mod p$
+
+is not possible if $x < p - 1$ and $x \neq 1$.
+
 </p>
 
 ## $Z_{561}^{\ast}, Z_{8}^{\ast}, Z_{9}^{\ast}$
@@ -112,176 +346,4 @@ Effectively generate $Z_{\phi(9)}^{\ast}$, but not $Z_{9}^{\ast}$, while the oth
 Indeed if you do $\phi(7 - 1) = \phi(6)$, we know that only $\\{1, 5\\}$ are coprimes with $6$, hence there must be only $2$ generators. Indeed $\\{3, 5\\}$ are **real** generators of the set, and everything works fine (with primes).
 
 Is anyone still here? If you are, congrats, let's proceed through the dark forest.
-</p>
-
-## Lagrange's Theorem
-
-<p>
-  This theorem is probably the most important because allows to prove the cyclicness of subgroups (and note that I tried many different ways to prove cyclicness without success). I wrote the definition of subgroups as I did because this theorem is vital in order to prove the cyclicness of subgroups of $Z_{n}^{*}$. Also note that as already mentioned, this theorem don't need to refer to $Z_{n}^{*}$ as $Z_{\phi(n)}^{*}$, since we are talking about subgroups, and the definition I wrote is exactly architected to avoid this assumption (we are not talking about generators, but subgroups).<br>
-<br>
-  Let $H$ be a subgroup of $Z_{n}^{*}$ of size $m$. Then $m|\phi(n)$.
-</p>
-
-### Proof
-
-<p>
-  
-  If $H = Z_{n}^{\ast}$ then $m = \phi(n)$. This is a consequence of everything said in the former sections.<br>
-  Otherwise, let $H = \\{z_{1}, \dots, z_{m}\\}$. Let $a$ be some element $a \in Z_{n}^{\ast}$ not in $H$ and consider the set $Ha = \\{z_{1}a, \dots, z_{m}a \\}$. Every element of this new set must be **distinct** since 
-
-  $z_{1}a \equiv z_{2}a \mod n$
-
-  implies 
-  
-  $n | a(z_{1} - z_{2})$
-  
-  and since $n$ can't divide $a$ since $a$ is coprime with $n$ ($a$ is an element of a subgroup hence it must be coprime with $n$ since the definition of subgroups I wrote):
-  
-  $z_{1} \equiv z_{2} \mod n$
-
-  but this can't be true since $z_{1}, z_{2} < n$ and $z_{1} \neq z_{2}$, hence $z_{1}a \neq z_{2}a$ proving they are **distinct** pairwise.<br>
-  Also no element of $Ha$ lies in $H$, since it would imply
-
-  $za \in H$<br>
-  $->$<br>
-  $za \equiv z \mod n$<br>
-  $n | z(a - 1)$<br>
-  $->$<br>
-  $a \equiv 1 \mod n$
-
-  Therefore $a$ should be equal to $1$, but this can't be, because $1 \in H$ by the definition of subgroup and $a \notin H$, hence no element of $Ha$ lies in $H$.
-  This would mean that
-
-  $\displaystyle |H| = \frac{\phi(n)}{2}$
-
-  Now, let's say that there are still some elements left in $Z_{n}^{\ast}$. Iterating the previous procedure/reasoning for $H, Ha, Hb$ where 
-
-  $Hb = \\{z_{1}b, \dots, z_{m}b \\}$
-
-  we would obtain
-
-  $\displaystyle |H| = \frac{\phi(n)}{3}$
-
-  and iterating up to $H, Ha, Hb, \dots H_{\phi(n)}$:
-
-  $\displaystyle |H| = \frac{\phi(n)}{\phi(n)} = 1$
-
-  which still divides $\phi(n)$ therefore proving the theorem.<br>
-  <br>
-  Papers normally refer to $Ha, Hb, \dots H_{\phi(n)}$ as the left cosets. This proof proves the importance of such concept besides the theorem, since as I already mentioned, this theorem allows to prove the cyclicness (next section), which believe me, it would be one hell of a ride to prove without this theorem.
-  
-</p>
-
-## Proof of cyclicness of subgroups
-
-<p>
-  By the corollary of Euler's Theorem, for any $a$ which is coprime with $n$
-
-  $a^{k(\phi(n))} \equiv 1 \mod n$
-
-  and by the Lagrange's Theorem, let $m$ be the order of any subgroup of $Z_{n}^{*}$, then:
-
-  $m|\phi(n)$
-
-  proves the cyclicness of the subgroups towards $\infty$, since any subgroup must be generated by $G$ which is coprime with $n$.
-</p>
-
-## Generators theorem
-### Introduction
-
-<p>
-  $Z_{n}^{*}$ for any $n$, has order $n - 1$. By the Euler's Theorem and the definition of subgroup (and multiplicative group), the greatest order for a subgroup is $\phi(n)$. Now:
-
-  $\phi(n) < n - 1$
-
-  for any $n$ which is non-prime.<br>
-
-  Hence $Z_{n}^{*}$ for $n$ non-prime can't have generators.<br>
-
-  Now if we consider $Z_{n}^{*}$ as the subgroup of another group (which is safe to assume since any group must be a subgroup of another group) its order becomes $\phi(n)$ and we can refer to it as $Z_{\phi(n)}^{\ast}$. 
-  Now, let $o(Z_{k}^{\ast})$ be the function which calculates the order of a group; $Z_{\phi(n)}^{\ast}$ can have generators because
-  
-  $o(subgroups) \leq o(Z_{\phi(n)}^{\ast})$
-
-  Otherwise let $p$ be a prime, then $o(Z_{p}^{*}) = p - 1$, and $\phi(p) = p - 1$, then
-
-  $o(subgroups) \leq o(Z_{p}^{*})$
-
-  hence Z_{p}^{*} can have generators, without the need of any transformation.
-</p>
-
-### Proof
-
-<p>
-  
-</p>
-
-
-## Generators theorem for $Z_{p}^{*}$
-
-<p>
-  Let $Z_{p}^{*}$ be a multiplicative group with $p$ prime, then the number of generators of $Z_{p}^{*}$ is $\phi(p - 1)$.<br>
-  <br>
-  As I already mentioned in the second-black-hole-section the number of generators of $Z_{n}^{*}$ is $\phi(n)$, but I'm not delving it for the moment, since everything I wrote in that section.
-</p>
-
-### Proof of generators theorem for $Z_{p}^{*}$
-
-<p>
-From the former proofs, we know that since every $z$ which divides $\phi(p) = p - 1$ is not a generator [ since they form subgroups of order $o < \phi(p)$ by the corollary, hence not the whole $Z_{p}^{\ast})$ ], then it must be that all the coprimes of $p - 1$ are generators, because by the Euler's Theorem they produce $G^{\phi(p)} \equiv 1 \mod p$ and by the reasoning made in the first section . This is enough actually to state that the number of generators are $\phi(p - 1)$ for $Z_{p}^{\ast}$ and $\phi(n)$ for $Z_{n}^{\ast}$, but if you want to follow the calculation:
-
-$\displaystyle \frac{2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}{2 / q_{1} / q_{2} / \dots / q_{?}}$
-
-Where "/" = "either or", produces:
-
-$2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?} - 1} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?} - 1}$
-
-All these are $nonGenerators$ calculated factor-by-factor, now to get the number of $generators$, we will need to consider each one of the former solutions, thus:<br>
-[ https://github.com/xyzhyn/Totient-extension-to-non-primes ]
-
-[ $(x \cdot a) - (x \cdot b) = x(a - b)$ ]
-
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} = \phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} = 2^{S}\phi(q_{1}^{k_{?}})q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}} = 2^{S}q_{1}^{k_{?}}\phi(q_{2}^{k_{?}}) \dots q_{?}^{k_{?}}$<br>
-$\dots$<br>
-or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}} = 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots \phi(q_{?}^{k_{?}})$<br>
-
-Now keep in mind that operating these subtractions we are actually considering $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, $n_{cofactors} - 1$ more times than we should (i.e. we should subtract all of $- 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, etc. from $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ only $1$ time, not $n_{cofactors}$ times, but since this is required to solve this theorem, what we are effectively finding is the number of generators $+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, multiplied $n_{cofactors} - 1$ times). Now we need to get a sum of all these terms in order to find the $generators$, hence these: 
-
-$\phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-$2^{S}\phi(q_{1}^{k_{?}})q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-$2^{S}q_{1}^{k_{?}}\phi(q_{2}^{k_{?}}) \dots q_{?}^{k_{?}}$<br>
-$\dots$<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots \phi(q_{?}^{k_{?}})$<br>
-
-equal
-
-$\phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}}) + (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
-
-and finally
-
-$generators + (2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(n_{cofactors} - 1)  = \phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}}) + (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
-
-$generators = \phi(p - 1)$
-
-</p>
-
-#### Little extra found along the battles
-
-Since the 'cancellation law' [ https://github.com/xyzhyn/Fermat-Little-Theorem-proof ]:
-
-$(x)(x) \equiv (x)(1) \mod p$<br>
--><br>
-$x \equiv 1 \mod p$
-
-is not possible if $x < p - 1$ and $x \neq 1$.
-
-
-  
-
-  
 </p>
