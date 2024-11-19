@@ -20,7 +20,7 @@
 </strong>
 
  Now, placing this reasoning into this context, having only coprimes of $n$ in $Z_{n}^{*}$ has sense, since the modulo operation for non-coprimes does not produce $1$ but only multiples of the co-factor(s) of $e$ and $n$, or 0. Hence we could not care about those subsets since they don't match our definition of subgroup. Now it's really important to understand that this is not always the case, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$.<br>
- Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators (of the subgroups) which are coprime with $n$. Also, for everything I just said, the set mapped by all the subgroups will be $Z_{\phi(n)}^{\ast}$, hence non-coprimes of $n$ will never appear in the subgroups. This is a direct consequence of the text in bold; if we remove $3$ from the above example (left part), $z_{187 coprime}$ will be both coprime with $3$ and $187$. Now if we imagine $z_{187 coprime} > 3 \times 187$ we can represent it as series of $3$ elements. It's clear that since it's not a multiple of $3$, after the removal operated by the modulo, we would end up having a number $< 3 \times 187$ which is coprime with both $3$ and $187$. The same reasoning goes for powers of such number.
+ Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators (of the subgroups) which are coprime with $n$. Also, for everything I just said, the set mapped by all the subgroups will be $Z_{\phi(n)}^{\ast}$, hence non-coprimes of $n$ will never appear in the subgroups. This is a direct consequence of the text in bold; if we remove $3$ from the above example (left part), $z_{187 coprime}$ will be both coprime with $3$ and $187$. Now if we imagine $z_{561 coprime} > 3 \times 187$ we can represent it as series of $3$ elements. It's clear that since it's not a multiple of $3$, after the removal operated by the modulo, we would end up having a number $< 3 \times 187$ which is coprime with both $3$ and $187$. The same reasoning goes for powers of such number.
 </p>
 
 ## Lagrange's Theorem
@@ -130,10 +130,6 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 <p>
   All multiplicative groups like $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ have particular properties. If we employ the previous structure to any of those, obtaining $Z_{\phi(4)}^{\ast}, Z_{\phi(8)}^{\ast} \dots$ we should in turn obtain subgroups of order which is at max $\phi(4), \phi(8) \dots$ (otherwise we wouldn't have generators), which in turn since $\phi(n)$ calculates the coprimes of $n$ and since $n$ is a power of $2$, we get $2, 4 \dots$. Now, this means that every time we consider multiplicative groups defined on powers of $2$ which we indicate as $2^{S}$, we should get a max order of subgroups which is $\phi(2^{S}) = 2^{S - 1}$. However this doesn't happen. The reason is a strange property of odd numbers which always produce
   
-  $\displaystyle odd^{\phi(\phi(2^{S}))} = odd^{2^{S - 2}} = n * 2 + 1$ for $n$ unknown,
-
-  i.e.
-
   $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$ 
 
   or
@@ -152,9 +148,9 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 <p>
   Since the last two sections:<br>
 
-  * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to prove it in the next section).
+  * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to 'prove' it in the next section).
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
-  * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to prove it in the next section).
+  * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to 'prove' it in the next section).
   * $Z_{\phi(n)}^{\ast}$ for $n = 2^{S}$ can't have generators (we need further research).
 
   Note that I'm actively studying while writing, hence there could be some other rules. In such case I'll update this document, but for the moment this is  complex enough so let's go over.
