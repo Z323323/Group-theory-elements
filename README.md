@@ -163,107 +163,90 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 ### Proof of generators theorem
 
 <p>
-  Every element of the starting set $Z_{\phi(n)}^{\ast}$ represents a generator for its subgroup. Note that writing multiplicative groups using this form can be more intuitive, because we immediately spot that the number of subgroups is $\phi(n)$, and this works for both primes and non-primes. The $2^{S}$ exception only regards generators, but the number of subgroups of $Z_{2^{S}}^{\ast}$ is still $\phi(2^{S})$. The generators of $Z_{\phi(n)}^{\ast}$ are the subgroups which order divides $\phi(n)$ and produce $1$; all the others will be non-generators, hence the solution is the number of subgroups which satisfy this equation:
+  Consider
 
-  $\displaystyle \frac{\phi(n)}{o(subgroup)} = 1$
+  $a^{\phi(n)} \equiv 1 \mod n$
+
+  This congruence has $\phi(n)$ distinct solutions, and
+
+  $a^{1} \equiv 1 \mod n$
+
+  has only $1$ solution which is $1$. Now consider
+
+  $a^{2} \equiv 1 \mod n$
+
+  This congruence has only $2$ solutions which are $1$ and $-1$. Indeed $1$ and $-1$ can't be generators since they 'produce' $1$ before $\phi(n)$. Iterating this reasoning for every degree which we know will 'produce' $1$ 
+  before $\phi(n)$ will allow us to remove all the non-generators from $\phi(n)$ that is, finding the number of generators after a 'simple' difference with $\phi(n)$. This is because there's a direct corrispondence between the number of 
+  subgroups and the degrees (solutions) of such congruences. <br>
   
-  The immediate conclusion could be that there only exists $1$ generator for $Z_{\phi(n)}^{\ast}$ but it's not correct. This is not intuitive at all.
-  It turns out that we need to use a tactic similar to the 'left cosets' concept, to find the number of non-generators first:
+  Now, $\phi(n)$, for any $n$, must be of the form
 
-  $\displaystyle \frac{\phi(n)}{o(subgroup)} \neq 1$
+  $\phi(n) = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$
 
-  Since the Lagrange's Theorem (see how important it is) we know that every subgroup's order divides $\phi(n)$, hence the number of subgroups which satisfy the above inequality are the ones which divide it more than once. Now since every number (except for primes) can be represented as powers of primes multiplied:
+  It's not possible to have a prime number as $\phi(n)$ because the calculation made to get it always expect the difference between a power of a prime number (or multiplication of them) minus the same power of degree $-1$, hence there 
+  always is a prime multiplication involved (or a prime number minus $1$, which is never a prime except for $2$ and $3$, which are trivial cases).<br>
 
-  $n = p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$
+  We know by the **cyclicness** of subgroups and by Lagrange's Theorem that there will exist:
 
-  the number of non-generators will exactly be
+  $a^{k(p_{1})} \equiv 1 \mod n$<br>
+  $b^{k(p_{2})} \equiv 1 \mod n$<br>
+  $\dots^{\dots} \equiv 1 \mod n$<br>
+  $z^{k(p_{?})} \equiv 1 \mod n$
 
-  $nonGenerators = p_{1}^{k_1 - 1}p_{2}^{k_2 - 1} \dots p_{?}^{k_? - 1}$
+  Thus all the multiples of $p_{1}, p_{2}, \dots, p_{?}$ won't be solutions of our problem.<br>
+  Let $m(p)$ be the function which represent every multiple of a number $< p^k$. We can say that for ex.
 
-  Yes, this one is hard to figure out, and it's not even over. To get the former think about this: you have $p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$ numbers, which generate only numbers (the order of the subgroups) which are multiples of $p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$, from all these, how many divide such number more than once?<br>
-$->$<br>
-"How many divisors of $p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$ divide it more than once?" is the same as saying how many multiples of $x$ such that $x$ do not reach $p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$ are there? Since $x$ must divide $\phi(n)$ and $\phi(n) = p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}$, the multiples we are talking about are the multiples of $p_{?}^{k_?}p_{1}p_{2} \dots p_{?}$, and there are $p_{1}^{k_1 - 1}p_{2}^{k_2 - 1} \dots p_{?}^{k_? - 1}$ of those.
-Hence the number of non generators is $p_{1}^{k_1 - 1}p_{2}^{k_2 - 1} \dots p_{?}^{k_? - 1}$ and the number of generators must be:
+  $a^{m(p_{1})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}} \equiv 1 \mod n$
 
-$p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?} - p_{1}^{k_1 - 1}p_{2}^{k_2 - 1} \dots p_{?}^{k_? - 1} = \phi(\phi(n))$ 
+  Since the multiples of any $p^{k}$ are $p^{k - 1}$, we can say that for each co-factor of $\phi(n)$ there will be $p^{k - 1}$ to remove. And since all these will be multiplied by the others before reaching $\phi(n)$ (i.e. these 
+  solutions must not reach $\phi(n)$ since we are only removing from $0 < n < \phi(n)$ interval):
 
-This is one hell of mess, look the below proof.
+  $p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$
 
-$\displaystyle x = \frac{p_{1}^{k_1}p_{2}^{k_2} \dots p_{?}^{k_?}}{p_{1}p_{2} \dots p_{?}}$
-</p>
+  numbers can't be our solution. And this is the same for all the other co-factors, thus:
 
-## Generators theorem for $Z_{p}^{*}$
-
-<p>
-  Let $Z_{p}^{*}$ be a multiplicative group with $p$ prime, then the number of generators of $Z_{p}^{*}$ is $\phi(p - 1)$.<br>
-  <br>
-  As I already mentioned in the second-black-hole-section the number of generators of $Z_{n}^{*}$ is $\phi(n)$, but I'm not delving it for the moment, since everything I wrote in that section.
-</p>
-
-### Proof of generators theorem for $Z_{p}^{*}$
-
-<p>
-From the former proofs, we know that since every $z$ which divides $\phi(p) = p - 1$ is not a generator [ since they form subgroups of order $o < \phi(p)$ by the corollary, hence not the whole $Z_{p}^{\ast})$ ], then it must be that all the coprimes of $p - 1$ are generators, because by the Euler's Theorem they produce $G^{\phi(p)} \equiv 1 \mod p$ and by the reasoning made in the first section . This is enough actually to state that the number of generators are $\phi(p - 1)$ for $Z_{p}^{\ast}$ and $\phi(n)$ for $Z_{n}^{\ast}$, but if you want to follow the calculation:
-
-$\displaystyle \frac{2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}}{2 / q_{1} / q_{2} / \dots / q_{?}}$
-
-Where "/" = "either or", produces:
-
-$2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?} - 1} \dots q_{?}^{k_{?}}$ or $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?} - 1}$
+  $p_{1}^{k_{1}}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?}}$<br>
+  $\dots$<br>
+  $p_{1}^{k_{1}}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1}$
 
 All these are $nonGenerators$ calculated factor-by-factor, now to get the number of $generators$, we will need to consider each one of the former solutions, thus:<br>
-[ https://github.com/xyzhyn/Totient-extension-to-non-primes ]
+[ https://github.com/Z323323/Totient-extension-to-non-primes ]
 
 [ $(x \cdot a) - (x \cdot b) = x(a - b)$ ]
 
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} = \phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
+$p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} = \phi(p_{1}^{k_{1}})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$<br>
 or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?} - 1}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} = 2^{S}\phi(q_{1}^{k_{?}})q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{? - 1}} \dots q_{?}^{k_{?}} = 2^{S}q_{1}^{k_{?}}\phi(q_{2}^{k_{?}}) \dots q_{?}^{k_{?}}$<br>
+$p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1}}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?}} = p_{1}^{k_{1}}\phi(p_{2}^{k_{2}}) \dots p_{?}^{k_{?}}$<br>
 $\dots$<br>
 or<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}} - 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{? - 1}} = 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots \phi(q_{?}^{k_{?}})$<br>
+$p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?} - 1} = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots \phi(p_{?}^{k_{?}})$<br>
 
-Now keep in mind that operating these subtractions we are actually considering $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, $n_{cofactors} - 1$ more times than we should (i.e. we should subtract all of $- 2^{S - 1}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, etc. from $2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$ only $1$ time, not $n_{cofactors}$ times, but since this is required to solve this theorem, what we are effectively finding is the number of generators $+ 2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$, multiplied $n_{cofactors} - 1$ times). Now we need to get a sum of all these terms in order to find the $generators$, hence these: 
+Now keep in mind that operating these subtractions we are actually considering $p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$, $n_{cofactors} - 1$ more times than we should (i.e. we should subtract all of $p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$, etc. from $p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$ only $1$ time, not $n_{cofactors}$ times, but since this is required to solve this theorem, what we are effectively finding is the number of generators $+ p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$, multiplied $n_{cofactors} - 1$ times). Now we need to get a sum of all these terms in order to find the $generators$, hence these: 
 
-$\phi(2^{S})q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-$2^{S}\phi(q_{1}^{k_{?}})q_{2}^{k_{?}} \dots q_{?}^{k_{?}}$<br>
-$2^{S}q_{1}^{k_{?}}\phi(q_{2}^{k_{?}}) \dots q_{?}^{k_{?}}$<br>
+$\phi(p_{1}^{k_{1}})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$<br>
+$p_{1}^{k_{1}}\phi(p_{2}^{k_{2}}) \dots p_{?}^{k_{?}}$<br>
 $\dots$<br>
-$2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots \phi(q_{?}^{k_{?}})$<br>
+$p_{1}^{k_{1}}p_{2}^{k_{2}} \dots \phi(p_{?}^{k_{?}})$<br>
 
 equal
 
-$\phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}}) + (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
+$\phi(p_{1}^{k_{1}})\phi(p_{2}^{k_{2}}) \dots \phi(p_{?}^{k_{?}}) + (n_{cofactors} - 1)(p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}})$
 
 and finally
 
-$generators + (2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})(n_{cofactors} - 1)  = \phi(2^{S})\phi(q_{1}^{k_{?}})\phi(q_{2}^{k_{?}}) \dots \phi(q_{?}^{k_{?}}) + (n_{cofactors} - 1)(2^{S}q_{1}^{k_{?}}q_{2}^{k_{?}} \dots q_{?}^{k_{?}})$
+$generators + (p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}})(n_{cofactors} - 1)  = \phi(p_{1}^{k_{1}})\phi(p_{2}^{k_{2}}) \dots \phi(p_{?}^{k_{?}}) + (n_{cofactors} - 1)(p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}})$
+
+$generators = \phi(\phi(n))$
+
+And for $\phi(p)$ where $p$ is a prime number we would get [ since $\phi(p) = p - 1$ ]:
 
 $generators = \phi(p - 1)$
 
-</p>
-
-#### Little extra found along the battles
-
-<p>
-
-Since the 'cancellation law' [ https://github.com/xyzhyn/Fermat-Little-Theorem-proof ]:
-
-$(x)(x) \equiv (x)(1) \mod p$<br>
--><br>
-$x \equiv 1 \mod p$
-
-is not possible if $x < p - 1$ and $x \neq 1$.
+There are many other things to get into consideration. Actually I don't even think this is a real proof, but I don't think that [ https://crypto.stanford.edu/pbc/notes/numbertheory/gen.html ] is a real proof either. After some really bad times fighting with this theorem, I think that $generators = \phi(\phi(n))$ is just a property of numbers which should not be proved. Also, the number of $nonGenerators$ which I used along the 'proof' is not the correct one, since it's calculated factor by factor ;). Math over a certain point should be taken for what it is, rules. I'm not going to accept rules without a meaning, but you know, perhaps I'm going to accept god's rules.
 
 </p>
 
-## $Z_{561}^{\ast}, Z_{8}^{\ast}, Z_{9}^{\ast}$
-
-<p>
-  We know that the number of $generators$ is the number of coprimes of $Z_{561}^{\ast}$. If we do a fast math we get $\phi(561) = 192$. Now, from the previous reasoning, the generators for this group were the generators of $Z_{3}^{\ast} \times Z_{11}^{\ast} \times Z_{17}^{\ast}$ so how is it possible that this number is so high? The generators for any group $Z_{p}^{\ast}$ with $p$ prime are $\phi(p - 1)$ (we are going to prove this fact later), hence by the multiplicativity of the Totient function we will just need to calc. a quick multiplication to find that $192$ is correct. Now how does this match with the CRT? If we take any of those $generators$, every combination (the multiplication of them) will produce a virtual result mapped on $Z_{561}^{\ast}$, even though $Z_{561}^{\ast}$ itself do not have any generator (yep I know). Now let's take the previous fact about any $Z_{p}^{\ast}$ having $\phi(p - 1)$ generators, and see what happens for $\phi(16)$. $16 = 2^4$ then we can't use the CRT again, but we know that it has $8$ generators, let's find them. Since $Z_{16}^{\ast}$ is quite high, let's reduce it and do the same with $Z_{8}^{\ast}$, since the reasoning is the same [ $4$ generators ].
-
+## Some prompts
 >[2,988s][~/Scrivania]$ python3 Zn.py
 >
 >Enter integer number to see every multiplicative subgroup and its order:
@@ -285,17 +268,6 @@ is not possible if $x < p - 1$ and $x \neq 1$.
 >6 ->[ 6 4 0 0 ]
 >
 >7 ->[ 7 1 7 1 ]
-
-So where the actual hell are our $4$ generators? As I told you, all of these are virtual results and somehow complex numbers are involved. But before completely going crazy, what happens if we follow the $ones$?
-
-$\phi(1) = 1$<br>
-$\phi(3) = \phi(3 - 1) = \phi(2 - 1) = 1$<br>
-$\phi(5) = \phi(5 - 1) = \phi(4) [same reasoning]-> \phi(1) = 1 * \phi(3) = \phi(3 - 1) = \phi(2) = \phi(2 - 1) = 1$<br>
-$\phi(7) = ? -> 1$<br>
-
-Sum them and you get $4$, and once you did it, take this reasoning and throw it in the garbage :'D. Do you remember the reasoning made in the previous section when I told you that some papers refer to groups like $Z_{8}^{*}$ as  $Z_{\phi(8)}^{\ast}$? Here you are why is (very likely) that. If we consider $Z_{\phi(8)}^{\ast}$ instead of $Z_{8}^{\ast}$ then the prompt result showed above is the correct representation of the generators, otherwise it's not.
-As you can see there's a lot of magic involved with prime numbers, cryptography and group theory.
-Let's try with $Z_{9}^{\ast}$.
 
 >[0,900s][~/Scrivania]$ python3 Zn.py
 >
@@ -320,30 +292,4 @@ Let's try with $Z_{9}^{\ast}$.
 >7 ->[ 7 4 1 7 4 1 ]
 >
 >8 ->[ 8 1 8 1 8 1 ]
-
-Now you can transfer the same reasoning to $Z_{561}^{\ast}$... ops, $Z_{\phi(561)}^{\ast}$ to understand why it has $\phi(561)$ generators. The really strange thing is that once we have primes co-factors we can take those and generate everything through the CRT. With $Z_{561}^{\ast}$ it was easy. But what would happen if we had a $2^{3}$ like co-factors initially? I mean, how could we exploit the CRT? My man, the only restriction imposed by the CRT is that we have coprimes co-factor, hence we would not care about generators.<br>
-Now, why are we actually getting mad with generators? For two purposes mainly: 1. to understand how theorems hold, and to understand how multiplicative groups work, and 2. because we need to understand how they work to set up unbreakable crypto systems. Here the purpose is mainly the first point, but let's widen the surface. We need to set up a crypto system (very vague I know, imagine ECDSA in Ethereum), if our group is made up of non-prime co-factors the set produced by generators (if we can actually use them to generate anything) is clearly reduced, this could be a problem (indeed elliptic curves solves this). But for the moment, let's proceed with our real goal, i.e. the previous 'first point'.<br>
-This reasoning about real-world scenarios is a set-up to say that generators are a huge variable in a crypto system, so we don't just 'look at the CRT'. Now, let's conclude this madness section. It's clear that even if mathematicians call them generators, in the $Z_{561}^{\ast}, Z_{8}^{\ast}, Z_{9}^{\ast}$ cases they clearly don't generate the whole set, hence they shouldn't be called generators, at least in the real world, but note that mathematicians are **never** wrong (indeed, they have 100% a way to explain that mathematically this concept works). If we take a prime number $p$, you will see that $Z_{p}^{*}$ contains $\phi(p - 1)$ **real** generators. When I say _real_ I mean that they actually generate the whole $Z_{p}^{\ast}$ group. In every other case (non-primes) this behaviour do not subsist. And it's not over. In the $Z_{9}^{\ast}$ example above:
-
->2 ->[ 2 4 8 7 5 1 ]
->
->5 ->[ 5 7 8 4 2 1 ]
-
-Effectively generate $Z_{\phi(9)}^{\ast}$, but not $Z_{9}^{\ast}$, while the other $4$ so-called generators do not (if taken singularly). If we take the $Z_{8}^{\ast}$ example, not even one of those so-called generators do generate $Z_{\phi(8)}^{\ast}$ (if taken singularly), hence we would end up not having a singular real generator. Note that these are my actual conclusions at this point of the research, but I could be wrong. Now let's continue with our theorems. But before continuing, this is $Z_{7}^{*}$:
-
->1 ->[ 1 1 1 1 1 1 ]
->
->2 ->[ 2 4 1 2 4 1 ]
->
->3 ->[ 3 2 6 4 5 1 ]
->
->4 ->[ 4 2 1 4 2 1 ]
->
->5 ->[ 5 4 6 2 3 1 ]
->
->6 ->[ 6 1 6 1 6 1 ]
-
-Indeed if you do $\phi(7 - 1) = \phi(6)$, we know that only $\\{1, 5\\}$ are coprimes with $6$, hence there must be only $2$ generators. Indeed $\\{3, 5\\}$ are **real** generators of the set, and everything works fine (with primes).
-
-Is anyone still here? If you are, congrats, let's proceed through the dark forest.
 </p>
