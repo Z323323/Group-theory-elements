@@ -171,7 +171,8 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   $a^{2} \equiv 1 \mod n$
 
-  This congruence has only $2$ solutions which are $1$ and $-1$. Indeed $1$ and $-1$ can't be generators since they 'produce' $1$ before $\phi(n)$. Iterating this reasoning for every degree which we know will 'produce' $1$ 
+  This congruence has only $2$ solutions which are $1$ and $-1$ [ I know that by the CRT the roots of unity of such congruence are more than $2$, but here we are actually only considering results lying into $Z_{\phi(n)^{\ast}$ ]. Indeed 
+  $1$ and $-1$ can't be generators since they 'produce' $1$ before $\phi(n)$. Iterating this reasoning for every degree which we know will 'produce' $1$ 
   before $\phi(n)$ will allow us to remove all the non-generators from $\phi(n)$ that is, finding the number of generators after a 'simple' difference with $\phi(n)$. This is because there's a direct corrispondence between the number of 
   subgroups and the degrees (solutions) of such congruences. <br>
   
