@@ -1,5 +1,7 @@
 # Group theory elements
 
+I recommend the use of Zn.py to figure out things, otherwise this document will be like reading hieroglyphs. 
+
 ## Multiplicative groups, (cyclic) subgroups and generators
 <p>
   Here I want to make a slight modification to the normal definition of subgroups in the group theory. Becuse we are totally not interested in subgroups but cyclic subgroups. Since the definition of subgroup is useless, and the definition of cyclic subgroup already assumes what the Lagrange's Theorem proves (and we need to prove it), I'm going to set the definition of subgroups as the normal definition of cyclic subgroup but without the assumption of cyclicness.<br>
