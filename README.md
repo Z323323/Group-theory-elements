@@ -134,43 +134,25 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   
   $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$ 
 
-  or
-
-  $\displaystyle odd^{\phi(\phi(2^{S}))} \equiv 1 \mod 2^{S}$ 
-
-  or
-
-  $\displaystyle odd^{\phi(2^{S - 1})} \equiv 1 \mod 2^{S}$
-
-  which is somehow more similar to the Euler's Theorem. To conclude: when we have $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ we always? (it should be proved) end up having the order of subgroups which is $\phi(n)$ but halved, hence all these multiplicative groups can't have generators. I'm quite sure we will face this formula again.
+  Thus when we have $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ we always? (it should be proved) end up having the order of subgroups which is $\phi(n)$ but halved, hence all these multiplicative groups can't have generators.
 </p>
 
-### $Z_{6}^{\ast}, Z_{12}^{\ast}, Z_{24}^{\ast}, Z_{48}^{\ast}, \dots$
+### $Z_{6}^{\ast}, Z_{12}^{\ast}, Z_{24}^{\ast}, Z_{48}^{\ast} \dots$
 
 <p>
   The previous section's reasoning can be extended by thinking directly at the result of $\phi(n)$. If we have any $Z_{n}^{*}$ where $n = 2^S * 3$, since $\phi$ is a multiplicative function it can be applied (co-prime-)factor by factor, producing in the cases which we are discussing:
 
   $\phi(2^S)\phi(3) = 2^{S-1} * 2 = Z_{2^S}^{*}$
 
-  hence all these groups can't have generators. Now, let's make the same reasoning for $Z_{n}^{*}$ where $n = 2^S * 5$. Since $\phi(5) = 4$ we should end up having the same result isn't it? No ahah.<br>
+  hence all these groups can't have generators. Now, let's make the same reasoning for $Z_{n}^{*}$ where $n = 2^S * 5$.
 
   $\phi(2^S)\phi(5) = 2^{S-1} * 4 = Z_{2^{S + 1}}^{*}$
 
-  Since the rule found in the previous section is 
+  Thus for all cases where
 
-  $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$
+  $n \neq \phi(2^S)\phi(3)$
 
-  it won't reapply to $2^{S + 1}$, indeed $Z_{\phi(2^S)\phi(5)}^{*}$ like groups **seem** to have generators.<br>
-  Now, let's take $Z_{\phi(10)}^{\ast}$.
-
-  $\phi(10) = \phi(2)\phi(5) = 1*4 = 4 = Z_{2^S}^{\ast}?$
-
-  This should behave like $Z_{4}^{\ast}$ not having any generator. Well it's wrong, $Z_{\phi(10)}^{*}$ has generators.<br>
-  Indeed if we take $Z_{\phi(12)}^{\ast}$
-
-  $\phi(12) = \phi(2^2)\phi(3) = 4$
-
-  hence this should behave like $Z_{\phi(10)}^{\ast}$ but it doesn't. The rule I can evince here is that when we have $\phi(2^S)$, we either match $S$ or the rule $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$ won't work. Indeed into $Z_{\phi(12)}^{\ast}$, $\phi(2^2)\phi(3) = 4$ matches the power of $2$, while into $\phi(2)\phi(5) = 1*4 = 4 = Z_{2^S}^{\ast}?$ the power of $2$ isn't matched, since it's $2^1$, while we end up having $4 = Z_{2^{S + 1}}^{\ast}$.
+  we should have generators.
 </p>
 
 ### Refinition of the reasoning before the proof
@@ -234,7 +216,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   $p_{1}^{k_{1}}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?}}$<br>
   $\dots$<br>
-  $p_{1}^{k_{1}}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1}$
+  $p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?} - 1}$
 
 All these are $nonGenerators$ calculated factor-by-factor, now to get the number of $generators$, we will need to consider each one of the former solutions, thus:<br>
 [ https://github.com/Z323323/Totient-extension-to-non-primes ]
@@ -268,9 +250,6 @@ $generators = \phi(\phi(n))$
 And for $\phi(p)$ where $p$ is a prime number we would get [ since $\phi(p) = p - 1$ ]:
 
 $generators = \phi(p - 1)$
-
-There are many other things to get into consideration. Actually I don't even think this is a real proof, but I don't think that [ https://crypto.stanford.edu/pbc/notes/numbertheory/gen.html ] is a real proof either. After some really bad times fighting with this theorem, I think that $generators = \phi(\phi(n))$ is just a property of numbers which should not be proved. Also, the number of $nonGenerators$ which I used along the 'proof' is not the correct one, since it's calculated factor by factor ;). Math over a certain point should be taken for what it is, rules. I'm not going to accept rules without a meaning, but you know, perhaps I'm going to accept god's rules.
-
 </p>
 
 ## Some prompts
