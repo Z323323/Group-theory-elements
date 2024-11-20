@@ -137,24 +137,6 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   Thus when we have $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ we always? (it should be proved) end up having the order of subgroups which is $\phi(n)$ but halved, hence all these multiplicative groups can't have generators.
 </p>
 
-### $Z_{6}^{\ast}, Z_{12}^{\ast}, Z_{24}^{\ast}, Z_{48}^{\ast} \dots$
-
-<p>
-  The previous section's reasoning can be extended by thinking directly at the result of $\phi(n)$. If we have any $Z_{n}^{*}$ where $n = 2^S * 3$, since $\phi$ is a multiplicative function it can be applied (co-prime-)factor by factor, producing in the cases which we are discussing:
-
-  $\phi(2^S)\phi(3) = 2^{S-1} * 2 = Z_{2^S}^{*}$
-
-  hence all these groups can't have generators. Now, let's make the same reasoning for $Z_{n}^{*}$ where $n = 2^S * 5$.
-
-  $\phi(2^S)\phi(5) = 2^{S-1} * 4 = Z_{2^{S + 1}}^{*}$
-
-  Thus for all cases where
-
-  $n \neq \phi(2^S)\phi(3)$
-
-  we should have generators.
-</p>
-
 ### Refinition of the reasoning before the proof
 
 <p>
@@ -163,7 +145,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to 'prove' it in the next section).
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to 'prove' it in the next section).
-  * $Z_{\phi(n)}^{\ast}$ for $\phi(n) = 2^{S}$ can't have generators (we need further research).
+  * $Z_{\phi(n)}^{\ast}$ where $n$ is composed by co-factors where $2^S$ exists and $S >$ all other degrees, probably can't have generators.
 
   Note that I'm actively studying while writing, hence there could be some other rules. In such case I'll update this document, but for the moment this is  complex enough so let's go over.
 </p>
