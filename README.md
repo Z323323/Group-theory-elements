@@ -140,18 +140,46 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   $\displaystyle odd^{\phi(2^{S - 1})} \equiv 1 \mod 2^{S}$
 
-  which is somehow more similar to the Euler's Theorem. To conclude: when we have $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ we always? (it should be proved) end up having the order of subgroups which is $\phi(n)$ but halved, hence all these multiplicative groups can't have generators. I'm quite sure we will face this formula in the next article about quadratic residues.
+  which is somehow more similar to the Euler's Theorem. To conclude: when we have $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ we always? (it should be proved) end up having the order of subgroups which is $\phi(n)$ but halved, hence all these multiplicative groups can't have generators. I'm quite sure we will face this formula again.
+</p>
+
+### $Z_{6}^{\ast}, Z_{12}^{\ast}, Z_{24}^{\ast}, Z_{48}^{\ast}, \dots$
+
+<p>
+  The previous section's reasoning can be extended by thinking directly at the result of $\phi(n)$. If we have any $Z_{n}^{*}$ where $n = 2^S * 3$, since $\phi$ is a multiplicative function it can be applied (co-prime-)factor by factor, producing in the cases which we are discussing:
+
+  $\phi(2^S)\phi(3) = 2^{S-1} * 2 = Z_{2^S}^{*}$
+
+  hence all these groups can't have generators. Now, let's make the same reasoning for $Z_{n}^{*}$ where $n = 2^S * 5$. Since $\phi(5) = 4$ we should end up having the same result isn't it? No ahah.<br>
+
+  $\phi(2^S)\phi(5) = 2^{S-1} * 4 = Z_{2^{S + 1}}^{*}$
+
+  Since the rule found in the previous section is 
+
+  $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$
+
+  it won't reapply to $2^{S + 1}$, indeed $Z_{\phi(2^S)\phi(5)}^{*}$ like groups **seem** to have generators.<br>
+  Now, let's take $Z_{\phi(10)}^{\ast}$.
+
+  $\phi(10) = \phi(2)\phi(5) = 1*4 = 4 = Z_{2^S}^{\ast}?$
+
+  This should behave like $Z_{4}^{\ast}$ not having any generator. Well it's wrong, $Z_{\phi(10)}^{*}$ has generators.<br>
+  Indeed if we take $Z_{\phi(12)}^{\ast}$
+
+  $\phi(12) = \phi(2^2)\phi(3) = 4$
+
+  hence this should behave like $Z_{\phi(10)}^{\ast}$ but it doesn't. The rule I can evince here is that when we have $\phi(2^S)$, we either match $S$ or the rule $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$ won't work. Indeed into $Z_{\phi(12)}^{\ast}$, $\phi(2^2)\phi(3) = 4$ matches the power of $2$, while into $\phi(2)\phi(5) = 1*4 = 4 = Z_{2^S}^{\ast}?$ the power of $2$ isn't matched, since it's $2^1$, while we end up having $4 = Z_{2^{S + 1}}^{\ast}$.
 </p>
 
 ### Refinition of the reasoning before the proof
 
 <p>
-  Since the last two sections:<br>
+  Since the last three sections:<br>
 
   * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to 'prove' it in the next section).
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to 'prove' it in the next section).
-  * $Z_{\phi(n)}^{\ast}$ for $n = 2^{S}$ can't have generators (we need further research).
+  * $Z_{\phi(n)}^{\ast}$ for $\phi(n) = 2^{S}$ can't have generators (we need further research).
 
   Note that I'm actively studying while writing, hence there could be some other rules. In such case I'll update this document, but for the moment this is  complex enough so let's go over.
 </p>
