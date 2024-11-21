@@ -214,9 +214,8 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   $p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?} - 1}$
 
 All these are $nonGenerators$ calculated factor-by-factor, now to get the number of $generators$, we will need to consider each one of the former solutions, thus:<br>
-[https://github.com/Z323323/Totient-extension-to-non-primes]
-
-[ $(x \cdot a) - (x \cdot b) = x(a - b)$ ]
+[https://github.com/Z323323/Totient-extension-to-non-primes]<br>
+$[(x \cdot a) - (x \cdot b) = x(a - b)]$
 
 $p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} = \phi(p_{1}^{k_{1}})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$<br>
 or<br>
