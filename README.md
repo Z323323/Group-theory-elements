@@ -1,6 +1,6 @@
 # Group theory elements
 
-I recommend the use of Zn.py to figure out things, otherwise this document will be like reading hieroglyphs. 
+I recommend the use of Zn.py to figure out things.
 
 ## Multiplicative groups, (cyclic) subgroups and generators
 <p>
