@@ -145,7 +145,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to 'prove' it in the next section).
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to 'prove' it in the next section).
-  * $Z_{\phi(n)}^{\ast}$ where $n$ is composed by co-factors where $2^S$ exists and $S >$ all other degrees, probably can't have generators.
+  * $Z_{\phi(n)}^{\ast}$ where $n$ is composed by co-factors where $2^S$ exists and $S \geq$ all other degrees, probably can't have generators.
 
   Note that I'm actively studying while writing, hence there could be some other rules. In such case I'll update this document, but for the moment this is  complex enough so let's go over.
 </p>
@@ -232,6 +232,13 @@ $generators = \phi(\phi(n))$
 And for $\phi(p)$ where $p$ is a prime number we would get [ since $\phi(p) = p - 1$ ]:
 
 $generators = \phi(p - 1)$
+
+Now
+
+$nonGenerators = \phi(n) - \phi(\phi(n)) = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} + p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1} = p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1}$<br>
+$nonGenerators = \phi(n) - \phi(\phi(n))$
+
+It's really interesting how we can't imply basically anything (using this construction) about $n$; indeed we never care about $n$ when we talk about generators, since $Z_{n}^{*}$ can't have generators.
 </p>
 
 ## Some prompts
