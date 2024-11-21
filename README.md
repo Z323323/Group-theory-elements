@@ -135,6 +135,8 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$ 
 
   Thus when we have $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ we always? (it should be proved) end up having the order of subgroups which is $\phi(n)$ but halved, hence all these multiplicative groups can't have generators.
+  It turns out that the general rule is more complex, and I'll write something about it when I will be sure about it / when I'll have a proof. For the moment what it seems to me is that $Z_{\phi(n)}^{\ast}$ where $n$ is composed by co- 
+  factors where $2^S$ exists and $S \geq$ all other degrees, probably can't have generators. Obviously this is always the case into $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$, since $2$ is the only factor.
 </p>
 
 ### Refinition of the reasoning before the proof
