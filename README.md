@@ -94,17 +94,25 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   $\displaystyle o = \frac{\phi(n)}{d}$
 
-  for some $d$.
+  for some $d$ which divides $n$.
   
   By the corollary of Euler's Theorem, for any $a$ which is coprime with $n$
 
   $a^{k(\phi(n))} \equiv 1 \mod n$
 
-  therefore
+  We can make a slight modification to the **rearrangement property** and state that $a^{k}$, $k \in Q$ where $Q$ is the set of rational numbers, is still coprime with $n$ since if $a$ is coprime with $n$; $\sqrt{a}, \sqrt[3]{a}, \dots$ will be still coprime with $n$. Thus applying the **cancellation law** we would end up having:
 
-  $\displaystyle a^{k\frac{\phi(n)}{d}} \equiv 1 \mod n$
+  $\displaystyle a^{\frac{1}{k}(\phi(n))} \equiv 1 \mod n$
 
-  with $k = d$, is exactly the Euler's Theorem, while setting $k = 2d, 3d, \dots$ proves the cyclicness of the subgroups towards $\infty$ (it coincides with the corollary).
+  Now, considering the order $o$ of any subgroup, this will fall into this corollary, since $\displaystyle \frac{1}{k}\frac{\phi(n)}{d} \in Q$:
+
+  $\displaystyle a^{\frac{1}{k}\frac{\phi(n)}{d}} \equiv 1 \mod n$
+
+  Now, considering 
+  
+  $\displaystyle k = \frac{1}{2}, \frac{1}{3}, \dots, \frac{1}{\frac{\phi(n)}{d}}$
+  
+  for all the cases where $k < 1$, or $k = d$ which is exactly the Euler's Theorem, or $k = 2d, 3d, \dots$ (which is another corollary case), proves the cyclicness of the subgroups towards $\infty$.
   Now we can proceed to prove that every element is cyclic, not only the $1s$. By the corollary of the Euler's theorem:
 
   $a^{k(\phi(n)) + 1} \equiv a \mod n$
