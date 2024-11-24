@@ -100,19 +100,19 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   $a^{k(\phi(n))} \equiv 1 \mod n$
 
-  We can make a slight modification to the **rearrangement property** and state that $a^{k}$, $k \in Q$ where $Q$ is the set of rational numbers, is still coprime with $n$ since if $a$ is coprime with $n$; $\sqrt{a}, \sqrt[3]{a}, \dots$ will be still coprime with $n$. Thus applying the **cancellation law** we would end up having:
+  We can make a slight modification to the **rearrangement property** and state that $a^{k}$, $k \in Q$ where $Q$ is the set of rational numbers, is still coprime with $n$ since if $a$ is coprime with $n$; $\sqrt{a}, \sqrt[3]{a}, \sqrt[\frac{3}{2}]{a} \dots$ will be still coprime with $n$. Thus applying the **cancellation law** we would end up having:
 
-  $\displaystyle a^{\frac{1}{k}(\phi(n))} \equiv 1 \mod n$
+  $\displaystyle a^{k(\phi(n))} \equiv 1 \mod n, k \in Q$
 
-  Now, considering the order $o$ of any subgroup, this will fall into this corollary, since $\displaystyle \frac{1}{k}\frac{\phi(n)}{d} \in Q$:
+  Now, considering the order $o$ of any subgroup, this will fall into this corollary:
 
-  $\displaystyle a^{\frac{1}{k}\frac{\phi(n)}{d}} \equiv 1 \mod n$
+  $\displaystyle a^{k(\frac{\phi(n)}{d})} \equiv 1 \mod n$
 
   Now, considering 
   
-  $\displaystyle k = \frac{1}{2}, \frac{1}{3}, \dots, \frac{1}{\frac{\phi(n)}{d}}$
+  $\displaystyle k = \frac{1}{2}, \frac{1}{3}, \dots, \frac{1}{\frac{\phi(n)}{d}}, \dots \frac{2}{\frac{\phi(n)}{d}}, \dots$
   
-  for all the cases where $k < 1$, or $k = d$ which is exactly the Euler's Theorem, or $k = 2d, 3d, \dots$ (which is another corollary case), proves the cyclicness of the subgroups towards $\infty$.
+  proves the cyclicness of the subgroups towards $\infty$.
   Now we can proceed to prove that every element is cyclic, not only the $1s$. By the corollary of the Euler's theorem:
 
   $a^{k(\phi(n)) + 1} \equiv a \mod n$
@@ -146,17 +146,11 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   hence $Z_{p}^{*}$ can have generators, without the need of any transformation.
 </p>
 
-### Clarifications about $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$
+### Clarifications about $Z_{\phi(8)}^{\ast}, Z_{\phi(12)}^{\ast}, \dots$
 
 <p>
-  All multiplicative groups like $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ have particular properties. If we employ the previous structure to any of those, obtaining $Z_{\phi(4)}^{\ast}, Z_{\phi(8)}^{\ast} \dots$ we should in turn obtain subgroups of order which is at max $\phi(4), \phi(8) \dots$ (otherwise we wouldn't have generators), which in turn since $\phi(n)$ calculates the coprimes of $n$ and since $n$ is a power of $2$, we get $2, 4 \dots$. Now, this means that every time we consider multiplicative groups defined on powers of $2$ which we indicate as $2^{S}$, we should get a max order of subgroups which is $\phi(2^{S}) = 2^{S - 1}$. However this doesn't happen. The reason is a strange property of odd numbers which always produce
-  
-  $\displaystyle odd^{2^{S - 2}} \equiv 1 \mod 2^{S}$ 
-
-  Thus when we have $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$ we always? (it should be proved) end up having the order of subgroups which is $\phi(n)$ but halved, hence all these multiplicative groups can't have generators.
-  It turns out that the general rule is more complex, and I'll write something about it when I will be sure about it / when I'll have a proof. For the moment what it seems to me is that $Z_{\phi(n)}^{\ast}$ where $n$ is composed by co- 
-  factors where $2^S$ exists and $S \geq$ all other degrees, probably can't have generators. Obviously this is always the case into $Z_{4}^{\ast}, Z_{8}^{\ast} \dots$, since $2$ is the only factor.
-</p>
+  [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].<br>
+</p> 
 
 ### Refinition of the reasoning before the proof
 
@@ -166,7 +160,6 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to 'prove' it in the next section).
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to 'prove' it in the next section).
-  * $Z_{\phi(n)}^{\ast}$ where $n$ is composed by co-factors where $2^S$ exists and $S \geq$ all other degrees, probably can't have generators.
 
   Note that I'm actively studying while writing, hence there could be some other rules. In such case I'll update this document, but for the moment this is  complex enough so let's go over.
 </p>
