@@ -146,10 +146,41 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   hence $Z_{p}^{*}$ can have generators, without the need of any transformation.
 </p>
 
-### Clarifications about $Z_{\phi(8)}^{\ast}, Z_{\phi(12)}^{\ast}, \dots$
+### Clarifications about $Z_{\phi(2)}^{\ast}, Z_{\phi(4)}^{\ast}, Z_{\phi(8)}^{\ast} \dots$
 
 <p>
-  [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].<br>
+  $Z_{\phi(2)}^{\ast}$ clearly has a generator, since $1$ generates $Z_{\phi(2)}^{\ast}$. $Z_{\phi(4)}^{\ast}$ also has a generator, since we only need $1, 3$ to generate it, and $3$ is clearly a generator. Now a fast check enables us to see that $Z_{\phi(8)}^{\ast} \dots$ instead do not have generators. I'm currently trying to prove that after $Z_{\phi(8)}^{\ast}$ (included) for any $a \in Z_{\phi(2^t)}^{\ast}$ 
+
+  $a^{2^{t - 2}} \equiv 1 \mod 2^t$
+
+  You can find everything at [https://math.stackexchange.com/questions/5003122/how-to-prove-the-behaviour-of-units-under-exponentiation-modulo-power-of-2-by-in?noredirect=1#comment10725303_5003122].<br>
+  It's clear that, since everything I wrote at stackexchange, all those multiplicative groups can't have generators. This is actually provable also, as Ben Lynn does, saying that if a generator would exist for such groups, such generators should generate $Z_{8}^{\ast}$ because $8|\phi(2^t), t \geq 3$ (i.e. the remainder always maps different results in $Z_{8}^{\ast}$ since $a$ is always $\geq 2^t$ [look the link], and since the order of such groups always double the preceding power of $2$), but they can't because $Z_{8}^{\ast}$ doesn't have generators, and therefore they don't have generators (but the proof of the formula above is better).<br>
+
+  This whole reasoning should be extended for any $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^t, t \geq 3$. For example
+
+  $Z_{\phi(12)}^{*} \mapsto \phi(12) = \phi(3)\phi(2^2) = 2\ast\phi(2^2) = \phi(2^3)$<br>
+
+  Anyways this last result is just an intuition and for the moment such behaviour is not proved.
+</p>
+
+### Generators for $Z_{\phi(p^2)}^{*}$
+
+<p>
+  This section is part of [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].<br>
+
+  Into this section I'm going to try to further explain this linked chapter. Note that generators are really a complex subject, so forgive me if I may introduce some errors.
+
+  First we notice that
+
+  $\phi(p^2) = p^2 - p = p(p - 1)$
+
+  Now, by Lagrange the order of subgroups must divide $p(p - 1)$, thus they either divide $p - 1$ or $p(p - 1)$. This is because if a subgroup's order would divide $p$, by the cyclicness of subgroups it would produce $1$ at $p^2$ which is a contradiction because we have $p^2$ as modulo.<br>
+  Recalling that the **rearrangement property** works for any (odd) prime power (it works for $2$ powers too, but as we just seen they can't have generators, so we erase $2$ from the reasoning for the moment) considering $\phi(p^k)$ elements, this means that $p - 1$ order subgroups must produce $Z_{p}^{*}$. To get this consider a generator for $Z_{\phi(p^2)}^{\ast}$; it's clear that it will 'produce' different remainders until getting its order (by the rearrangement every remainder will be different), hence if we consider the same generator $\mod p$ instead, it's also clear that it will produce $Z_{p}^{\ast}$ at 
+
+  $g^{p - 1} \equiv 1 \mod p$
+
+This means that there will necessary be $p$ subgroups of order $p - 1$ which are not generators, and $\phi(p^2) - p = p^2 - p - p$ generators. Now we can notice that our $p$ $(p - 1)s$ are the only non-coprimes of $\phi(p^2) = p(p - 1)$, thus there must be that $\phi(p^2) - p = p^2 - p - p = \phi(\phi(p^2))$.
+  
 </p> 
 
 ### Refinition of the reasoning before the proof
