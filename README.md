@@ -83,7 +83,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   which still divides $\phi(n)$ therefore proving the theorem.<br>
   <br>
-  Papers normally refer to $Ha, Hb, \dots H_{\phi(n)}$ as the left cosets. This proof proves the importance of such concept besides the theorem, since as I already mentioned, this theorem allows to prove the cyclicness (next section), which believe me, it would be one hell of a ride to prove without this theorem.
+  Papers normally refer to $Ha, Hb, \dots H_{\phi(n)}$ as the left cosets. This proof proves the importance of such concept besides the theorem, since as I already mentioned, this theorem allows to prove the cyclicness (next section), which believe me, it would be one hell of a ride to prove without this theorem. Also this theorem proves that any subgroup's element are **distinct** which is non-trivial at all. I could repeat myself but this theorem is simply too much powerful.
   
 </p>
 
@@ -149,12 +149,9 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 ### Clarifications about $Z_{\phi(2)}^{\ast}, Z_{\phi(4)}^{\ast}, Z_{\phi(8)}^{\ast} \dots$
 
 <p>
-  $Z_{\phi(2)}^{\ast}$ clearly has a generator, since $1$ generates $Z_{\phi(2)}^{\ast}$. $Z_{\phi(4)}^{\ast}$ also has a generator, since we only need $1, 3$ to generate it, and $3$ is clearly a generator. Now a fast check enables us to see that $Z_{\phi(8)}^{\ast} \dots$ instead do not have generators. I'm currently trying to prove that after $Z_{\phi(8)}^{\ast}$ (included) for any $a \in Z_{\phi(2^t)}^{\ast}$ 
+  Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].
 
-  $a^{2^{t - 2}} \equiv 1 \mod 2^t$
-
-  You can find everything at [https://math.stackexchange.com/questions/5003122/how-to-prove-the-behaviour-of-units-under-exponentiation-modulo-power-of-2-by-in?noredirect=1#comment10725303_5003122].<br>
-  It's clear that, since everything I wrote at stackexchange, all those multiplicative groups can't have generators. This is actually provable also, as Ben Lynn does, saying that if a generator would exist for such groups, such generators should generate $Z_{8}^{\ast}$ because $8|\phi(2^t), t \geq 3$ (i.e. the remainder always maps different results in $Z_{8}^{\ast}$ since $a$ is always $\geq 2^t$ [look the link], and since the order of such groups always double the preceding power of $2$), but they can't because $Z_{8}^{\ast}$ doesn't have generators, and therefore they don't have generators (but the proof of the formula above is better).<br>
+  Any group of the form $Z_{\phi(2^t)}^{*}$ where $t \geq 3$ will not have generators. This can be proved by induction but I'm not taking this challenge to the end (excuse me Ben).
 
   This whole reasoning should be extended for any $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^t, t \geq 3$. For example
 
@@ -162,26 +159,6 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   Anyways this last result is just an intuition and for the moment such behaviour is not proved.
 </p>
-
-### Generators for $Z_{\phi(p^2)}^{*}$
-
-<p>
-  This section is part of [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].<br>
-
-  Into this section I'm going to try to further explain this linked chapter. Note that generators are really a complex subject, so forgive me if I may introduce some errors.
-
-  First we notice that
-
-  $\phi(p^2) = p^2 - p = p(p - 1)$
-
-  Now, by Lagrange the order of subgroups must divide $p(p - 1)$, thus they either divide $p - 1$ or $p(p - 1)$. This is because if a subgroup's order would divide $p$, by the cyclicness of subgroups it would produce $1$ at $p^2$ which is a contradiction because we have $p^2$ as modulo.<br>
-  Recalling that the **rearrangement property** works for any (odd) prime power (it works for $2$ powers too, but as we just seen they can't have generators, so we erase $2$ from the reasoning for the moment) considering $\phi(p^k)$ elements, this means that $p - 1$ order subgroups must produce $Z_{p}^{*}$. To get this consider a generator for $Z_{\phi(p^2)}^{\ast}$; it's clear that it will 'produce' different remainders until getting its order (by the rearrangement every remainder will be different), hence if we consider the same generator $\mod p$ instead, it's also clear that it will produce $Z_{p}^{\ast}$ at 
-
-  $g^{p - 1} \equiv 1 \mod p$
-
-This means that there will necessary be $p$ subgroups of order $p - 1$ which are not generators, and $\phi(p^2) - p = p^2 - p - p$ generators. Now we can notice that our $p$ $(p - 1)s$ are the only non-coprimes of $\phi(p^2) = p(p - 1)$, thus there must be that $\phi(p^2) - p = p^2 - p - p = \phi(\phi(p^2))$.
-  
-</p> 
 
 ### Refinition of the reasoning before the proof
 
@@ -191,6 +168,7 @@ This means that there will necessary be $p$ subgroups of order $p - 1$ which are
   * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to 'prove' it in the next section).
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to 'prove' it in the next section).
+  * $Z_{\phi(n)}^{\ast}$ for $n = 2^t$ can't have generators (it's provable by induction), therefore keep in mind that the next section applies just for $n \neq 2$ and also the cases like the one listed in the previous section, which will be delved into the last section of this article.
 
   Note that I'm actively studying while writing, hence there could be some other rules. In such case I'll update this document, but for the moment this is  complex enough so let's go over.
 </p>
@@ -206,14 +184,13 @@ This means that there will necessary be $p$ subgroups of order $p - 1$ which are
 
   $a^{1} \equiv 1 \mod n$
 
-  has only $1$ solution which is $1$. Now consider
+  has $1$ solution which is $1$. Now consider
 
   $a^{2} \equiv 1 \mod n$
 
-  This congruence has only $2$ solutions which are $1$ and $-1$. [ I know that by the CRT the roots of unity of such congruence are more than $2$, but here we are actually only considering results lying into $Z_{\phi(n)}^{\ast}$ ]. 
-  Indeed $1$ and $-1$ can't be generators since they 'produce' $1$ before $\phi(n)$. Iterating this reasoning for every degree which we know will 'produce' $1$ 
-  before $\phi(n)$ will allow us to remove all the non-generators from $\phi(n)$ that is, finding the number of generators after a 'simple' difference with $\phi(n)$. This is because there's a direct corrispondence between the number of 
-  subgroups and the degrees (solutions) of such congruences. <br>
+  This congruence by the CRT has $2 * nCofactors$ (distinct) solutions.
+  Indeed all these solutions can't be generators since they 'produce' $1$ before $\phi(n)$. Iterating this reasoning for every degree which we know will 'produce' $1$ 
+  before $\phi(n)$ will allow us to remove all the non-generators from $\phi(n)$ that is, finding the number of generators after a 'simple' difference with $\phi(n)$. This is because there's a direct corrispondence between the number of subgroups and the degrees (solutions) of such congruences. <br>
   
   Now, $\phi(n)$, for any $n$, must be of the form
 
@@ -229,12 +206,18 @@ This means that there will necessary be $p$ subgroups of order $p - 1$ which are
   $\dots^{\dots} \equiv 1 \mod n$<br>
   $z^{k(p_{?})} \equiv 1 \mod n$
 
-  Thus all the multiples of $p_{1}, p_{2}, \dots, p_{?}$ won't be solutions of our problem.<br>
+  Thus all the multiples of $p_{1}, p_{2}, \dots, p_{?} \lt p^k_{1, 2, \dots}$ won't be solutions of our problem.<br>
   Let $m(p)$ be the function which represent every multiple of a number $< p^k$. We can say that for ex.
 
   $a^{m(p_{1})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}} \equiv 1 \mod n$
 
-  Since the multiples of any $p^{k}$ are $p^{k - 1}$, we can say that for each co-factor of $\phi(n)$ there will be $p^{k - 1}$ to remove. And since all these will be multiplied by the others before reaching $\phi(n)$ (i.e. these 
+  Since the multiples of any $p^{k}$ are $p^{k - 1}$, we can say that for each co-factor of $\phi(n)$ there will be $p^{k - 1}$ to remove. Now we could stop here already and state that this directly means that:
+  
+  $generators = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1} = \phi(\phi(n))$
+
+  But I derived a more intuitive solutions below.<br>
+  
+  Since all these $(p_{1}^{k_{1} - 1} / p_{2}^{k_{2} - 1} / \dots / p_{?}^{k_{?} - 1})$ will be multiplied by the others before reaching $\phi(n)$ (i.e. these 
   solutions must not reach $\phi(n)$ since we are only removing from $0 < n < \phi(n)$ interval):
 
   $p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$
@@ -280,7 +263,6 @@ $generators = \phi(p - 1)$
 Now
 
 $nonGenerators = \phi(n) - \phi(\phi(n)) = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} + p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1} = p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1}$<br>
-$nonGenerators = \phi(n) - \phi(\phi(n))$
 
 It's really interesting how we can't imply basically anything (using this construction) about $n$; indeed we never care about $n$ when we talk about generators, since $Z_{n}^{*}$ can't have generators.
 </p>
@@ -331,4 +313,54 @@ It's really interesting how we can't imply basically anything (using this constr
 >7 ->[ 7 4 1 7 4 1 ]
 >
 >8 ->[ 8 1 8 1 8 1 ]
+</p>
+
+### Generators for $Z_{\phi(p^2)}^{*}$, "Squares of odd primes" section
+
+<p>
+  This section is part of [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].<br>
+
+  Here I will try to collapse the results of proofs of the linked resource. Since those proofs are really complex, and I don't want to copy paste them, I'll just try to extrapolate the results, and provide some useful tips in order to better understand such theorems.
+
+  Initially I would say that one of the worst things to understand is the first binomial expansion. There $kp$ in the binomial disappears, I guess that it's because we know that the remainder $kp$ in the right part is produced directly by the $kp$ part of the binomial, hence we can discard that part and keep $g^p$ to further analyze $k$. The rest is just an outstanding construction to show that if we take a generator of $Z_{p}^{*}$ and generalize the formula with $kp$ (which is another genius move) we can use it to expand the binomial with $kp$ and show that in the $\mod p$ case, the part $kp$ of the binomial disappears (trivial), while in the $\mod p^2$ it doesn't, and after another couple smart moves we can show that the only case where $g + kp \mod p^2$ doesn't generate the whole set [with $g \in Z_{p}^{\ast}$] is the one where $g + kp$ order is $p - 1$. In such case we can even find the number which follows this case, that is, which is not a generator.<br>
+
+  Honestly, I guess we are far away from planet Earth here, let's proceed over this stupid galaxy.<br>
+
+From the first theorem of the aforementioned section, we can see that any generator we find in $Z_{p}^{*}$ can be reused in $Z_{p^2}^{\ast}$, and not only that, we can even add $kp$ to our generators, to spot $(p - 1) * generators$ on $Z_{p^2}^{\ast}$, i.e. every generator of $Z_{p^2}^{\ast}$, since:
+
+$\phi(\phi(p^2)) = \phi(p(p - 1)) = \phi(p)\phi(p - 1) = (p - 1)\phi(\phi(p))$
+
+All this keeping an eye to the exceptional case. Let's make an example.<br>
+
+$generators(Z_{49}^{\ast}) = \phi(\phi(49)) = \phi(7)\phi(6) = 6 \times 2 = 12$
+
+We proceed taking $\\{3, 5\\}$ which are generators of $Z_{7}^{\ast}$. Now we could start calculating every $3 + k7 \mod 49$ and $5 + k7 \mod 49$, but before doing that, let's remove our special cases (since we are considering $2$ generators we will have $2$ special cases), and show the magic essence of math, and how smart are people (I can't believe it ahah).<br>
+We know the magic formula is 
+
+$\displaystyle k = \frac{g^p - g}{p} \mod p$
+
+then
+
+$\displaystyle k_1 = \frac{3^7 - 3}{7} \mod 7 = 4$<br>
+$\displaystyle k_2 = \frac{5^7 - 5}{7} \mod 7 = 2$
+
+substituting in the formula $(g + kp \mod p^2)$
+
+$3 + 4 \times 7 \mod 49 = 31$<br>
+$5 + 2 \times 7 \mod 49 = 19$
+
+Now, let's fire off my Zn.py using of course 49. Let's start calculating every $3 + k7 \mod 49$ and $5 + k7 \mod 49$. You will find out that every number is a generator but $31$ and $19$.
+ 
+</p> 
+
+### Extending the reasoning for $Z_{\phi(p^k)}^{*}, k \geq 2$
+
+<p>
+  
+</p>
+
+### Using the CRT to expand the reasoning to every $n$, providing useful insights about powers of $2$
+
+<p>
+  
 </p>
