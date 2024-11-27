@@ -190,7 +190,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   This congruence by the CRT has $2 * nCofactors$ (distinct) solutions.
   Indeed all these solutions can't be generators since they 'produce' $1$ before $\phi(n)$. Iterating this reasoning for every degree which we know will 'produce' $1$ 
-  before $\phi(n)$ will allow us to remove all the non-generators from $\phi(n)$ that is, finding the number of generators after a 'simple' difference with $\phi(n)$. This is because there's a direct corrispondence between the number of subgroups and the degrees (solutions) of such congruences. <br>
+  before $\phi(n)$ will allow us to remove all the non-generators from $\phi(n)$ that is, finding the number of generators after a 'simple' difference with $\phi(n).<br>
   
   Now, $\phi(n)$, for any $n$, must be of the form
 
