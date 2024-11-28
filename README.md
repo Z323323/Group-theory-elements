@@ -1,7 +1,5 @@
 # Group theory elements
 
-I recommend the use of Zn.py to figure out things.
-
 ## Multiplicative groups, (cyclic) subgroups and generators
 <p>
   Here I want to make a slight modification to the normal definition of subgroups in the group theory. Becuse we are totally not interested in subgroups but cyclic subgroups. Since the definition of subgroup is useless, and the definition of cyclic subgroup already assumes what the Lagrange's Theorem proves (and we need to prove it), I'm going to set the definition of subgroups as the normal definition of cyclic subgroup but without the assumption of cyclicness.<br>
@@ -151,13 +149,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 <p>
   Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].
 
-  Any group of the form $Z_{\phi(2^t)}^{*}$ where $t \geq 3$ will not have generators. This can be proved by induction but I'm not taking this challenge to the end (excuse me Ben).
-
-  This whole reasoning should be extended for any $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^t, t \geq 3$. For example
-
-  $Z_{\phi(12)}^{*} \mapsto \phi(12) = \phi(3)\phi(2^2) = 2\ast\phi(2^2) = \phi(2^3)$<br>
-
-  Anyways this last result is just an intuition and for the moment such behaviour is not proved.
+  Any group of the form $Z_{\phi(2^t)}^{*}$ where $t \geq 3$ will not have generators. This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction).
 </p>
 
 ### Refinition of the reasoning before the proof
@@ -168,12 +160,11 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to 'prove' it in the next section).
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to 'prove' it in the next section).
-  * $Z_{\phi(n)}^{\ast}$ for $n = 2^t$ can't have generators (it's provable by induction), therefore keep in mind that the next section applies just for $n \neq 2$ and also the cases like the one listed in the previous section, which will be delved into the last section of this article.
+  * $Z_{\phi(n)}^{\ast}$ for $n = 2^t, t \geq 3$ can't have generators (it's provable by induction), therefore keep in mind that the next section won't apply for $n = 2^t, t \geq 3$ and also the cases like $Z_{\phi(12)}^{\ast} \dots$, which will be delved into the last section of this article.
 
-  Note that I'm actively studying while writing, hence there could be some other rules. In such case I'll update this document, but for the moment this is  complex enough so let's go over.
 </p>
 
-### Proof of generators theorem
+### Proof? of generators theorem
 
 <p>
   Consider
@@ -207,19 +198,12 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   $z^{k(p_{?})} \equiv 1 \mod n$
 
   Thus all the multiples of $p_{1}, p_{2}, \dots, p_{?} \lt p^k_{1, 2, \dots}$ won't be solutions of our problem.<br>
-  Let $m(p)$ be the function which represent every multiple of a number $< p^k$. We can say that for ex.
+  Let $m(p)$ be the function which represent every multiple of a prime $< p^k$. We can say that for ex.
 
   $a^{m(p_{1})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}} \equiv 1 \mod n$
 
-  Since the multiples of any $p^{k}$ are $p^{k - 1}$, we can say that for each co-factor of $\phi(n)$ there will be $p^{k - 1}$ to remove. Now we could stop here already and state that this directly means that:
+  Now, since the multiples of any $p^{k}$ [which are $\leq p^{k}$] are $p^{k - 1}$
   
-  $generators = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1} = \phi(\phi(n))$
-
-  But I derived a more intuitive solutions below.<br>
-  
-  Since all these $(p_{1}^{k_{1} - 1} / p_{2}^{k_{2} - 1} / \dots / p_{?}^{k_{?} - 1})$ will be multiplied by the others before reaching $\phi(n)$ (i.e. these 
-  solutions must not reach $\phi(n)$ since we are only removing from $0 < n < \phi(n)$ interval):
-
   $p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$
 
   numbers can't be our solution. And this is the same for all the other co-factors, thus:
@@ -264,10 +248,10 @@ Now
 
 $nonGenerators = \phi(n) - \phi(\phi(n)) = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} + p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1} = p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1}$<br>
 
-It's really interesting how we can't imply basically anything (using this construction) about $n$; indeed we never care about $n$ when we talk about generators, since $Z_{n}^{*}$ can't have generators.
+It's really interesting how we can't imply basically anything (using this construction) about $n$ (where $n$ is non-prime, because if it was prime the reasoning would be different), indeed we never care about $n$ when we talk about generators, since $Z_{n}^{*}$ can't have generators.
 </p>
 
-## Some prompts
+### Some prompts
 >[2,988s][~/Scrivania]$ python3 Zn.py
 >
 >Enter integer number to see every multiplicative subgroup and its order:
@@ -322,9 +306,9 @@ It's really interesting how we can't imply basically anything (using this constr
 
   Here I will try to collapse the results of proofs of the linked resource. Since those proofs are really complex, and I don't want to copy paste them, I'll just try to extrapolate the results, and provide some useful tips in order to better understand such theorems.
 
-  Initially I would say that one of the worst things to understand is the first binomial expansion. There $kp$ in the binomial disappears, I guess that it's because we know that the remainder $kp$ in the right part is produced directly by the $kp$ part of the binomial, hence we can discard that part and keep $g^p$ to further analyze $k$. The rest is just an outstanding construction to show that if we take a generator of $Z_{p}^{*}$ and generalize the formula with $kp$ (which is another genius move) we can use it to expand the binomial with $kp$ and show that in the $\mod p$ case, the part $kp$ of the binomial disappears (trivial), while in the $\mod p^2$ it doesn't, and after another couple smart moves we can show that the only case where $g + kp \mod p^2$ doesn't generate the whole set [with $g \in Z_{p}^{\ast}$] is the one where $g + kp$ order is $p - 1$. In such case we can even find the number which follows this case, that is, which is not a generator.<br>
+  Initially I would say that one of the worst things to understand is the first binomial expansion. There $kp$ in the binomial disappears, I guess that it's because we know that the remainder $kp$ in the right part is produced directly by the $kp$ part of the binomial, hence we can discard that part and keep $g^p$ to further analyze $k$. The rest is just an outstanding construction to show that if we take a generator of $Z_{p}^{*}$ and generalize the formula with $kp$ (which is another non-intuitive-smart move) we can use it to expand the binomial with $kp$ and show that in the $\mod p$ case, the part $kp$ of the binomial disappears (trivial), while in the $\mod p^2$ it doesn't. After another couple smart moves we can show that the only case where $g + kp \mod p^2$ doesn't generate $Z_{\phi(p^2)}^{\ast}$ [with $g \in Z_{p}^{\ast}$] is the one where $g + kp$ order is $p - 1$. In such case we can even find the number which follows this case, that is, which is not a generator.<br>
 
-  Honestly, I guess we are far away from planet Earth here, let's proceed over this stupid galaxy.<br>
+  Honestly, I guess we are far away from planet Earth here, let's proceed over the galaxy then.<br>
 
 From the first theorem of the aforementioned section, we can see that any generator we find in $Z_{p}^{*}$ can be reused in $Z_{p^2}^{\ast}$, and not only that, we can even add $kp$ to our generators, to spot $(p - 1) * generators$ on $Z_{p^2}^{\ast}$, i.e. every generator of $Z_{p^2}^{\ast}$, since:
 
@@ -334,7 +318,7 @@ All this keeping an eye to the exceptional case. Let's make an example.<br>
 
 $generators(Z_{49}^{\ast}) = \phi(\phi(49)) = \phi(7)\phi(6) = 6 \times 2 = 12$
 
-We proceed taking $\\{3, 5\\}$ which are generators of $Z_{7}^{\ast}$. Now we could start calculating every $3 + k7 \mod 49$ and $5 + k7 \mod 49$, but before doing that, let's remove our special cases (since we are considering $2$ generators we will have $2$ special cases), and show the magic essence of math, and how smart are people (I can't believe it ahah).<br>
+We proceed taking $\\{3, 5\\}$ which are generators of $Z_{7}^{\ast}$. Now we could start calculating every $3 + k7 \mod 49$ and $5 + k7 \mod 49$, but before doing that, let's remove our special cases (since we are considering $2$ generators we will have $2$ special cases).<br>
 We know the magic formula is 
 
 $\displaystyle k = \frac{g^p - g}{p} \mod p$
@@ -350,16 +334,101 @@ $3 + 4 \times 7 \mod 49 = 31$<br>
 $5 + 2 \times 7 \mod 49 = 19$
 
 Now, let's fire off my Zn.py using of course 49. Let's start calculating every $3 + k7 \mod 49$ and $5 + k7 \mod 49$. You will find out that every number is a generator but $31$ and $19$.
- 
-</p> 
+
+After flying around using the Zn.py spaceship we can get back to planet Earth, and observe that this theorem (the one at the link) basically proves that the generators of $Z_{p}^{*}$ are generators of $Z_{p^2}^{\ast}$ too, and that we can use them to build every generator of $Z_{p^2}^{\ast}$.
 
 ### Extending the reasoning for $Z_{\phi(p^k)}^{*}, k \geq 2$
 
 <p>
-  
-</p>
 
-### Using the CRT to expand the reasoning to every $n$, providing useful insights about powers of $2$
+Now, let's try to expand the reasoning to $Z_{p^3}^{\ast}$ noting that it should hold for every power, because
+
+$\phi(\phi(p^3)) = \phi(p(p(p - 1))) = \phi(p)\phi(p)\phi(p - 1) = (p - 1)(p - 1)\phi(\phi(p))$<br>
+$\phi(\phi(p^4)) = \phi(p(p(p(p - 1)))) = \phi(p)\phi(p)\phi(p)\phi(p - 1) = (p - 1)(p - 1)(p - 1)\phi(\phi(p))$
+
+and so on.<br>
+
+Using the same intuitions of Ben (this is for my mental safety), let $t = p(p(p - 1))$ be the order of $g + kp$ in $Z_{p^3}^{\ast}$, then
+
+$(g + kp)^t = g^t = 1 (\mod p)$
+
+simply because we have chosen $g$ as a generator of $Z_{p}^{*}$. Expanding the reasoning to $Z_{p^2}^{\ast}$ we get the exact same structure we saw earlier, because the order $t$ either divides $p(p(p - 1))$, or $p(p - 1)$, or $p - 1$. Since the first two cases both generate $Z_{p^2}^{\ast}$, we end up considering the same case above, hence we can safely proceed. Now expanding to $Z_{p^3}^{\ast}$ we will have two cases where $g + kp$ don't generate $Z_{p^3}^{\ast}$, which are $p - 1$ and $p(p - 1)$, since the third generates $Z_{p^3}^{\ast}$. Thus
+
+1. $(g + kp)^{p} = g + kp (\mod p^3)$
+
+and
+
+2. $(g + kp)^{p(p - 1) + 1} = g + kp (\mod p^3)$
+
+$(g + kp)^{p} = g + kp (\mod p^3)$<br>
+$g^{p} - g = kp (\mod p^3)$<br>
+$\displaystyle k_1 = \frac{g^{p} - g}{p} (\mod p^2)$
+
+$(g + kp)^{p(p - 1) + 1} = g + kp (\mod p^3)$<br>
+$g^{p(p - 1) + 1} - g = kp (\mod p^3)$<br>
+$\displaystyle k_2 = \frac{g^{p(p - 1) + 1} - g}{p} (\mod p^2)$
+
+Let's deploy another example, if it works we can state that the generators of powers of a prime which are $\lt$ another power of the same prime, are generators for that power too. Also, we can always use the generators of powers which are $\lt$ to build the generators of such power. Now, before concluding this section is also important to understand that $g + kp$ is reusable for any power of $p$ because extending the modulo we are also extending the number of generators, i.e. the formula remain consistent, but we will need to consider the preceding power's generators to spot the newer fake-generators.
+
+#### Ex
+
+Using the first formula we derived [i.e. using $\{2\}$] to build $Z_{\phi(27)}^{*}$, we get
+
+$\displaystyle k_1 = \frac{2^{3} - 2}{3} (\mod 9) = 2$
+
+and substituting:
+
+$2 + 2 \times 3 = 8 \mod 27 = 8$
+
+which is not a generator indeed.
+
+$\displaystyle k_2 = \frac{2^{3(3 - 1) + 1} - 2}{3} (\mod 9) = 8$
+
+$2 + 8 \times 3 = 26 \mod 27 = 26$
+
+which also is not a generator.
+
+Now a fast check enables us to see that there's still $1$ non-generator which is not spotted. Using $5$, which is a generator of $Z_{9}^{\ast}$ [but not of $Z_{3}^{\ast}$]:
+
+$\displaystyle k_3 = \frac{5^3 - 5}{3} (\mod 9) = 4$
+
+$5 + 4 \times 3 = 17 \mod 27 = 17$
+
+which is our last fake-generator.
+Now, what happens if we consider the second case using $5$ as generator?
+
+$\displaystyle k_3 = \frac{5^{3(3 - 1) + 1} - 5}{3} (\mod 9) = 8$
+
+$5 + 8 \times 3 = 29 \mod 27 = 2$
+
+which is not a fake gen, then why is this result wrong? The reason is (not) simple; basically $5$ is a generator of $Z_{9}^{\ast}$, not $Z_{3}^{\ast}$. This means that if we consider
+
+$(g + kp)^{p(p - 1) + 1} = g + kp (\mod p^3)$<br>
+$g^{p(p - 1) + 1} - g = kp (\mod p^3)$<br>
+$\displaystyle k_2 = \frac{g^{p(p - 1) + 1} - g}{p} (\mod p^2)$
+
+for a generator of $Z_{9}^{\ast}$ we are doing a wrong calculation because the former case correspond to
+
+$(g + kp)^{p(p - 1)} = 1 (\mod p^3)$<br>
+
+which as already said is not a case we keep into consideration for generators of $Z_{\phi(9)}^{\ast}$ because generates $Z_{\phi(27)}^{*}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p> 
+
+### Using the CRT to provide useful insights about powers of $2$
 
 <p>
   
