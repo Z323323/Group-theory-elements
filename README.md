@@ -198,11 +198,11 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   $z^{k(p_{?})} \equiv 1 \mod n$
 
   Thus all the multiples of $p_{1}, p_{2}, \dots, p_{?} \lt p^k_{1, 2, \dots}$ won't be solutions of our problem.<br>
-  Let $m(p)$ be the function which represent every multiple of a prime $< p^k$. We can say that for ex.
+  Let $m(p)$ be the function which represents every multiple of a prime $< p^k$. We can say that for ex.
 
   $a^{m(p_{1})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}} \equiv 1 \mod n$
 
-  Now, since the multiples of any $p^{k}$ [which are $\leq p^{k}$] are $p^{k - 1}$
+  Now, since the divisors of any $p^{k}$ [which are $\lt p^{k}$] are $p^{k - 1}$ (it's the same as calculating every multiple of a number without considering the number itself and considering $1$ instead)
   
   $p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$
 
@@ -352,7 +352,7 @@ Using the same intuitions of Ben (this is for my mental safety), let $t = p(p(p 
 
 $(g + kp)^t = g^t = 1 (\mod p)$
 
-simply because we have chosen $g$ as a generator of $Z_{p}^{*}$. Expanding the reasoning to $Z_{p^2}^{\ast}$ we get the exact same structure we saw earlier, because the order $t$ either divides $p(p(p - 1))$, or $p(p - 1)$, or $p - 1$. Since the first two cases both generate $Z_{p^2}^{\ast}$, we end up considering the same case above, hence we can safely proceed. Now expanding to $Z_{p^3}^{\ast}$ we will have two cases where $g + kp$ don't generate $Z_{p^3}^{\ast}$, which are $p - 1$ and $p(p - 1)$, since the third generates $Z_{p^3}^{\ast}$. Thus
+always generates $Z_{p}^{\ast}$ simply because we have chosen $g$ as a generator of $Z_{p}^{*}$, and because $p - 1|t$. Expanding the reasoning to $Z_{p^2}^{\ast}$ we get the exact same structure we saw earlier, because the order $t$ either divides $p(p(p - 1))$, or $p(p - 1)$, or $p - 1$. Since the first two cases both generate $Z_{p^2}^{\ast}$, we end up considering the same case above, hence we can safely proceed. Now expanding to $Z_{p^3}^{\ast}$ we will have two cases where $g + kp$ doesn't generate $Z_{p^3}^{\ast}$, which are $p - 1$ and $p(p - 1)$, since the third generates $Z_{p^3}^{\ast}$. Thus
 
 1. $(g + kp)^{p} = g + kp (\mod p^3)$
 
@@ -368,7 +368,7 @@ $(g + kp)^{p(p - 1) + 1} = g + kp (\mod p^3)$<br>
 $g^{p(p - 1) + 1} - g = kp (\mod p^3)$<br>
 $\displaystyle k_2 = \frac{g^{p(p - 1) + 1} - g}{p} (\mod p^2)$
 
-Let's deploy another example, if it works we can state that the generators of powers of a prime which are $\lt$ another power of the same prime, are generators for that power too. Also, we can always use the generators of powers which are $\lt$ to build the generators of such power. Now, before concluding this section is also important to understand that $g + kp$ is reusable for any power of $p$ because extending the modulo we are also extending the number of generators, i.e. the formula remain consistent, but we will need to consider the preceding power's generators to spot the newer fake-generators.
+Let's deploy another example, if it works we can state that the generators of powers of a prime which are $\gt 1$ can be constructed using the generators of the same $prime^1$. It's not the same for spotting fake-generators by the way, we are going to see that we will need the preceding power generators in order to spot every single one of them.
 
 #### Ex
 
@@ -397,39 +397,51 @@ $5 + 4 \times 3 = 17 \mod 27 = 17$
 which is our last fake-generator.
 Now, what happens if we consider the second case using $5$ as generator?
 
-$\displaystyle k_3 = \frac{5^{3(3 - 1) + 1} - 5}{3} (\mod 9) = 8$
+$\displaystyle k_4 = \frac{5^{3(3 - 1) + 1} - 5}{3} (\mod 9) = 8$
 
 $5 + 8 \times 3 = 29 \mod 27 = 2$
 
-which is not a fake gen, then why is this result wrong? The reason is (not) simple; basically $5$ is a generator of $Z_{9}^{\ast}$, not $Z_{3}^{\ast}$. This means that if we consider
+which is not a fake gen (it's the first generator), then why is this result wrong? The reason is (not) simple; basically $5$ is a generator of $Z_{9}^{\ast}$; this means that it generates $Z_{9}^{\ast}$ at
 
-$(g + kp)^{p(p - 1) + 1} = g + kp (\mod p^3)$<br>
-$g^{p(p - 1) + 1} - g = kp (\mod p^3)$<br>
-$\displaystyle k_2 = \frac{g^{p(p - 1) + 1} - g}{p} (\mod p^2)$
+$(g + kp^2)^{p(p - 1) + 1} = g + kp^2 (\mod p^2)$<br>
 
-for a generator of $Z_{9}^{\ast}$ we are doing a wrong calculation because the former case correspond to
+Thus the right calculation for $k$ would be
 
-$(g + kp)^{p(p - 1)} = 1 (\mod p^3)$<br>
+$(g + kp^2)^{p(p - 1) + 1} = g + kp^2 (\mod p^3)$<br>
+$g^{p(p - 1) + 1} - g = kp^2 (\mod p^3)$<br>
+$\displaystyle k_4 = \frac{g^{p(p - 1) + 1} - g}{p^2} (\mod p)$<br>
+$->$<br>
+$\displaystyle k_4 = \frac{5^{3(3 - 1) + 1} - 5}{3^2} (\mod 3)$<br>
+$\displaystyle k_4 = 1$<br>
+$5 + 1 \times 3 = 8 \mod 27 = 8$
 
-which as already said is not a case we keep into consideration for generators of $Z_{\phi(9)}^{\ast}$ because generates $Z_{\phi(27)}^{*}$
+which is correct although we already found it. I know this is kinda messy. This whole reasoning proves that in order to find every fake-generator we will need to keep into consideration every 
 
+$g + kp \mod p^q$
 
+and derive every $k$ following this section's reasoning.
 
-
-
-
-
-
-
-
-
-
-
+It's really messy but in general we won't need all of these calculations I guess, so we can safely proceed.  
 
 </p> 
 
 ### Using the CRT to provide useful insights about powers of $2$
 
 <p>
+  Following [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].<br>
+  Let $\phi(n) = 2^{k}q$, using the CRT is clear that if $k \gt 3, Z_{\phi(2^{k}q)}^{\ast}$ won't have generators. Now, let $k = 2$, we have 
+
+  $lcm(\phi(4q)) \gt lcm(\phi(4)\phi(q))$
+
+  thus for any $\phi(n) = 2^{k}p_{1}^{k_1}\dots$ if $k \geq 2$, $Z_{\phi(n)}^{*}$ won't have generators. This is easily verifiable looking at $Z_{\phi(12)}^{\ast}, Z_{\phi(20)}^{\ast}, \dots$
+
+  $\phi(12) = \phi(2^2)\phi(3)$<br>
+  $\phi(20) = \phi(2^2)\phi(5)$
+
+  But this doesn't still prove why $Z_{\phi(15)}^{\ast}$
+
+  $\phi(15) = \phi(3)\phi(5) = 8 = 2^3$<br>
+
+  doesn't have generators. As a general rule of thumb I guess that the $2^3$ rule could work, but I'm not sure at all. Every time $\phi(n) = 2^k, k \geq 3$ where $n$ is not prime, and has at least two factors's $\phi$ which produce such power could not have generators, I'm not sure at all by the way.
   
 </p>
