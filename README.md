@@ -132,6 +132,8 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   
   $o(subgroups(Z_{n}^{\ast})) \leq \phi(n)$
 
+  indeed $Z_{\phi(n)}^{\ast}$ is itself a subgroup of $Z_{n}^{\ast}$ and therefore if it exists it necessarily have a generator (you'll find out that even $Z_{\phi(n)}^{\ast}$ could not exist).
+
   Now let $p$ be a prime, then $o(Z_{p}^{*}) = p - 1$, and $\phi(p) = p - 1$, then
 
   $o(subgroups(Z_{p}^{\ast})) \leq \phi(p)$
