@@ -79,7 +79,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   which still divides $\phi(n)$ therefore proving the theorem.<br>
   <br>
-  Papers normally refer to $Ha, Hb, \dots H_{\phi(n)}$ as the left cosets. This proof proves the importance of such concept besides the theorem, since as I already mentioned, this theorem allows to prove the cyclicness (next section), which believe me, it would be one hell of a ride to prove without this theorem. Also this theorem proves that any subgroup's element are **distinct** which is non-trivial at all. I could repeat myself but this theorem is simply too much powerful.
+  Papers normally refer to $Ha, Hb, \dots H_{\phi(n)}$ as the left cosets. This proof proves the importance of such concept besides the theorem, since as I already mentioned, this theorem allows to prove the cyclicness (next section), which believe me, it would be one hell of a ride to prove without this theorem.
   
 </p>
 
@@ -113,7 +113,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   $a^{k(\phi(n)) + 1} \equiv a \mod n$
 
-  We can proceed in the same way above to show that for any $a$ which is coprime with $n$ and $a \in Z_{o}^{*} \subset Z_{\phi(n)}^{\ast}$, $a$ 'produces' itself into the next cycle (of order $o$), towards $\infty$. This proves that any multiplicative group (following the papers definition) and subgroup (following mine) is cyclic towards $\infty$ in its entirety.
+  We can proceed in the same way above to show that for any $a$ which is coprime with $n$ and $a \in subgroup(Z_{\phi(n)}^{\ast})$, $a$ 'produces' itself into the next cycle (of order $o$), towards $\infty$. This proves that any multiplicative group (following the papers definition) and subgroup (following mine) is cyclic towards $\infty$ in its entirety.
 </p>
 
 ## Generators theorem
