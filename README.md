@@ -162,94 +162,13 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
 </p>
 
-### Proof? of generators theorem
+### Proof of generators theorem
 
 <p>
-  Consider
-
-  $a^{\phi(n)} \equiv 1 \mod n$
-
-  This congruence has $\phi(n)$ distinct solutions, and
-
-  $a^{1} \equiv 1 \mod n$
-
-  has $1$ solution which is $1$. Now consider
-
-  $a^{2} \equiv 1 \mod n$
-
-  This congruence by the CRT has $2 * nCofactors$ (distinct) solutions.
-  Indeed all these solutions can't be generators since they 'produce' $1$ before $\phi(n)$. Iterating this reasoning for every degree which we know will 'produce' $1$ 
-  before $\phi(n)$ will allow us to remove all the non-generators from $\phi(n)$ that is, finding the number of generators after a 'simple' difference with $\phi(n)$.<br>
-  
-  Now, $\phi(n)$, for any $n$, must be of the form
-
-  $\phi(n) = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$
-
-  It's not possible to have a prime number as $\phi(n)$ because the calculation made to get it always expect the difference between a power of a prime number (or multiplication of them) minus the same power of degree $-1$, hence there 
-  always is a prime multiplication involved (or a prime number minus $1$, which is never a prime except for $2$ and $3$, which are trivial cases).<br>
-
-  We know by the **cyclicness** of subgroups and by Lagrange's Theorem that there will exist:
-
-  $a^{k(p_{1})} \equiv 1 \mod n$<br>
-  $b^{k(p_{2})} \equiv 1 \mod n$<br>
-  $\dots^{\dots} \equiv 1 \mod n$<br>
-  $z^{k(p_{?})} \equiv 1 \mod n$
-
-  Thus all the multiples of $p_{1}, p_{2}, \dots, p_{?} \lt p^k_{1, 2, \dots}$ won't be solutions of our problem.<br>
-  Let $m(p)$ be the function which represents every multiple of a prime $< p^k$. We can say that for ex.
-
-  $a^{m(p_{1})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}} \equiv 1 \mod n$
-
-  Now, since the divisors of any $p^{k}$ [which are $\lt p^{k}$] are $p^{k - 1}$ (it's the same as calculating every multiple of a number without considering the number itself and considering $1$ instead)
-  
-  $p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$
-
-  numbers can't be our solution. And this is the same for all the other co-factors, thus:
-
-  $p_{1}^{k_{1}}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?}}$<br>
-  $\dots$<br>
-  $p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?} - 1}$
-
-All these are $nonGenerators$ calculated factor-by-factor, now to get the number of $generators$, we will need to consider each one of the former solutions, thus:<br>
-[https://github.com/Z323323/Totient-extension-to-non-primes]<br>
-$[(x \cdot a) - (x \cdot b) = x(a - b)]$
-
-$p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} = \phi(p_{1}^{k_{1}})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$<br>
-or<br>
-$p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1}}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?}} = p_{1}^{k_{1}}\phi(p_{2}^{k_{2}}) \dots p_{?}^{k_{?}}$<br>
-$\dots$<br>
-or<br>
-$p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?} - 1} = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots \phi(p_{?}^{k_{?}})$<br>
-
-Now keep in mind that operating these subtractions we are actually considering $p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$, $n_{cofactors} - 1$ more times than we should (i.e. we should subtract all of $p_{1}^{k_{1} - 1}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$, etc. from $p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$ only $1$ time, not $n_{cofactors}$ times, but since this is required to solve this theorem, what we are effectively finding is the number of generators $+ p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$, multiplied $n_{cofactors} - 1$ times). Now we need to get a sum of all these terms in order to find the $generators$, hence these: 
-
-$\phi(p_{1}^{k_{1}})p_{2}^{k_{2}} \dots p_{?}^{k_{?}}$<br>
-$p_{1}^{k_{1}}\phi(p_{2}^{k_{2}}) \dots p_{?}^{k_{?}}$<br>
-$\dots$<br>
-$p_{1}^{k_{1}}p_{2}^{k_{2}} \dots \phi(p_{?}^{k_{?}})$<br>
-
-equal
-
-$\phi(p_{1}^{k_{1}})\phi(p_{2}^{k_{2}}) \dots \phi(p_{?}^{k_{?}}) + (n_{cofactors} - 1)(p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}})$
-
-and finally
-
-$generators + (p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}})(n_{cofactors} - 1)  = \phi(p_{1}^{k_{1}})\phi(p_{2}^{k_{2}}) \dots \phi(p_{?}^{k_{?}}) + (n_{cofactors} - 1)(p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}})$
-
-$generators = \phi(\phi(n))$
-
-And for $\phi(p)$ where $p$ is a prime number we would get [ since $\phi(p) = p - 1$ ]:
-
-$generators = \phi(p - 1)$
-
-Now
-
-$nonGenerators = \phi(n) - \phi(\phi(n)) = p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} - p_{1}^{k_{1}}p_{2}^{k_{2}} \dots p_{?}^{k_{?}} + p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1} = p_{1}^{k_{1} - 1}p_{2}^{k_{2} - 1} \dots p_{?}^{k_{?} - 1}$<br>
-
-It's really interesting how we can't imply basically anything (using this construction) about $n$ (where $n$ is non-prime, because if it was prime the reasoning would be different), indeed we never care about $n$ when we talk about generators, since $Z_{n}^{*}$ can't have generators.
+   
 </p>
 
-### Some prompts
+### $Z_{\phi(8)}^{\ast}$ and $Z_{9}^{\ast}$ using Zn.py
 >[2,988s][~/Scrivania]$ python3 Zn.py
 >
 >Enter integer number to see every multiplicative subgroup and its order:
