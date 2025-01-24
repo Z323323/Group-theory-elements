@@ -182,15 +182,38 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
    then if $e, d$ are inverses $\mod \phi(n)$. This is the big intuition behind RSA, and it's proved it works, but getting back to our theorem, we can see that
 
-   $ed - 1 \equiv 0 \mod \phi(n)$
+   $ed - 1 \equiv 0 \mod \phi(n)$<br>
+   $->$<br>
+   $a^{ed - 1} = a^{0} = 1 \mod n$
+
+   hence we can conclude that since $e, d$ are units $\mod \phi(n)$, there will be $\phi(\phi(n))$ many choices for them, and this means that the number of generators for $Z_{\phi(n)}^{\ast}$ equals
+
+   $\phi(\phi(n))$
+
+   (if they exist).
+
+   We can further expand the reasoning and note that this is applyable for any subgroup since
+
+   $a^{Z = [k(o | \phi(n)) + 1]} \equiv a \mod n$<br>
+   $->$<br>
+   $Z \equiv 1 \mod (o | \phi(n))$
 
    and
 
+   $a^{ed} = a^{1} = a \mod n$
+   
+   iff 
+   
+   $ed \equiv 1 \mod (o | \phi(n))$
+
+   hence $e, d$ will be inverses $\mod (o | \phi(n))$ then
+
+   $ed - 1 \equiv 0 \mod (o | \phi(n))$<br>
+   $->$<br>
    $a^{ed - 1} = a^{0} = 1 \mod n$
 
-   hence we can conclude that since $e, d$ are units $\mod \phi(n)$, there will be $\phi(\phi(n))$ many choices for themand this means that the number of generators for any subgroup of $Z_{n}^{\ast}$ equals
-
-   $\phi(\phi(n))$
+   and this means that there will be $\phi(o)$ many options for $e, d$.
+   
 </p>
 
 ### $Z_{8}^{\ast}$ and $Z_{9}^{\ast}$ using Zn.py
