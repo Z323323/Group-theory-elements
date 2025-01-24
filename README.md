@@ -164,7 +164,9 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 ### Proof of generators theorem
 
 <p>
-   
+   Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/cyclic.html], first theorem under 'Counting generators' section.
+
+   I won't further analyze it since it's self explainatory. Once you get it, remember that another really complex theorem has been proved in $3$ lines (trust me, without that intuition it would be an hell to prove).
 </p>
 
 ### $Z_{8}^{\ast}$ and $Z_{9}^{\ast}$ using Zn.py
