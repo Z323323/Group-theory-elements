@@ -166,7 +166,31 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 <p>
    Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/cyclic.html], first theorem under 'Counting generators' section.
 
-   I won't further analyze it since it's self explainatory. Once you get it, remember that another really complex theorem has been proved in $3$ lines (trust me, without that intuition it would be an hell to prove). This is not simple stuff, indeed such intuition is basically the same as the one which makes RSA to work [https://github.com/Z323323/Number-theory-interlude-1].
+   This is not simple stuff, indeed such intuition is basically the same as the one which makes RSA to work [https://github.com/Z323323/Number-theory-interlude-1].
+
+   $a^{Z = [k(\phi(n)) + 1]} \equiv a \mod n$<br>
+   $->$<br>
+   $Z \equiv 1 \mod \phi(n)$
+
+   We can reproduce this exponent using arbitrary units $\mod \phi(n)$.
+   
+   $a^{ed} = a^{1} = a \mod n$
+   
+   iff 
+   
+   $ed \equiv 1 \mod \phi(n)$
+
+   then if $e, d$ are inverses $\mod \phi(n)$. This is the big intuition behind RSA, and it's proved it works, but getting back to our theorem, we can see that
+
+   $ed - 1 \equiv 0 \mod \phi(n)$
+
+   and
+
+   $a^{ed - 1} = a^{0} = 1 \mod n$
+
+   hence we can conclude that since $e, d$ are units $\mod \phi(n)$, there will be $\phi(\phi(n))$ many choices for themand this means that the number of generators for any subgroup of $Z_{n}^{\ast}$ equals
+
+   $\phi(\phi(n))$
 </p>
 
 ### $Z_{8}^{\ast}$ and $Z_{9}^{\ast}$ using Zn.py
