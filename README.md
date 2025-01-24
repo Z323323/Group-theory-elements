@@ -166,7 +166,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 <p>
    Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/cyclic.html], first theorem under 'Counting generators' section.
 
-   I won't further analyze it since it's self explainatory. Once you get it, remember that another really complex theorem has been proved in $3$ lines (trust me, without that intuition it would be an hell to prove).
+   I won't further analyze it since it's self explainatory. Once you get it, remember that another really complex theorem has been proved in $3$ lines (trust me, without that intuition it would be an hell to prove). This is not simple stuff, indeed such intuition is basically the same as the one which makes RSA to work [https://github.com/Z323323/Number-theory-interlude-1].
 </p>
 
 ### $Z_{8}^{\ast}$ and $Z_{9}^{\ast}$ using Zn.py
