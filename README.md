@@ -94,7 +94,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   $z = a^{(o | \phi(n)) - 1}$
 
-  and
+  since we are constrained to get $z$ through $a$ multiplications (by definition of subgroups), and
 
   $az = aa^{(o | \phi(n)) - 1} = a^{o | \phi(n)} \equiv 1 \mod n$
 
@@ -192,7 +192,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
    (if they exist).
 
-   We can further expand the reasoning and note that this is applyable for any subgroup since
+   We can further expand the reasoning and note that this is applicable for any subgroup since
 
    $a^{Z = [k(o | \phi(n)) + 1]} \equiv a \mod n$<br>
    $->$<br>
