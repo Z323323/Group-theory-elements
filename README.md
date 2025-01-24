@@ -152,11 +152,10 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 ### Refinition of the reasoning before the proof
 
 <p>
-  Since the last three sections:<br>
-
-  * $Z_{p}^{\ast}$ for $p$ prime always have generators (we are going to 'prove' it in the next section).
-  * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators (proved).
-  * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators (we are going to 'prove' it in the next section).
+ 
+  * $Z_{p}^{\ast}$ for $p$ prime always have generators.
+  * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators.
+  * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators.
   * $Z_{\phi(n)}^{\ast}$ for $n = 2^t, t \geq 3$ can't have generators (it's provable by induction), therefore keep in mind that the next section won't apply for $n = 2^t, t \geq 3$ and also the cases like $Z_{\phi(12)}^{\ast} \dots$, which will be delved into the last section of this article.
 
 </p>
