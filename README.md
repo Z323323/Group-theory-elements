@@ -112,7 +112,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   This proves the fact each element is different before $a^{o + 1}$ and also that each element $a^{exp}$ will be repeated towards infinity at the $k(o) + exp$-th multiplication.
 
-  Now, if we start reasoning deeply about the potential repetitions of elements, we can understand that the uniqueness proof was already implied even before Lagrange's Theorem, because the definition of subgroups itself implies the elements of them being delimited by the last element which is $1$, and we can get a repetition only right after we get a $1$.
+  Now, if we start reasoning deeply about the potential repetitions of elements, we can understand that the uniqueness proof was already implied even before Lagrange's Theorem, because the definition of subgroups itself implies the elements of them being delimited by the last element which is $1$, and we can get a repetition only after we get a $1$.
   
 </p>
 
