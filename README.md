@@ -2,11 +2,10 @@
 
 ## Multiplicative groups, (cyclic) subgroups and generators
 <p>
-  Here I want to make a slight modification to the normal definition of subgroups in the group theory. Becuse we are totally not interested in subgroups but cyclic subgroups. Since the definition of subgroup is useless, and the definition of cyclic subgroup already assumes what the Lagrange's Theorem proves (and we need to prove it), I'm going to set the definition of subgroups as the normal definition of cyclic subgroup but without the assumption of cyclicness.<br>
   
-  We define a subgroup of $Z_{n}^{\ast}$ as a non-empty subset $H$ of $Z_{n}^{*}$ such that, taken any element $e \in Z_{n}^{\ast}$, all elements $z \in H$ are delimited by $e^{1}$ and the first $1$ 'produced' by $e^{o} \mod n, 0 \lt o \lt n \in N$, i.e the whole subgroup $H$ is:
+  We define a subgroup of $Z_{n}^{\ast}$ as a non-empty subset $H$ of $Z_{n}^{*}$ such that, taken any element $e \in Z_{n}^{\ast}$, all elements $z \in H$ are delimited by $e^{1}$ and the first $1$ 'produced' by $e^{o} \mod n, 0 \lt o \lt n \in N$, that is, the whole subgroup $H$ is
 
-  $\langle e \rangle = \\{e, e^{2}, e^{3}, \dots, e^{o} = 1\\}$
+  $\langle e \rangle = \\{ e, e^{2}, e^{3}, \dots, e^{o} = 1 \\}$
 
   I called the $degree$ ' $o$ ' because $o$ defines the $order$ of the subgroup, i.e. the number of its elements. Also $\langle e \rangle$ is a convention to indicate that $e$ 'generates' the whole (sub)group, indeed all the elements which generate the same set/group/subgroup are called $generators$ for that set/group/subgroup.<br>
   Now, another clarification is necessary. Sometimes when papers refer to $Z_{n}^{*}$, they refer to a group of this kind: $\\{1, 2, 3, \dots, n - 1\\}$ but without all the numbers which are not coprime with $n$. From another document which I was writing, imagine to have $(187 = 11 \times 17)$
@@ -19,14 +18,15 @@
 
  Now, placing this reasoning into this context, having only coprimes of $n$ in $Z_{n}^{*}$ has sense, since the modulo operation for non-coprimes does not produce $1$ but only multiples of the co-factor(s) of $e$ and $n$, or 0. Hence we could not care about those subsets since they don't match our definition of subgroup. Now important imho to remember that  they exist, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$ (and that's why I decided to use this convention).<br>
  Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators (of the subgroups) which are coprime with $n$. Also, for everything I just said, the set mapped by all the subgroups' sets (joint) will be $Z_{\phi(n)}^{\ast}$, hence non-coprimes of $n$ will never appear in the subgroups. This is a direct consequence of what I said previously but it's quite intuitive at this point; if we remove $3$ from the above example (left part), and consider $z_{187 coprime}$ as both coprime with $3$ and $187$ then is clear that if we consider $z_{561 coprime} (> 3 \times 187 = 561)$, since it's not a multiple of $3$ nor of $187$, after the removal operated by the modulo, we will end up having a number $< 3 \times 187$ which is both coprime with $3$ and $187$. The same reasoning goes for powers of such number.
+ 
 </p>
 
 ## Lagrange's Theorem
 
 <p>
-I wrote the definition of subgroups as I did because this theorem is vital in order to prove the cyclicness of subgroups of $Z_{n}^{*}$ and the generators theorem. All these precautions have been made because there must not be any definition which already assumes what this theorem proves.<br>
-<br>
+  
   Let $H$ be a subgroup of $Z_{n}^{*}$ of order $o$. Then $o|\phi(n)$.
+  
 </p>
 
 ### Proof
@@ -100,7 +100,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 
   for any $a$ which is coprime with $n$.
 
-  This proof is particularly important because it proves that every element of any subgroup of $Z_{n}^{\ast}$ will be different before $a^{o + 1}$ because in order to have a repetition we should necessarily have
+  This proof is also important because it proves that every element of any subgroup of $Z_{n}^{\ast}$ will be different before $a^{o + 1}$ because in order to have a repetition we should necessarily have
 
   $aa^{o} = a^{o + 1} \mod n$
 
@@ -117,9 +117,11 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 </p>
 
 ## Generators theorem
+
 ### Introduction
 
 <p>
+  
   Let $Z_{n}^{*}$ for $n$ non-prime. In order to be fully generated $Z_{n}^{\ast}$ should have order $o = n - 1$. By Lagrange's Theorem, the greatest order for a subgroup is $\phi(n)$. Now
 
   $\phi(n) < n - 1$
@@ -139,14 +141,17 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
   $o(subgroups(Z_{p}^{\ast})) \leq \phi(p)$
 
   hence $Z_{p}^{*}$ can have generators, without the need of any transformation.
+  
 </p>
 
 ### Clarifications about $Z_{\phi(2)}^{\ast}, Z_{\phi(4)}^{\ast}, Z_{\phi(8)}^{\ast} \dots$
 
 <p>
+  
   Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].
 
   Any group of the form $Z_{\phi(2^t)}^{*}$ where $t \geq 3$ will not have generators. This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction).
+  
 </p>
 
 ### Refinition of the reasoning before the proof
@@ -163,6 +168,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 ### Proof of generators theorem
 
 <p>
+  
    Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/cyclic.html], first theorem under 'Counting generators' section.
 
    This is not simple stuff, indeed such intuition is basically the same as the one which makes RSA to work [https://github.com/Z323323/Number-theory-interlude-1].
@@ -216,6 +222,7 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 </p>
 
 ### $Z_{8}^{\ast}$ and $Z_{9}^{\ast}$ using Zn.py
+
 >[2,988s][~/Scrivania]$ python3 Zn.py
 >
 >Enter integer number to see every multiplicative subgroup and its order:
@@ -261,12 +268,14 @@ I wrote the definition of subgroups as I did because this theorem is vital in or
 >7 ->[ 7 4 1 7 4 1 ]
 >
 >8 ->[ 8 1 8 1 8 1 ]
+
 </p>
 
 ### Generators for $Z_{\phi(p^2)}^{*}$, "Squares of odd primes" section
 
 <p>
-  This section is part of [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].<br>
+  
+  This section is part of [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].
 
   Here I will try to collapse the results of proofs of the linked resource. Since those proofs are really complex, and I don't want to copy paste them, I'll just try to extrapolate the results, and provide some useful tips in order to better understand such theorems.
 
