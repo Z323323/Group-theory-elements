@@ -8,7 +8,7 @@
   $\langle e \rangle = \\{ e, e^{2}, e^{3}, \dots, e^{o} = 1 \\}$
 
   I called the $degree$ ' $o$ ' because $o$ defines the $order$ of the subgroup, i.e. the number of its elements. Also $\langle e \rangle$ is a convention to indicate that $e$ 'generates' the whole (sub)group, indeed all the elements which generate the same set/group/subgroup are called $generators$ for that set/group/subgroup.<br>
-  Now, another clarification is necessary. Sometimes when papers refer to $Z_{n}^{*}$, they refer to a group of this kind: $\\{1, 2, 3, \dots, n - 1\\}$ but without all the numbers which are not coprime with $n$. From another document which I was writing, imagine to have $(187 = 11 \times 17)$
+  Now, another clarification is necessary. Sometimes when papers refer to $Z_{n}^{*}$, they refer to a group of this kind: $\\{1, 2, 3, \dots, n - 1\\}$ but without all the numbers which are not coprime with $n$. Imagine to have $(187 = 11 \times 17)$
 
   $3 \times z_{187 coprime} \mod (3 \times 187)$
 
@@ -16,7 +16,7 @@
   
   [ This reasoning works in general proving this fact ].<br>
 
- Now, placing this reasoning into this context, having only coprimes of $n$ in $Z_{n}^{*}$ has sense, since the modulo operation for non-coprimes does not produce $1$ but only multiples of the co-factor(s) of $e$ and $n$, or 0. Hence we could not care about those subsets since they don't match our definition of subgroup. Now important imho to remember that  they exist, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$ (and that's why I decided to use this convention).<br>
+ Now, placing this reasoning into this context, having only coprimes of $n$ in $Z_{n}^{*}$ has sense, since the modulo operation for non-coprimes does not produce $1$ but only multiples of the co-factor(s) of $e$ and $n$, or 0. Hence we could not care about those subsets since they don't match our definition of subgroup. Now it's important to remember that  they exist, indeed if we always reason this way $Z_{n}^{\ast}$ would become $Z_{\phi(n)}^{\ast}$ (and that's why I decided to use this convention).<br>
  Now having made this important clarification we can safely assume that the number of subgroups is always $\phi(n)$, i.e. all generators (of the subgroups) which are coprime with $n$. Also, for everything I just said, the set mapped by all the subgroups' sets (joint) will be $Z_{\phi(n)}^{\ast}$, hence non-coprimes of $n$ will never appear in the subgroups. This is a direct consequence of what I said previously but it's quite intuitive at this point; if we remove $3$ from the above example (left part), and consider $z_{187 coprime}$ as both coprime with $3$ and $187$ then is clear that if we consider $z_{561 coprime} (> 3 \times 187 = 561)$, since it's not a multiple of $3$ nor of $187$, after the removal operated by the modulo, we will end up having a number $< 3 \times 187$ which is both coprime with $3$ and $187$. The same reasoning goes for powers of such number.
  
 </p>
@@ -281,9 +281,7 @@
 
   Initially I would say that one of the worst things to understand is the first binomial expansion. There $kp$ in the binomial disappears, I guess that it's because we know that the remainder $kp$ in the right part is produced directly by the $kp$ part of the binomial, hence we can discard that part and keep $g^p$ to further analyze $k$. The rest is just an outstanding construction to show that if we take a generator of $Z_{p}^{*}$ and generalize the formula with $kp$ (which is another non-intuitive-smart move) we can use it to expand the binomial with $kp$ and show that in the $\mod p$ case, the part $kp$ of the binomial disappears (trivial), while in the $\mod p^2$ it doesn't. After another couple smart moves we can show that the only case where $g + kp \mod p^2$ doesn't generate $Z_{\phi(p^2)}^{\ast}$ [with $g \in Z_{p}^{\ast}$] is the one where $g + kp$ order is $p - 1$. In such case we can even find the number which follows this case, that is, which is not a generator.<br>
 
-  Honestly, I guess we are far away from planet Earth here, let's proceed over the galaxy then.<br>
-
-From the first theorem of the aforementioned section, we can see that any generator we find in $Z_{p}^{*}$ can be reused in $Z_{p^2}^{\ast}$, and not only that, we can even add $kp$ to our generators, to spot $(p - 1) * generators$ on $Z_{p^2}^{\ast}$, i.e. every generator of $Z_{p^2}^{\ast}$, since:
+From the first theorem of the aforementioned section, we can see that any generator we find in $Z_{p}^{*}$ can be reused in $Z_{p^2}^{\ast}$, and not only that, we can even add $kp$ to our generators, to spot $(p - 1) \cdot generators$ on $Z_{p^2}^{\ast}$, i.e. every generator of $Z_{p^2}^{\ast}$, since:
 
 $\phi(\phi(p^2)) = \phi(p(p - 1)) = \phi(p)\phi(p - 1) = (p - 1)\phi(\phi(p))$
 
@@ -401,7 +399,9 @@ It's really messy but in general we won't need all of these calculations I guess
 ### Using the CRT to provide useful insights about powers of $2$
 
 <p>
-  Following [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].<br>
+  
+  Following [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].
+  
   Let $\phi(n) = 2^{k}q$, using the CRT is clear that if $k \gt 3, Z_{\phi(2^{k}q)}^{\ast}$ won't have generators. Now, let $k = 2$, we have 
 
   $lcm(\phi(4q)) \gt lcm(\phi(4)\phi(q))$
