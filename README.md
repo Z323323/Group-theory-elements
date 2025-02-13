@@ -83,7 +83,7 @@
   
 </p>
 
-## Proof of cyclicness of subgroups (and uniqueness of each element)
+## Proof of cyclicality of subgroups (and uniqueness of each element)
 
 <p>
   Let $a$ be a generator for a subgroup of $Z_{n}^{\ast}$, we know that in order to have
