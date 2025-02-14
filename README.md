@@ -144,27 +144,64 @@
   
 </p>
 
-### Clarifications about $Z_{\phi(2)}^{\ast}, Z_{\phi(4)}^{\ast}, Z_{\phi(8)}^{\ast} \dots$
+### Clarifications about $Z_{\phi(8)}^{\ast}, Z_{\phi(16)}^{\ast}, \dots$
 
 <p>
+
+  Note that this section requires knowledge about roots of unity.
 
   ### Theorem
   
   Any group of the form $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ doesn't have generators. 
   
-  This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction). There's a way more simple way to prove that any multiplicative finite group $Z_{n}^{\ast}$ such that $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ can't have generators, and this will apply not only to $Z_{4}^{\ast}, Z_{8}^{\ast}, \dots$ but also to groups like $Z_{6}^{\ast}, Z_{12}^{\ast}, Z_{15}^{\ast} \dots$. Here you may have noticed that I avoided $Z_{9}^{\ast}$ even though it seemed like I was writing multiples of $3$. This is simply because $\phi(9) = \phi(3^{2}) = 3^{2} - 3 = 6 = 3 \cdot 2$. 
+  This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction). There's another way to prove that any multiplicative finite group $Z_{n}^{\ast}$ such that $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ can't have generators, and this will apply not only to $Z_{8}^{\ast}, Z_{16}^{\ast}, \dots$ but also to groups like $Z_{12}^{\ast}, Z_{15}^{\ast} \dots$.
 
   ### Proof
+  
+  Consider the general form for the primitive roots of unity of $Z_{8}^{\ast}$ which are (after some useful abstractions [remember they will be defined $\mod \phi(8)$]) 
 
-  In order to have some generator for some $Z_{n}^{\ast}$ we must have at least one subgroup which generates $Z_{n}^{\ast}$. Now if $n$ is not prime we know this is impossible and the problem reduces to have at least one subgroup which generates $Z_{\phi(n)}^{\ast}$. We can make a simple generalization of the Euler's Criterion [https://crypto.stanford.edu/pbc/notes/numbertheory/qr.html] considering some $e \in Z_{\phi(n)}^{\ast}$ (which I think is the original statement by the way) which produces
+  $\\{ 1/4, 1/2, 3/4 \\}$
+
+  If we consider the squares of such primitive roots we get
+
+  $\\{ 1/2, 1, 1/2 \\}$
+
+  which collide with the roots of unity of $Z_{2}$ which we know are both equal to $1$, indeed if you check this, you'll find out every coprime of $8$ produces $1$ at the first square. Repeating the reasoning for $Z_{16}^{\ast}$ produces
+
+  $\\{ 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8 \\}^{2}$<br>
+  $->$
+  $\\{ 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4 \\}^{2}$<br>
+  $->$
+  $\\{ 1/2, 1, 1/2, 1, 1/2, 1, 1/2 \\}$<br>
+
+  (where $1$ is not affected since the abstraction erase $e^{0}$, and $e^{2 \cdot 0} = 1$) which again collide with the roots of unity of $2$, and if you check this result you'll find out every coprime $c$ of $16$ produces $1$ at $c^{4}$. Repeating for $Z_{32}^{\ast}$ we get
+
+  $\\{ 1/16, 1/8, 3/16, 1/4, 5/16, 3/8, 7/16, 1/2, 9/16, 5/8, 11/16, 3/4, 13/16, 7/8, 15/16 \\}^{2}$<br>
+  $->$
+  $\\{ 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8, 1, 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8 \\}^{2}$<br>
+  $->$
+  $\\{ 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4 \\}^{2}$<br>
+  $->$
+  $\\{ 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2 \\}$<br>
+
+  that is, the roots of unity of $Z_{2}^{\ast}$. If you check this out you'll find out every coprime $c$ of $Z_{32}^{\ast}$ will produce $1$ at $c^{8}$.
+
+  
+  
+
+  and 
+  
+  In order to have some generator for some $Z_{n}^{\ast}$ we must have at least one subgroup which generates $Z_{n}^{\ast}$. Now if $n$ is not prime we know this is impossible and the problem reduces to have at least one subgroup which generates $Z_{\phi(n)}^{\ast}$. We can make a simple generalization of the Euler's Criterion [https://crypto.stanford.edu/pbc/notes/numbertheory/qr.html] considering some $e \in Z_{\phi(n)}^{\ast}$ which produces
   
   $e^{\phi(n)/2} \equiv - 1 \mod n$
 
   iff 
   
-  $\phi(n) \equiv - 1 \mod 4$
+  $\phi(n) \equiv 0 \mod 4$
+
+  To have some generator then we need the first one verified, but the problem is that 
   
-  We can see that if this congruence is impossible then $Z_{\phi(n)}^{\ast}$ can't have generators. It simply follows that if $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ then $Z_{\phi(n)}^{\ast}$ can't have generators.
+  
   
 </p>
 
