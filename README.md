@@ -147,10 +147,24 @@
 ### Clarifications about $Z_{\phi(2)}^{\ast}, Z_{\phi(4)}^{\ast}, Z_{\phi(8)}^{\ast} \dots$
 
 <p>
-  
-  Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].
 
-  Any group of the form $Z_{\phi(2^t)}^{*}$ where $t \geq 3$ will not have generators. This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction).
+  ### Theorem
+  
+  Any group of the form $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ doesn't have generators. 
+  
+  This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction). There's a way more simple way to prove that any multiplicative finite group $Z_{n}^{\ast}$ such that $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ can't have generators, and this will apply not only to $Z_{4}^{\ast}, Z_{8}^{\ast}, \dots$ but also to groups like $Z_{6}^{\ast}, Z_{12}^{\ast}, Z_{15}^{\ast} \dots$. Here you may have noticed that I avoided $Z_{9}^{\ast}$ even though it seemed like I was writing multiples of $3$. This is simply because $\phi(9) = \phi(3^{2}) = 3^{2} - 3 = 6 = 3 \cdot 2$. 
+
+  ### Proof
+
+  In order to have some generator for some $Z_{n}^{\ast}$ we must have at least one subgroup which generates $Z_{n}^{\ast}$. Now if $n$ is not prime we know this is impossible and the problem reduces to have at least one subgroup which generates $Z_{\phi(n)}^{\ast}$. We can make a simple generalization of the Euler's Criterion [https://crypto.stanford.edu/pbc/notes/numbertheory/qr.html] considering some $e \in Z_{\phi(n)}^{\ast}$ (which I think is the original statement by the way) which produces
+  
+  $e^{\phi(n)/2} \equiv - 1 \mod n$
+
+  iff 
+  
+  $\phi(n) \equiv - 1 \mod 4$
+  
+  We can see that if this congruence is impossible then $Z_{\phi(n)}^{\ast}$ can't have generators. It simply follows that if $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ then $Z_{\phi(n)}^{\ast}$ can't have generators.
   
 </p>
 
@@ -161,7 +175,7 @@
   * $Z_{p}^{\ast}$ for $p$ prime always have generators.
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators.
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators.
-  * $Z_{\phi(n)}^{\ast}$ for $n = 2^t, t \geq 3$ can't have generators (it's provable by induction), therefore keep in mind that the next section won't apply for $n = 2^t, t \geq 3$ and also the cases like $Z_{\phi(12)}^{\ast} \dots$, which will be delved into the last section of this article.
+  * $Z_{\phi(n)}^{\ast}$ for $\phi(n) = 2^tXYZ\dots, t \geq 2$ can't have generators.
 
 </p>
 
@@ -394,27 +408,4 @@ and derive every $k$ following this section's reasoning.
 
 It's really messy but in general we won't need all of these calculations I guess, so we can safely proceed.  
 
-</p> 
-
-### Using the CRT to provide useful insights about powers of $2$
-
-<p>
-  
-  Following [https://crypto.stanford.edu/pbc/notes/numbertheory/gengen.html].
-  
-  Let $\phi(n) = 2^{k}q$, using the CRT is clear that if $k \gt 3, Z_{\phi(2^{k}q)}^{\ast}$ won't have generators. Now, let $k = 2$, we have 
-
-  $lcm(\phi(4q)) \gt lcm(\phi(4)\phi(q))$
-
-  thus for any $\phi(n) = 2^{k}p_{1}^{k_1}\dots$ if $k \geq 2$, $Z_{\phi(n)}^{*}$ won't have generators. This is easily verifiable looking at $Z_{\phi(12)}^{\ast}, Z_{\phi(20)}^{\ast}, \dots$
-
-  $\phi(12) = \phi(2^2)\phi(3)$<br>
-  $\phi(20) = \phi(2^2)\phi(5)$
-
-  But this doesn't still prove why $Z_{\phi(15)}^{\ast}$
-
-  $\phi(15) = \phi(3)\phi(5) = 8 = 2^3$<br>
-
-  doesn't have generators. As a general rule of thumb I guess that the $2^3$ rule could work, but I'm not sure at all. Every time $\phi(n) = 2^k, k \geq 3$ where $n$ is not prime, and has at least two factors's $\phi$ which produce such power could not have generators, I'm not sure at all by the way.
-  
 </p>
