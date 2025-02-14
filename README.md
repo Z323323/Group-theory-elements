@@ -158,7 +158,7 @@
 
   ### Proof
   
-  Consider the general form for the primitive roots of unity of $Z_{8}^{\ast}$, which are after some useful abstractions (remember they will be defined $\mod \phi(8)$) 
+  Consider the general form for the primitive roots of unity of $Z_{8}^{\ast}$, which are after some useful abstractions [remember they will be defined $\mod \phi(8)$]
 
   $\\{ 1/4, 1/2, 3/4 \\}$
 
@@ -190,7 +190,7 @@
 
   $a^{2^{k - 2}} \equiv 1 \mod 2^{k}$
 
-  for any $a \in Z_{\phi(2^{k})^{\ast}$.
+  for any $a \in Z_{\phi(2^{k})}^{\ast}$.
   
 </p>
 
