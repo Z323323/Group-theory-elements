@@ -158,7 +158,7 @@
 
   ### Proof
   
-  Consider the general form for the primitive roots of unity of $Z_{8}^{\ast}$ which are (after some useful abstractions [remember they will be defined $\mod \phi(8)$]) 
+  Consider the general form for the primitive roots of unity of $Z_{8}^{\ast}$, which are after some useful abstractions (remember they will be defined $\mod \phi(8)$) 
 
   $\\{ 1/4, 1/2, 3/4 \\}$
 
@@ -169,39 +169,28 @@
   which collide with the roots of unity of $Z_{2}$ which we know are both equal to $1$, indeed if you check this, you'll find out every coprime of $8$ produces $1$ at the first square. Repeating the reasoning for $Z_{16}^{\ast}$ produces
 
   $\\{ 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8 \\}^{2}$<br>
-  $->$
+  $->$<br>
   $\\{ 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4 \\}^{2}$<br>
-  $->$
-  $\\{ 1/2, 1, 1/2, 1, 1/2, 1, 1/2 \\}$<br>
+  $->$<br>
+  $\\{ 1/2, 1, 1/2, 1, 1/2, 1, 1/2 \\}$
 
-  (where $1$ is not affected since the abstraction erase $e^{0}$, and $e^{2 \cdot 0} = 1$) which again collide with the roots of unity of $2$, and if you check this result you'll find out every coprime $c$ of $16$ produces $1$ at $c^{4}$. Repeating for $Z_{32}^{\ast}$ we get
+  (where $1$ is not affected since the abstraction erase $e^{0}$, and $e^{2 \cdot 0} = 1$) which again collide with the roots of unity of $2$, and if you check this result you'll find out every coprime $c$ of $16$ produces $1$ at $c_{16}^{4}$. Repeating for $Z_{32}^{\ast}$ we get
 
   $\\{ 1/16, 1/8, 3/16, 1/4, 5/16, 3/8, 7/16, 1/2, 9/16, 5/8, 11/16, 3/4, 13/16, 7/8, 15/16 \\}^{2}$<br>
-  $->$
+  $->$<br>
   $\\{ 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8, 1, 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8 \\}^{2}$<br>
-  $->$
+  $->$<br>
   $\\{ 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4 \\}^{2}$<br>
-  $->$
-  $\\{ 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2 \\}$<br>
+  $->$<br>
+  $\\{ 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2 \\}$
 
-  that is, the roots of unity of $Z_{2}^{\ast}$. If you check this out you'll find out every coprime $c$ of $Z_{32}^{\ast}$ will produce $1$ at $c^{8}$.
+  that is, the roots of unity of $Z_{2}^{\ast}$. If you check this out you'll find out every coprime $c$ of $Z_{32}^{\ast}$ will produce $1$ at $c_{32}^{8}$.
 
-  
-  
+  Now, we can formalize this.
 
-  and 
-  
-  In order to have some generator for some $Z_{n}^{\ast}$ we must have at least one subgroup which generates $Z_{n}^{\ast}$. Now if $n$ is not prime we know this is impossible and the problem reduces to have at least one subgroup which generates $Z_{\phi(n)}^{\ast}$. We can make a simple generalization of the Euler's Criterion [https://crypto.stanford.edu/pbc/notes/numbertheory/qr.html] considering some $e \in Z_{\phi(n)}^{\ast}$ which produces
-  
-  $e^{\phi(n)/2} \equiv - 1 \mod n$
+  $a^{2^{k - 2}} \equiv 1 \mod 2^{k}$
 
-  iff 
-  
-  $\phi(n) \equiv 0 \mod 4$
-
-  To have some generator then we need the first one verified, but the problem is that 
-  
-  
+  for any $a \in Z_{\phi(2^{k})^{\ast}$.
   
 </p>
 
