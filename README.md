@@ -158,11 +158,11 @@
 
   ### Proof
   
-  Consider the roots of unity of $Z_{\phi(2)}^{\ast}$, since $\phi(2) = 1$ we are basically finding the root of unity of $Z_{1}^{\ast}$, that is
+  Consider the roots of unity of $Z_{\phi(2)}^{\ast}$, since $\phi(2) = 1$ we are basically finding the root of unity of $1$, that is
 
   $\zeta_{1} = 1$
 
-  Now consider the roots of unity of $Z_{\phi(4)}^{\ast}$, we have $\phi(4) = 2$ and therefore $Z_{2}^{\ast}$. The roots of unity of $Z_{2}^{\ast}$ are
+  Now consider the roots of unity of $Z_{\phi(4)}^{\ast}$, we have $\phi(4) = 2$ and therefore the roots of unity of $2$.
 
   $\zeta_{2_1} = 1$<br>
   $\zeta_{2_2} = - 1$
@@ -172,30 +172,44 @@
   $\zeta_{2_1}^{2} = 1$<br>
   $\zeta_{2_2}^{2} = 1$
 
-  which simply means that the roots of unity of $Z_{\phi(4)}^{\ast}$ are $\\{ 1, - 1 \\}$ and the order $o$ of $Z_{\phi(4)}^{\ast}$ is such that $o = 2$. Now, consider $Z_{\phi(8)}^{\ast}$, $\phi(8) = 4$, then the roots of unity of $Z_{4}^{\ast}$ are, after some abstractions
+  which simply means that the roots of unity of $Z_{\phi(4)}^{\ast}$ are $\\{ 1, - 1 \\}$ and the order of $Z_{\phi(4)}^{\ast}$ is $2$. Now, consider $Z_{\phi(8)}^{\ast}$, $\phi(8) = 4$, then the roots of unity of $4$ are, after some abstractions and altering signs [we are safe to do so since we'll square them and the sign will become positive, also, there are some inconsistences if we don't alter them; you'll find this out considering $- \frac{\pi}{4} + \frac{\pi}{4}$ which exists but if we don't alter signs it becomes $0$, so I'll keep the signs negative if the roots appear in the third or fourth quadrant proceeding counterclockwise from the positive one (while keeping - 1 being between the second and third)]
 
   $\zeta_{2_1} = \displaystyle 1$<br>
   $\zeta_{4_1} = \displaystyle 1$<br>
   $\zeta_{2_2} = \displaystyle - 1$<br>
   $\zeta_{4_2} = \displaystyle - 1$
 
-  where you can find this values solving the trigonometric equations; squaring we get
+  (you can find this values solving the trigonometric equations); squaring we trivially get
 
   $\zeta_{2_1}^{2} = \displaystyle 1$<br>
   $\zeta_{4_1}^{2} = \displaystyle 1$<br>
   $\zeta_{2_2}^{2} = \displaystyle 1$<br>
   $\zeta_{4_2}^{2} = \displaystyle 1$
 
-  Finally, consider $Z_{\phi(16)}^{\ast}$, $\phi(16) = 8$, then the roots of unity of $Z_{8}^{\ast}$ are, after some abstractions
+  Now, consider $Z_{\phi(16)}^{\ast}$, $\phi(16) = 8$, then the roots of unity of $8$ are, after some abstractions
 
   $\zeta_{2_1} = \displaystyle 1$<br>
-  $\zeta_{8_1} = \displaystyle \sqrt{2}$<br>
+  $\zeta_{8_1} = \displaystyle \sin(\frac{\pi}{4}) + \cos(\frac{\pi}{4})$<br>
   $\zeta_{4_1} = \displaystyle 1$<br>
-  $\zeta_{8_2} = \displaystyle - \sqrt{2}$
+  $\zeta_{8_2} = \displaystyle \sin(\frac{\pi}{4}) + \cos(\frac{\pi}{4})$<br>
   $\zeta_{2_2} = \displaystyle - 1$<br>
-  $\zeta_{8_3} = \displaystyle - 1$<br>
+  $\zeta_{8_3} = \displaystyle - \sin(\frac{\pi}{4}) - \cos(\frac{\pi}{4})$<br>
   $\zeta_{4_2} = \displaystyle - 1$<br>
-  $\zeta_{8_4} = \displaystyle - 1$
+  $\zeta_{8_4} = \displaystyle - \sin(\frac{\pi}{4}) - \cos(\frac{\pi}{4})$
+
+  and squaring produces
+
+  $\zeta_{2_1}^{2} = \displaystyle 1$<br>
+  $\zeta_{8_1}^{2} = \displaystyle \sin(\frac{\pi}{2}) + \cos(\frac{\pi}{2}) = 1 + 0 = 1$<br>
+  $\zeta_{4_1}^{2} = \displaystyle 1$<br>
+  $\zeta_{8_2}^{2} = \displaystyle \sin(\frac{\pi}{2}) + \cos(\frac{\pi}{2}) = 1$<br>
+  $\zeta_{2_2}^{2} = \displaystyle - 1$<br>
+  $\zeta_{8_3}^{2} = \displaystyle - \sin(\frac{\pi}{2}) - \cos(\frac{\pi}{2}) = - 1$<br>
+  $\zeta_{4_2}^{2} = \displaystyle - 1$<br>
+  $\zeta_{8_4}^{2} = \displaystyle - \sin(\frac{\pi}{2}) - \cos(\frac{\pi}{2}) = - 1$
+
+  Now, finally, consider 
+
   
   $a^{2^{k - 2}} \equiv 1 \mod 2^{k}$
 
