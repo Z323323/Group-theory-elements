@@ -248,7 +248,7 @@
 
   and this means that since
 
-  $\displaystyle o_{Z_{\phi(2^{k + 1})}^{\ast}} = 2^{k - 1} \neq 2^{k}$
+  $\displaystyle o_{Z_{\phi(2^{k + 1})}^{\ast}} = 2^{k - 1} < 2^{k}$
 
   then $Z_{\phi(n)}^{\ast}$ doesn't have generators.
   
