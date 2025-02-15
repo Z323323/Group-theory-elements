@@ -239,18 +239,15 @@
   
   $Z_{\phi(2^{k + 1})}^{\ast} \times Z_{\phi(\Theta)}^{\ast} \times Z_{\phi(\Psi)}^{\ast} \times Z_{\phi(\Omega)}^{\ast} \dots$
 
-  such that, denoting the order of some $Z_{\phi(n)}^{\ast}$ as $o_{Z_{\phi(n)}^{\ast}}$ we have
+  such that
   
-  $o_{Z_{\phi(\Theta)}^{\ast}} = X$<br>
-  $o_{Z_{\phi(\Psi)}^{\ast}} = Y$<br>
-  $o_{Z_{\phi(\Omega)}^{\ast}} = Z$<br>
+  $\phi(2^{k + 1}) = 2^{k}$<br>
+  $\phi(\Theta) = X$<br>
+  $\phi(\Psi) = Y$<br>
+  $\phi(\Omega) = Z$<br>
   $\dots$
 
-  and this means that since
-
-  $\displaystyle o_{Z_{\phi(2^{k + 1})}^{\ast}} = 2^{k - 1} < 2^{k}$
-
-  then $Z_{\phi(n)}^{\ast}$ doesn't have generators.
+  and since $Z_{\phi(2^{k + 1})}^{\ast}$ doesn't have generators, then $Z_{\phi(n)}^{\ast}$ doesn't have generators.
   
 </p>
 
