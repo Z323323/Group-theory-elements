@@ -231,11 +231,26 @@
 
   $Z_{\phi(8)}^{\ast}, Z_{\phi(16)}^{\ast}, Z_{\phi(32)}^{\ast}, Z_{\phi(64)}^{\ast}, Z_{\phi(128)}^{\ast} \dots$
 
-  can't have generators because every subgroup of $Z_{\phi(2^{k})}^{\ast}$ have $max - order$ $m_o = 2^{k - 2}$ [ for any $k > 2$ ] which is the half of $\phi(2^{k}) = 2^{k - 1}$. Note that I specified $max - order$ and not $order$ because the order of some subgroups doesn't necessarily follows the $2^{k - 2}$ rule (as you can see from the results of the squares). We can further analyze that since the roots of unity for multiples of the same number are shared (and that's why there exists the term _primitive roots of unity_) we will always have, for $Z_{\phi(2^{k})}^{\ast}, k > 2$: $4$ elements which generates subgroups of order $2$, $8$ elements which generates subgroups of order $4$, $16 \dots$ etc.
-
-  Now, following [https://github.com/Z323323/Formal-group-theory/edit/main/README.md#2], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}XYZ\dots$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by 
+  can't have generators because every subgroup of $Z_{\phi(2^{k})}^{\ast}$ have $max - order$ $m_o = 2^{k - 2}$ [ for any $k > 2$ ] which is the half of $\phi(2^{k}) = 2^{k - 1}$.
   
-  $Z_{2^{k}}^{\ast} \times Z_{$ 
+  Note that I specified $max - order$ and not $order$ because the order of some subgroups doesn't necessarily follows the $2^{k - 2}$ rule (as you can see from the results of the squares). We can further analyze that since the roots of unity for multiples of the same number are shared (and that's why there exists the term _primitive roots of unity_) we will always have, for $Z_{\phi(2^{k})}^{\ast}, k > 2$ $4$ elements which generates subgroups of order $2$ $(Z_{\phi(8)}^{\ast})$, $8$ elements which generates subgroups of order $4$ $(Z_{\phi(16)}^{\ast})$, $16 \dots$ $(Z_{\phi(32)}^{\ast})$ etc.
+
+  Now, following [https://github.com/Z323323/Formal-group-theory/edit/main/README.md#2], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}XYZ\dots$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by the multiplication of
+  
+  $Z_{\phi(2^{k + 1})}^{\ast} \times Z_{\phi(\Theta)}^{\ast} \times Z_{\phi(\Psi)}^{\ast} \times Z_{\phi(\Omega)}^{\ast} \dots$
+
+  such that, denoting the order of some $Z_{\phi(n)}^{\ast}$ as $o_{Z_{\phi(n)}^{\ast}}$ we have
+  
+  $o_{Z_{\phi(\Theta)}^{\ast}} = X$<br>
+  $o_{Z_{\phi(\Psi)}^{\ast}} = Y$<br>
+  $o_{Z_{\phi(\Omega)}^{\ast}} = Z$<br>
+  $\dots$
+
+  and this means that since
+
+  $o_{Z_{\phi(2^{k + 1)}^{\ast}} = 2^{k - 1} \neq 2^{k}$
+
+  then $Z_{\phi(2^{k + 1)}^{\ast}$ doesn't have a generator (which generates $2^{k}$ elements), and therefore doesn't generates enough elements to represent $Z_{\phi(n)}^{\ast}$ and therefore $Z_{\phi(n)}^{\ast}$ doesn't have generators.
   
 </p>
 
