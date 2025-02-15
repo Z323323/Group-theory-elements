@@ -150,13 +150,13 @@
 
   This section requires knowledge about roots of unity.
   
-  #### Theorem
+  ### Theorem
   
   Any group of the form $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^{k}XYZ\dots, k \geq 2$ doesn't have generators. 
   
   This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction). There's another way to prove that any multiplicative finite group $Z_{n}^{\ast}$ such that $\phi(n) = 2^{k}XYZ\dots, k \geq 2$ can't have generators, and this will apply not only to $Z_{8}^{\ast}, Z_{16}^{\ast}, \dots$ but also to groups like $Z_{12}^{\ast}, Z_{15}^{\ast} \dots$.
 
-  #### Proof
+  ### Proof
   
   Consider the roots of unity of $Z_{\phi(2)}^{\ast}$, since $\phi(2) = 1$ we are basically finding the root of unity of $1$, that is
 
