@@ -144,7 +144,7 @@
   
 </p>
 
-### Clarifications about $Z_{\phi(8)}^{\ast}, Z_{\phi(16)}^{\ast}, \dots$
+### Clarifications about $Z_{\phi(8)}^{\ast}, Z_{\phi(12)}^{\ast}, Z_{\phi(15)}^{\ast}, Z_{\phi(16)}^{\ast}, \dots, Z_{\phi(32)}^{\ast}, \dots, Z_{\phi(64)}^{\ast}, \dots, Z_{\phi(128)}^{\ast} \dots$
 
 <p>
 
@@ -152,9 +152,9 @@
   
   ### Theorem
   
-  Any group of the form $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ doesn't have generators. 
+  Any group of the form $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^{k}XYZ\dots, k \geq 2$ doesn't have generators. 
   
-  This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction). There's another way to prove that any multiplicative finite group $Z_{n}^{\ast}$ such that $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ can't have generators, and this will apply not only to $Z_{8}^{\ast}, Z_{16}^{\ast}, \dots$ but also to groups like $Z_{12}^{\ast}, Z_{15}^{\ast} \dots$.
+  This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction). There's another way to prove that any multiplicative finite group $Z_{n}^{\ast}$ such that $\phi(n) = 2^{k}XYZ\dots, k \geq 2$ can't have generators, and this will apply not only to $Z_{8}^{\ast}, Z_{16}^{\ast}, \dots$ but also to groups like $Z_{12}^{\ast}, Z_{15}^{\ast} \dots$.
 
   ### Proof
   
@@ -162,7 +162,7 @@
 
   $\zeta_{1} = 1$
 
-  Now consider the roots of unity of $Z_{\phi(4)}^{\ast}$, we have $\phi(4) = 2$ and therefore the roots of unity of $2$.
+  which trivially generates $Z_{\phi(2)}^{\ast}$. Now consider the roots of unity of $Z_{\phi(4)}^{\ast}$, we have $\phi(4) = 2$ and therefore the roots of unity of $2$.
 
   $\zeta_{2_1} = 1$<br>
   $\zeta_{2_2} = - 1$
@@ -172,7 +172,7 @@
   $\zeta_{2_1}^{2} = 1$<br>
   $\zeta_{2_2}^{2} = 1$
 
-  which simply means that the roots of unity of $Z_{\phi(4)}^{\ast}$ are $\\{ 1, - 1 \\}$ and the order of $Z_{\phi(4)}^{\ast}$ is $2$. Now, consider $Z_{\phi(8)}^{\ast}$, $\phi(8) = 4$, then the roots of unity of $4$ are, after some abstractions and altering signs [we are safe to do so since we'll square them and the sign will become positive, also, there are some inconsistences if we don't alter them; you'll find this out considering $- \frac{\pi}{4} + \frac{\pi}{4}$ which exists but if we don't alter signs it becomes $0$, so I'll keep the signs negative if the roots appear in the third or fourth quadrant proceeding counterclockwise from the positive one (while keeping - 1 being between the second and third). Note also that if we find $- 1$ or other numbers around doesn't mean that they will be reflected into $Z_{\phi(n)}^{\ast}$ because they are complex solutions, but after repeated squaring we will get $1$ which is a real solution mapped into $Z_{\phi(n)}^{\ast}$]
+  which simply means that the roots of unity of $Z_{\phi(4)}^{\ast}$ are $\\{ 1, - 1 \\}$ and the order of $Z_{\phi(4)}^{\ast}$ is $2$. Since the order matches $\phi(4)$ there can be generators [$3$ is the only generator]. Now, consider $Z_{\phi(8)}^{\ast}$, $\phi(8) = 4$, then the roots of unity of $4$ are, after some abstractions and altering signs [we are safe to do so since we'll square them and the sign will become positive, also, there are some inconsistences if we don't alter them; you'll find this out considering $- \frac{\pi}{4} + \frac{\pi}{4}$ which exists but if we don't alter signs it becomes $0$, so I'll keep the signs negative if the roots appear in the third or fourth quadrant proceeding counterclockwise from the positive one (while keeping $- 1$ being between the second and third). Note also that if we find $- 1$ or other numbers around doesn't mean that they will be reflected into $Z_{\phi(n)}^{\ast}$ because they are complex solutions, but after repeated squaring we will get $1$ which is a real solution mapped into $Z_{\phi(n)}^{\ast}$]
 
   $\zeta_{2_1} = \displaystyle 1$<br>
   $\zeta_{4_1} = \displaystyle 1$<br>
@@ -219,13 +219,19 @@
   $\zeta_{4_2}^{4} = \displaystyle 1$<br>
   $\zeta_{8_4}^{4} = \displaystyle 1$
 
-  Indeed, you can find out that the order of any element of $Z_{\phi(16)^{\ast}$ has order $o = 4$.
+  Indeed, you can find out that the order of any element of $Z_{\phi(16)}^{\ast}$ has order $o = 4$.
 
-  This same process can be easily iterated for $Z_{\phi(32)^{\ast}, Z_{\phi(64)^{\ast}, Z_{\phi(128)^{\ast} \dots$ proving that
+  This same process can be easily iterated for $Z_{\phi(32)}^{\ast}, Z_{\phi(64)}^{\ast}, Z_{\phi(128)}^{\ast} \dots$ proving that
   
   $a^{2^{k - 2}} \equiv 1 \mod 2^{k}$
 
-  for any $a \in Z_{\phi(2^{k})}^{\ast}$.
+  for any $a \in Z_{\phi(2^{k})}^{\ast}$ and $k \geq 2$. This proves also that
+
+  $Z_{\phi(8)}^{\ast}, Z_{\phi(16)}^{\ast}, Z_{\phi(32)}^{\ast}, Z_{\phi(64)}^{\ast}, Z_{\phi(128)}^{\ast} \dots$
+
+  can't have generators because $Z_{\phi(2^{k})}^{\ast}$ have order $o = 2^{k - 2}$ [for any $k \geq 2$] which is the half of $\phi(2^{k}) = 2^{k - 1}$.
+
+  Now, following [https://github.com/Z323323/Formal-group-theory/edit/main/README.md#2], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}XYZ\dots$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented using elements of $Z
   
 </p>
 
