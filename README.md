@@ -227,11 +227,11 @@
   
   $a^{2^{k - 2}} \equiv 1 \mod 2^{k}$
 
-  for any $a$ which is coprime with $2^{k}$ [ any $odd$ ] and $k \geq 2$. This proves also that
+  for any $a$ which is coprime with $2^{k}$ [ any $odd$ ] and $k > 2$. This proves also that
 
   $Z_{\phi(8)}^{\ast}, Z_{\phi(16)}^{\ast}, Z_{\phi(32)}^{\ast}, Z_{\phi(64)}^{\ast}, Z_{\phi(128)}^{\ast} \dots$
 
-  can't have generators because every subgroup of $Z_{2^{k}}^{\ast}$ have $max - order$ $m_o = 2^{k - 2}$ [ for any $k \geq 2$ ] which is the half of $\phi(2^{k}) = 2^{k - 1}$. Note that I specified $max - order$ and not $order$ because the order of some subgroups doesn't necessarily follows the $2^{k - 2}$ rule (as you can see from the results of the squares). We can further analyze that since the roots of unity for multiples of the same number are shared (and that's why there exists the term _primitive roots of unity_) we will always have, for $Z_{\phi(2^{k})}^{\ast}, k \geq 2$: $4$ elements which generates subgroups of order $2$, $8$ elements which generates subgroups of order $4$, $16 \dots$ etc.
+  can't have generators because every subgroup of $Z_{\phi(2^{k})}^{\ast}$ have $max - order$ $m_o = 2^{k - 2}$ [ for any $k > 2$ ] which is the half of $\phi(2^{k}) = 2^{k - 1}$. Note that I specified $max - order$ and not $order$ because the order of some subgroups doesn't necessarily follows the $2^{k - 2}$ rule (as you can see from the results of the squares). We can further analyze that since the roots of unity for multiples of the same number are shared (and that's why there exists the term _primitive roots of unity_) we will always have, for $Z_{\phi(2^{k})}^{\ast}, k > 2$: $4$ elements which generates subgroups of order $2$, $8$ elements which generates subgroups of order $4$, $16 \dots$ etc.
 
   Now, following [https://github.com/Z323323/Formal-group-theory/edit/main/README.md#2], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}XYZ\dots$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by 
   
