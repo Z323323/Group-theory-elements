@@ -172,7 +172,7 @@
   $\zeta_{2_1}^{2} = 1$<br>
   $\zeta_{2_2}^{2} = 1$
 
-  which simply means that the roots of unity of $Z_{\phi(4)}^{\ast}$ are $\\{ 1, - 1 \\}$ and the order of $Z_{\phi(4)}^{\ast}$ is $2$. Since the order matches $\phi(4)$ there can be generators [$3$ is the only generator]. Now, consider $Z_{\phi(8)}^{\ast}$, $\phi(8) = 4$, then the roots of unity of $4$ are, after some abstractions and altering signs [we are safe to do so since we'll square them and the sign will become positive, also, there are some inconsistences if we don't alter them; you'll find this out considering $- \frac{\pi}{4} + \frac{\pi}{4}$ which exists but if we don't alter signs it becomes $0$, so I'll keep the signs negative if the roots appear in the third or fourth quadrant proceeding counterclockwise from the positive one (while keeping $- 1$ being between the second and third). Note also that if we find $- 1$ or other numbers around doesn't mean that they will be reflected into $Z_{\phi(n)}^{\ast}$ because they are complex solutions, but after repeated squaring we will get $1$ which is a real solution mapped into $Z_{\phi(n)}^{\ast}$]
+  which simply means that the roots of unity of $Z_{\phi(4)}^{\ast}$ are $\\{ 1, - 1 \\}$ and the order of $Z_{\phi(4)}^{\ast}$ is $2$. Since the order matches $\phi(4)$ there can be generators [ $3$ is the only generator ]. Now, consider $Z_{\phi(8)}^{\ast}$, $\phi(8) = 4$, then the roots of unity of $4$ are, after some abstractions and altering signs [ we are safe to do so since we'll square them and the sign will become positive, also, there are some inconsistences if we don't alter them; you'll find this out considering $- \frac{\pi}{4} + \frac{\pi}{4}$ which exists but if we don't alter signs it becomes $0$, so I'll keep the signs negative if the roots appear in the third or fourth quadrant proceeding counterclockwise from the positive one (while keeping $- 1$ being between the second and third). Note also that if we find $- 1$ or other numbers around doesn't mean that they will be reflected into $Z_{\phi(n)}^{\ast}$ because they are complex solutions, but after repeated squaring we will get $1$ which is a real solution mapped into $Z_{\phi(n)}^{\ast}$ ]
 
   $\zeta_{2_1} = \displaystyle 1$<br>
   $\zeta_{4_1} = \displaystyle 1$<br>
@@ -225,7 +225,7 @@
   
   $a^{2^{k - 2}} \equiv 1 \mod 2^{k}$
 
-  for any $a \in Z_{\phi(2^{k})}^{\ast}$ and $k \geq 2$. This proves also that
+  for any $a$ which is coprime with $2^{k}$ [ any $odd$ ] and $k \geq 2$. This proves also that
 
   $Z_{\phi(8)}^{\ast}, Z_{\phi(16)}^{\ast}, Z_{\phi(32)}^{\ast}, Z_{\phi(64)}^{\ast}, Z_{\phi(128)}^{\ast} \dots$
 
