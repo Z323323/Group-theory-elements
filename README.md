@@ -210,7 +210,7 @@
   $\zeta_{4_2}^{2} = \displaystyle - 1$<br>
   $\zeta_{8_4}^{2} = \displaystyle - \sin(\frac{\pi}{2}) - \cos(\frac{\pi}{2}) = - 1$
 
-  Squaring again produces
+  since [https://github.com/Z323323/Complex-numbers-background?tab=readme-ov-file#ez-analysis]. Squaring again produces
 
   $\zeta_{2_1}^{4} = \displaystyle 1$<br>
   $\zeta_{8_1}^{4} = \displaystyle 1$<br>
