@@ -1,6 +1,7 @@
 # Group theory elements
 
-## Multiplicative groups, (cyclic) subgroups and generators
+## Multiplicative groups, subgroups and generators
+
 <p>
   
   We define a subgroup of $Z_{n}^{\ast}$ as a non-empty subset $H$ of $Z_{n}^{*}$ such that, taken any element $e \in Z_{n}^{\ast}$, all elements $z \in H$ are delimited by $e^{1}$ and the first $1$ 'produced' by $e^{o} \mod n, 0 \lt o \lt n \in N$, that is, the whole subgroup $H$ is
@@ -86,6 +87,7 @@
 ## Proof of cyclicality of subgroups (and uniqueness of each element)
 
 <p>
+  
   Let $a$ be a generator for a subgroup of $Z_{n}^{\ast}$, we know that in order to have
 
   $az \equiv 1 \mod n$
@@ -116,7 +118,7 @@
   
 </p>
 
-## Generators theorem
+## Generators
 
 ### Introduction
 
@@ -144,7 +146,7 @@
   
 </p>
 
-### Clarifications about $Z_{\phi(8)}^{\ast}, Z_{\phi(12)}^{\ast}, Z_{\phi(15)}^{\ast}, Z_{\phi(16)}^{\ast}, \dots, Z_{\phi(32)}^{\ast}, \dots, Z_{\phi(64)}^{\ast}, \dots, Z_{\phi(128)}^{\ast} \dots$
+## Clarifications about $Z_{\phi(8)}^{\ast}, Z_{\phi(12)}^{\ast}, Z_{\phi(15)}^{\ast}, Z_{\phi(16)}^{\ast}, \dots, Z_{\phi(32)}^{\ast}, \dots, Z_{\phi(64)}^{\ast}, \dots, Z_{\phi(128)}^{\ast} \dots$
 
 <p>
 
@@ -231,7 +233,7 @@
 
   $Z_{\phi(8)}^{\ast}, Z_{\phi(16)}^{\ast}, Z_{\phi(32)}^{\ast}, Z_{\phi(64)}^{\ast}, Z_{\phi(128)}^{\ast} \dots$
 
-  can't have generators because every subgroup of $Z_{2^{k}}^{\ast}$ have $max - order$ $m_o = 2^{k - 2}$ [ for any $k \geq 2$ ] which is the half of $\phi(2^{k}) = 2^{k - 1}$.
+  can't have generators because every subgroup of $Z_{2^{k}}^{\ast}$ have $max - order$ $m_o = 2^{k - 2}$ [ for any $k \geq 2$ ] which is the half of $\phi(2^{k}) = 2^{k - 1}$. Note that I specified $max - order$ and not $order$ because the order of some subgroups doesn't necessarily follows the $2^{k - 2}$ rule (as you can see from the results of the squares). We can further analyze that since the roots of unity for multiples of the same number are shared (and that's why there exists the term _primitive roots of unity_) we will always have, for $Z_{\phi(2^{k})}^{\ast}, k \geq 2$: $4$ elements which generates subgroups of order $2$, $8$ elements which generates subgroups of order $4$, $16 \dots$ etc.
 
   Now, following [https://github.com/Z323323/Formal-group-theory/edit/main/README.md#2], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}XYZ\dots$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by 
   
@@ -250,9 +252,19 @@
 
 </p>
 
-### Proof of generators theorem
+## Generators theorem
 
 <p>
+
+### Theorem
+
+   Consider $Z_{\phi(n)}^{\ast}$, for any positive integer $n > 0$ such that $Z_{\phi(n)}^{\ast}$ can have generators, that is
+
+   $\phi(n) \neq 2^{k}XYZ\dots, k \geq 2$
+
+   then $Z_{\phi(n)}^{\ast}$ has $\phi(\phi(n))$ generators, and for every subgroup of order $o | \phi(n)$ there exist $\phi(o)$ generators.
+
+### Proof
   
    Refer to [https://crypto.stanford.edu/pbc/notes/numbertheory/cyclic.html], first theorem under 'Counting generators' section.
 
