@@ -78,9 +78,7 @@
 
   $\displaystyle |H| = \frac{\phi(n)}{\phi(n)} = 1$
 
-  which still divides $\phi(n)$ therefore proving the theorem.<br>
-  <br>
-  Papers normally refer to $Ha, Hb, \dots H_{\phi(n)}$ as the left cosets. This proof proves the importance of such concept besides the theorem, since as I already mentioned, this theorem allows to prove the cyclicness (next section), which believe me, it would be one hell of a ride to prove without this theorem.
+  which still divides $\phi(n)$ therefore proving the theorem.
   
 </p>
 
