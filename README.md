@@ -148,8 +148,8 @@
 
 <p>
 
-  Note that this section requires knowledge about roots of unity.
-
+  This section requires knowledge about roots of unity.
+  
   ### Theorem
   
   Any group of the form $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^{t}XYZ\dots, t \geq 2$ doesn't have generators. 
@@ -158,36 +158,45 @@
 
   ### Proof
   
-  Consider the general form for the primitive roots of unity of $Z_{8}^{\ast}$, which are after some useful abstractions [remember they will be defined $\mod \phi(8)$]
+  Consider the roots of unity of $Z_{\phi(2)}^{\ast}$, since $\phi(2) = 1$ we are basically finding the root of unity of $Z_{1}^{\ast}$, that is
 
-  $\\{ 1/4, 1/2, 3/4 \\}$
+  $\zeta_{1} = 1$
 
-  If we consider the squares of such primitive roots we get
+  Now consider the roots of unity of $Z_{\phi(4)}^{\ast}$, we have $\phi(4) = 2$ and therefore $Z_{2}^{\ast}$. The roots of unity of $Z_{2}^{\ast}$ are
 
-  $\\{ 1/2, 1, 1/2 \\}$
+  $\zeta_{2_1} = 1$<br>
+  $\zeta_{2_2} = - 1$
 
-  which collide with the roots of unity of $Z_{2}$ which we know are both equal to $1$, indeed if you check this, you'll find out every coprime of $8$ produces $1$ at the first square. Repeating the reasoning for $Z_{16}^{\ast}$ produces
+  Squaring produces
 
-  $\\{ 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8 \\}^{2}$<br>
-  $->$<br>
-  $\\{ 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4 \\}^{2}$<br>
-  $->$<br>
-  $\\{ 1/2, 1, 1/2, 1, 1/2, 1, 1/2 \\}$
+  $\zeta_{2_1}^{2} = 1$<br>
+  $\zeta_{2_2}^{2} = 1$
 
-  (where $1$ is not affected since the abstraction erase $e^{0}$, and $e^{2 \cdot 0} = 1$) which again collide with the roots of unity of $2$, and if you check this result you'll find out every coprime $c$ of $16$ produces $1$ at $c_{16}^{4}$. Repeating for $Z_{32}^{\ast}$ we get
+  which simply means that the roots of unity of $Z_{\phi(4)}^{\ast}$ are $\\{ 1, - 1 \\}$ and the order $o$ of $Z_{\phi(4)}^{\ast}$ is such that $o = 2$. Now, consider $Z_{\phi(8)}^{\ast}$, $\phi(8) = 4$, then the roots of unity of $Z_{4}^{\ast}$ are, after some abstractions
 
-  $\\{ 1/16, 1/8, 3/16, 1/4, 5/16, 3/8, 7/16, 1/2, 9/16, 5/8, 11/16, 3/4, 13/16, 7/8, 15/16 \\}^{2}$<br>
-  $->$<br>
-  $\\{ 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8, 1, 1/8, 1/4, 3/8, 1/2, 5/8, 3/4, 7/8 \\}^{2}$<br>
-  $->$<br>
-  $\\{ 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4, 1, 1/4, 1/2, 3/4 \\}^{2}$<br>
-  $->$<br>
-  $\\{ 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2, 1, 1/2 \\}$
+  $\zeta_{2_1} = \displaystyle 1$<br>
+  $\zeta_{4_1} = \displaystyle 1$<br>
+  $\zeta_{2_2} = \displaystyle - 1$<br>
+  $\zeta_{4_2} = \displaystyle - 1$
 
-  that is, the roots of unity of $Z_{2}^{\ast}$. If you check this out you'll find out every coprime $c$ of $Z_{32}^{\ast}$ will produce $1$ at $c_{32}^{8}$.
+  where you can find this values solving the trigonometric equations; squaring we get
 
-  Now, we can formalize this.
+  $\zeta_{2_1}^{2} = \displaystyle 1$<br>
+  $\zeta_{4_1}^{2} = \displaystyle 1$<br>
+  $\zeta_{2_2}^{2} = \displaystyle 1$<br>
+  $\zeta_{4_2}^{2} = \displaystyle 1$
 
+  Finally, consider $Z_{\phi(16)}^{\ast}$, $\phi(16) = 8$, then the roots of unity of $Z_{8}^{\ast}$ are, after some abstractions
+
+  $\zeta_{2_1} = \displaystyle 1$<br>
+  $\zeta_{8_1} = \displaystyle \sqrt{2}$<br>
+  $\zeta_{4_1} = \displaystyle 1$<br>
+  $\zeta_{8_2} = \displaystyle - \sqrt{2}$
+  $\zeta_{2_2} = \displaystyle - 1$<br>
+  $\zeta_{8_3} = \displaystyle - 1$<br>
+  $\zeta_{4_2} = \displaystyle - 1$<br>
+  $\zeta_{8_4} = \displaystyle - 1$
+  
   $a^{2^{k - 2}} \equiv 1 \mod 2^{k}$
 
   for any $a \in Z_{\phi(2^{k})}^{\ast}$.
