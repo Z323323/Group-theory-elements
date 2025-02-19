@@ -235,7 +235,7 @@
   
   Note that I specified $max - order$ and not $order$ because the order of some subgroups doesn't necessarily follows the $2^{k - 2}$ rule (as you can see from the results of the squares). We can further analyze that since the roots of unity for multiples of the same number are shared (and that's why there exists the term _primitive roots of unity_) we will always have, for $Z_{\phi(2^{k})}^{\ast}, k > 2$ $4$ elements which generates subgroups of order $2$ $(Z_{\phi(8)}^{\ast})$, $8$ elements which generates subgroups of order $4$ $(Z_{\phi(16)}^{\ast})$, $16 \dots$ $(Z_{\phi(32)}^{\ast})$ etc.
 
-  Now, following [https://github.com/Z323323/Formal-group-theory/edit/main/README.md#2], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}XYZ\dots$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by the multiplication of
+  Now, following [https://github.com/Z323323/Group-theory-1], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}XYZ\dots$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by the multiplication of
   
   $Z_{\phi(2^{k + 1})}^{\ast} \times Z_{\phi(\Theta)}^{\ast} \times Z_{\phi(\Psi)}^{\ast} \times Z_{\phi(\Omega)}^{\ast} \dots$
 
