@@ -258,7 +258,7 @@
   * $Z_{p}^{\ast}$ for $p$ prime always have generators.
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators.
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators.
-  * $Z_{\phi(n)}^{\ast}$ for $\phi(n) = 2^tXYZ\dots, t \geq 2$ can't have generators.
+  * $Z_{\phi(n)}^{\ast}$ for $\phi(n) = 2^kXYZ\dots, k > 2$ can't have generators.
 
 </p>
 
