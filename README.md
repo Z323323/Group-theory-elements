@@ -152,9 +152,9 @@
   
   ### Theorem
   
-  Any group of the form $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^{k}XYZ\dots, k \geq 2$ doesn't have generators. 
+  Any group of the form $Z_{\phi(n)}^{*}$ where $\phi(n) = 2^{k}X, k > 2$ doesn't have generators. 
   
-  This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction). There's another way to prove that any multiplicative finite group $Z_{n}^{\ast}$ such that $\phi(n) = 2^{k}XYZ\dots, k \geq 2$ can't have generators, and this will apply not only to $Z_{8}^{\ast}, Z_{16}^{\ast}, \dots$ but also to groups like $Z_{12}^{\ast}, Z_{15}^{\ast} \dots$.
+  This can be proved by induction but I'm not taking this challenge to the end (even though I verified the induction). There's another way to prove that any multiplicative finite group $Z_{n}^{\ast}$ such that $\phi(n) = 2^{k}X, k > 2$ can't have generators, and this will apply not only to $Z_{8}^{\ast}, Z_{16}^{\ast}, \dots$ but also to groups like $Z_{12}^{\ast}, Z_{15}^{\ast} \dots$.
 
   ### Proof
   
@@ -235,7 +235,7 @@
   
   Note that I specified $max - order$ and not $order$ because the order of some subgroups doesn't necessarily follows the $2^{k - 2}$ rule (as you can see from the results of the squares). We can further analyze that since the roots of unity for multiples of the same number are shared (and that's why there exists the term _primitive roots of unity_) we will always have, for $Z_{\phi(2^{k})}^{\ast}, k > 2$ $4$ elements which generates subgroups of order $2$ $(Z_{\phi(8)}^{\ast})$, $8$ elements which generates subgroups of order $4$ $(Z_{\phi(16)}^{\ast})$, $16 \dots$ $(Z_{\phi(32)}^{\ast})$ etc.
 
-  Now, following [https://github.com/Z323323/Group-theory-1], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}XYZ\dots$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by the multiplication of
+  Now, following [https://github.com/Z323323/Group-theory-1], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}X$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by the multiplication of
   
   $Z_{\phi(2^{k + 1})}^{\ast} \times Z_{\phi(\Theta)}^{\ast} \times Z_{\phi(\Psi)}^{\ast} \times Z_{\phi(\Omega)}^{\ast} \dots$
 
@@ -258,7 +258,7 @@
   * $Z_{p}^{\ast}$ for $p$ prime always have generators.
   * $Z_{n}^{\ast}$ for $n$ non-prime can't have generators.
   * $Z_{\phi(n)}^{\ast}$ for $n$ non-prime can have generators.
-  * $Z_{\phi(n)}^{\ast}$ for $\phi(n) = 2^kXYZ\dots, k > 2$ can't have generators.
+  * $Z_{\phi(n)}^{\ast}$ for $\phi(n) = 2^kX, k > 2$ can't have generators.
 
 </p>
 
