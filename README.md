@@ -237,15 +237,12 @@
 
   Now, following [https://github.com/Z323323/Group-theory-1], we can see that if we have $Z_{\phi(n)}^{\ast} = 2^{k}X$, then every element of $Z_{\phi(n)}^{\ast}$ can be represented by the multiplication of
   
-  $Z_{\phi(2^{k + 1})}^{\ast} \times Z_{\phi(\Theta)}^{\ast} \times Z_{\phi(\Psi)}^{\ast} \times Z_{\phi(\Omega)}^{\ast} \dots$
+  $Z_{\phi(2^{k + 1})}^{\ast} \times Z_{\phi(\Theta)}^{\ast}$
 
   such that
   
   $\phi(2^{k + 1}) = 2^{k}$<br>
   $\phi(\Theta) = X$<br>
-  $\phi(\Psi) = Y$<br>
-  $\phi(\Omega) = Z$<br>
-  $\dots$
 
   and since $Z_{\phi(2^{k + 1})}^{\ast}$ doesn't have generators, then $Z_{\phi(n)}^{\ast}$ doesn't have generators.
   
