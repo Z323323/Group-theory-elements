@@ -267,7 +267,7 @@
 
    Consider $Z_{\phi(n)}^{\ast}$, for any positive integer $n > 0$ such that $Z_{\phi(n)}^{\ast}$ can have generators, that is
 
-   $\phi(n) \neq 2^{k}XYZ\dots, k \geq 2$
+   $\phi(n) \neq 2^{k}X, k \geq 2$
 
    then $Z_{\phi(n)}^{\ast}$ has $\phi(\phi(n))$ generators, and for every subgroup of order $o | \phi(n)$ there exist $\phi(o)$ generators.
 
