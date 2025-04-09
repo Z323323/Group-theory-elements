@@ -49,14 +49,15 @@
   but this can't be true since $z_{1}, z_{2} < n$ and $z_{1} \neq z_{2}$, hence $z_{1}a \neq z_{2}a$ proving they are **distinct** pairwise.<br>
   Also no element of $Ha$ lies in $H$, since it would imply
 
-  $za \in H$<br>
+  $za \in H, z \in H, a \notin H$<br>
   $->$<br>
-  $za \equiv z \mod n$<br>
-  $n | z(a - 1)$<br>
+  $za \equiv zx \mod n, x \in H$<br>
   $->$<br>
-  $a \equiv 1 \mod n$
+  $n | z(a - x)$<br>
+  $->$<br>
+  $a \equiv x \mod n$
 
-  Therefore $a$ should be equal to $1$, but this can't be, because $1 \in H$ by the definition of subgroup and $a \notin H$, hence no element of $Ha$ lies in $H$.
+  Therefore $a$ should be equal to $x$, but this can't be, because $x \in H$ and $a \notin H$, hence no element of $Ha$ lies in $H$ (we could also remove $x$ at all, the case $n | z(a - 1)$ is just a particular case).
   This would mean that
 
   $\displaystyle |H| = \frac{\phi(n)}{2}$
@@ -79,6 +80,8 @@
   $\displaystyle |H| = \frac{\phi(n)}{\phi(n)} = 1$
 
   which still divides $\phi(n)$ therefore proving the theorem.
+
+  [ This theorem is quite strange at first, you should notice that $Ha$ is **not** a proper subgroup, it's just a set created with the purpose of proving that the order of $H$ divides $\phi(n)$. Indeed, $1 \in H$ is implied, and since $Ha$ doesn't share elements with $H$ then $1 \notin Ha$ proving that $Ha$ is not a subgroup. ]
   
 </p>
 
