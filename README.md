@@ -302,7 +302,7 @@
 
    $\phi(\phi(n))$
 
-   (if they exist).
+   (if they exist). [ By Euler's theorem $a^{\phi(\phi(n))} \equiv 1 \mod \phi(n)$ for all units $\in Z_{\phi(\phi(n))}$. ]
 
    We can further expand the reasoning and note that this is applicable for any subgroup since
 
